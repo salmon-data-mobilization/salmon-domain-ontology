@@ -2,7 +2,9 @@
 
 ### Namespace
 
-The canonical namespace for salmon-domain semantics is `https://w3id.org/gcdfo/salmon#` (prefix `gcdfo:`). External IRIs are used for alignment, decomposition parts, or broadly reusable concepts.
+The canonical namespace for salmon-domain semantics is `http://w3id.org/salmon/` (prefix `salmon:`).
+
+Note: We are **not** using the GCDFO namespace in this project. Keep names stable and avoid introducing a second competing namespace. External IRIs are used for alignment, decomposition parts, or broadly reusable concepts.
 
 ### Alignment Hierarchy (Top-Down)
 
@@ -13,7 +15,7 @@ BFO (Basic Formal Ontology) - Top-Level Ontology
               └── SOSA/SSN (Observations & Sensors)
                     └── I-ADOPT (Variable Decomposition)
                           └── Darwin Core (Biodiversity)
-                                └── gcdfo: (Salmon Domain)
+                                └── salmon: (Salmon Domain)
 ```
 
 ### Ontology Usage
@@ -42,7 +44,7 @@ BFO (Basic Formal Ontology) - Top-Level Ontology
 @prefix qudt:   <http://qudt.org/schema/qudt/> .
 @prefix unit:   <http://qudt.org/vocab/unit/> .
 @prefix qk:     <http://qudt.org/vocab/quantitykind/> .
-@prefix gcdfo:  <https://w3id.org/gcdfo/salmon#> .
+@prefix salmon: <http://w3id.org/salmon/> .
 ```
 
 ### Rules of Thumb
