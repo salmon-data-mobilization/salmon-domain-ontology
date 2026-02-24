@@ -1,10 +1,6 @@
 ## Conventions
 
-### Namespace
-
-The canonical namespace for salmon-domain semantics is `https://w3id.org/gcdfo/salmon#` (prefix `gcdfo:`). External IRIs are used for alignment, decomposition parts, or broadly reusable concepts.
-
-### Alignment Hierarchy (Top-Down)
+### Alignment Layers (Top-Down)
 
 ```
 BFO (Basic Formal Ontology) - Top-Level Ontology
