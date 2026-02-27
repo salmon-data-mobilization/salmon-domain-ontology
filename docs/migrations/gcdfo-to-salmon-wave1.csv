@@ -3,14 +3,11 @@ https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum,http://w3id.org/salmo
 https://w3id.org/gcdfo/salmon#Stock,http://w3id.org/salmon/Stock,01-entity-systematics.ttl,migrated,reusable management/reporting unit
 https://w3id.org/gcdfo/salmon#Deme,http://w3id.org/salmon/Deme,01-entity-systematics.ttl,migrated,biological unit
 https://w3id.org/gcdfo/salmon#Population,http://w3id.org/salmon/Population,01-entity-systematics.ttl,migrated,biological unit
-https://w3id.org/gcdfo/salmon#ConservationUnit,http://w3id.org/salmon/ConservationUnit,01-entity-systematics.ttl,migrated,reusable conservation/assessment unit
-https://w3id.org/gcdfo/salmon#StockManagementUnit,http://w3id.org/salmon/StockManagementUnit,01-entity-systematics.ttl,migrated,reusable management unit
 https://w3id.org/gcdfo/salmon#IndicatorRiver,http://w3id.org/salmon/IndicatorRiver,01-entity-systematics.ttl,migrated,reusable monitoring stratum
 https://w3id.org/gcdfo/salmon#hasDeme,http://w3id.org/salmon/hasDeme,01-entity-systematics.ttl,migrated,composition relation
 https://w3id.org/gcdfo/salmon#demeOf,http://w3id.org/salmon/demeOf,01-entity-systematics.ttl,migrated,composition relation inverse
-https://w3id.org/gcdfo/salmon#hasPopulation,http://w3id.org/salmon/hasPopulation,01-entity-systematics.ttl,migrated,composition relation
-https://w3id.org/gcdfo/salmon#populationOf,http://w3id.org/salmon/populationOf,01-entity-systematics.ttl,migrated,composition relation inverse
-https://w3id.org/gcdfo/salmon#hasConservationUnit,http://w3id.org/salmon/hasConservationUnit,01-entity-systematics.ttl,migrated,composition relation
+https://w3id.org/gcdfo/salmon#hasPopulation,http://w3id.org/salmon/hasPopulation,01-entity-systematics.ttl,migrated,re-scoped to generic reporting/management stratum composition
+https://w3id.org/gcdfo/salmon#populationOf,http://w3id.org/salmon/populationOf,01-entity-systematics.ttl,migrated,re-scoped inverse of generic reporting/management stratum composition
 https://w3id.org/gcdfo/salmon#SurveyEvent,http://w3id.org/salmon/SurveyEvent,02-observation-measurement.ttl,migrated,reusable monitoring event
 https://w3id.org/gcdfo/salmon#EscapementSurveyEvent,http://w3id.org/salmon/EscapementSurveyEvent,02-observation-measurement.ttl,migrated,reusable escapement event
 https://w3id.org/gcdfo/salmon#EscapementMeasurement,http://w3id.org/salmon/EscapementMeasurement,02-observation-measurement.ttl,migrated,reusable measurement class

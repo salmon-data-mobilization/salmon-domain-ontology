@@ -44,8 +44,6 @@ salmon:EscapementMeasurement rdfs:subClassOf <http://www.w3.org/ns/sosa/Result> 
 
 salmon:ReportingOrManagementStratum skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest>, <https://w3id.org/iadopt/ont/Entity> .
 salmon:Stock skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
-salmon:ConservationUnit skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
-salmon:StockManagementUnit skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
 salmon:IndicatorRiver skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
 
 salmon:ReferencePoint skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
@@ -91,7 +89,6 @@ salmon:isSampleOfStratum a owl:ObjectProperty ;
 
 salmon:hasDeme rdfs:subPropertyOf ro:0002351 .
 salmon:hasPopulation rdfs:subPropertyOf ro:0002351 .
-salmon:hasConservationUnit rdfs:subPropertyOf ro:0002351 .
 
 <http://www.w3.org/ns/sosa/Sampling> skos:closeMatch dwc:Event .
 <http://www.w3.org/ns/sosa/Sample> skos:closeMatch dwc:MaterialEntity .

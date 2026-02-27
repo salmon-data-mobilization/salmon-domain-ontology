@@ -46,7 +46,7 @@ salmon:LimitReferencePoint a owl:Class ;
 salmon:FisheriesReferencePointLower a owl:Class ;
   rdfs:label "Fisheries reference point - lower"@en ;
   skos:altLabel "FRP-L"@en ;
-  iao:0000115 "A fisheries-management lower reference point often defined at SMU or similar management-unit level."@en ;
+  iao:0000115 "A fisheries-management lower reference point often defined at a management-unit level."@en ;
   rdfs:subClassOf salmon:LimitReferencePoint .
 
 salmon:UpperStockReferencePoint a owl:Class ;

@@ -13,13 +13,14 @@ Priority examples migrated:
 
 - `ExploitationRate`, `TotalExploitationRate`
 - `Escapement`, `EscapementSurveyEvent`, `EscapementMeasurement`
-- `ConservationUnit`, `StockManagementUnit`, `Population`, `Stock`
+- `Population`, `Stock`, `ReportingOrManagementStratum`
 - `LowerBenchmark`, `UpperBenchmark`
 - `EnumerationMethodScheme`, `EstimateMethodScheme`, `EstimateTypeScheme`
 
 ## Deferred (explicitly not moved in this wave)
 
 - DFO-specific implementation and governance metadata that still require profile-layer treatment.
+- `ConservationUnit` and `StockManagementUnit` are treated as DFO-specific and remain in the DFO profile layer (not migrated to shared `salmon:` in wave 1).
 - Terms with unresolved semantic boundaries (for example, where policy framing and jurisdiction-specific legal interpretation are tightly coupled).
 
 ## Non-destructive migration stance
