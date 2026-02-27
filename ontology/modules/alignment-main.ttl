@@ -1,0 +1,46 @@
+@prefix salmon:  <http://w3id.org/salmon/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix dwc:     <http://rs.tdwg.org/dwc/terms/> .
+@prefix ro:      <http://purl.obolibrary.org/obo/RO_> .
+
+<http://w3id.org/salmon-domain-ontology/modules/alignment-main> a owl:Ontology ;
+  rdfs:label "Salmon Domain Ontology Alignment Module (main-candidate)"@en ;
+  rdfs:comment "Conservative upper-level alignment bridges adapted from DFO Salmon Ontology alignment branch (feat/alignment-modules-main-research)."@en ;
+  owl:imports <http://w3id.org/salmon-domain-ontology> .
+
+#################################################################
+# Conservative class bridges
+#################################################################
+
+salmon:SurveyEvent skos:closeMatch <http://www.w3.org/ns/sosa/Sampling> .
+salmon:EscapementSurveyEvent skos:closeMatch <http://www.w3.org/ns/sosa/Sampling> .
+salmon:EscapementMeasurement skos:closeMatch <http://www.w3.org/ns/sosa/Result> .
+
+salmon:ReportingOrManagementStratum skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
+salmon:Stock skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
+salmon:ConservationUnit skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
+salmon:StockManagementUnit skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
+salmon:IndicatorRiver skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
+
+salmon:ReferencePoint skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
+salmon:LowerBiologicalBenchmark skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
+salmon:FisheriesReferencePointLower skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
+
+#################################################################
+# Safe property reuse links
+#################################################################
+
+salmon:hasDeme rdfs:subPropertyOf ro:0002351 .
+salmon:hasPopulation rdfs:subPropertyOf ro:0002351 .
+salmon:hasConservationUnit rdfs:subPropertyOf ro:0002351 .
+
+#################################################################
+# Representation-level bridges
+#################################################################
+
+<http://www.w3.org/ns/sosa/Sampling> skos:closeMatch dwc:Event .
+<http://www.w3.org/ns/sosa/Sample> skos:closeMatch dwc:MaterialEntity .
+<http://www.w3.org/ns/sosa/Observation> skos:closeMatch dwc:Occurrence .
+<http://www.w3.org/ns/sosa/Procedure> skos:closeMatch <https://rs.tdwg.org/dwc/dp/terms/Protocol> .

@@ -1,0 +1,135 @@
+@prefix salmon: <http://w3id.org/salmon/> .
+@prefix iadopt: <https://w3id.org/iadopt/ont/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix iao: <http://purl.obolibrary.org/obo/IAO_> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<http://w3id.org/salmon-domain-ontology/modules/01-entity-systematics> a owl:Ontology ;
+  rdfs:label "Salmon Domain Ontology Module 01: Entity and systematics"@en ;
+  rdfs:comment "Core salmon entities, reporting strata, and composition relationships for cross-agency reuse. Includes migrated reusable structure terms from DFO Salmon Ontology (no removals from DFO source)."@en .
+
+#################################################################
+# Core entity hierarchy (existing salmon-domain terms)
+#################################################################
+
+salmon:Entity a owl:Class ;
+  rdfs:label "Entity"@en ;
+  rdfs:subClassOf sosa:FeatureOfInterest, iadopt:Entity .
+
+salmon:SalmonIndividual a owl:Class ;
+  rdfs:label "Salmon individual"@en ;
+  rdfs:subClassOf salmon:Entity .
+
+salmon:SalmonGroup a owl:Class ;
+  rdfs:label "Salmon group"@en ;
+  rdfs:subClassOf salmon:Entity .
+
+salmon:SalmonPopulationGroup a owl:Class ;
+  rdfs:label "Salmon population group"@en ;
+  rdfs:subClassOf salmon:SalmonGroup .
+
+salmon:SalmonStockUnit a owl:Class ;
+  rdfs:label "Salmon stock unit"@en ;
+  rdfs:subClassOf salmon:SalmonGroup .
+
+salmon:HabitatUnit a owl:Class ;
+  rdfs:label "Habitat unit"@en ;
+  rdfs:subClassOf salmon:Entity .
+
+geosparql:Feature rdfs:subClassOf sosa:FeatureOfInterest .
+
+salmon:GeographicFeature a owl:Class ;
+  rdfs:label "Geographic feature"@en ;
+  rdfs:subClassOf geosparql:Feature .
+
+#################################################################
+# Reusable reporting/management strata (migrated from gcdfo)
+#################################################################
+
+salmon:ReportingOrManagementStratum a owl:Class ;
+  rdfs:label "Reporting or management stratum"@en ;
+  iao:0000115 "An information-defined grouping of fish populations used for reporting, conservation assessment, or management purposes. Examples include Conservation Units, stock management units, and similar assessment strata."@en ;
+  rdfs:subClassOf iao:0000030 .
+
+salmon:Stock a owl:Class ;
+  rdfs:label "Stock"@en ;
+  rdfs:subClassOf salmon:ReportingOrManagementStratum ;
+  iao:0000115 "An operationally defined grouping of salmon used for assessment and management purposes."@en ;
+  skos:altLabel "Fish stock"@en .
+
+salmon:Deme a owl:Class ;
+  rdfs:label "Deme"@en ;
+  iao:0000115 "A local interbreeding group within a species; in salmon systems, typically corresponding to a spawning-site-scale biological unit."@en ;
+  rdfs:subClassOf dwc:Organism .
+
+salmon:Population a owl:Class ;
+  rdfs:label "Population"@en ;
+  iao:0000115 "A group of organisms of the same species occupying a defined area that interbreed and share a gene pool."@en ;
+  rdfs:subClassOf dwc:Organism .
+
+salmon:ConservationUnit a owl:Class ;
+  rdfs:label "Conservation Unit"@en ;
+  iao:0000115 "A salmon grouping sufficiently isolated that natural recolonization after extirpation is unlikely within an acceptable timeframe."@en ;
+  rdfs:subClassOf salmon:ReportingOrManagementStratum .
+
+salmon:StockManagementUnit a owl:Class ;
+  rdfs:label "Stock Management Unit"@en ;
+  skos:altLabel "SMU"@en ;
+  iao:0000115 "A collection of stocks managed together with a shared stock-status framing."@en ;
+  rdfs:subClassOf salmon:ReportingOrManagementStratum .
+
+salmon:IndicatorRiver a owl:Class ;
+  rdfs:label "Indicator river"@en ;
+  skos:altLabel "Indicator stream"@en ;
+  iao:0000115 "A river or stream used as a relatively reliable abundance index for nearby salmon returns due to survey intensity and method quality."@en ;
+  rdfs:subClassOf salmon:GeographicFeature ;
+  dcterms:source <https://www.salmonexplorer.ca/methods/glossary.html> .
+
+#################################################################
+# Biological composition relationships (migrated from gcdfo)
+#################################################################
+
+salmon:hasDeme a owl:ObjectProperty ;
+  rdfs:label "has deme"@en ;
+  iao:0000115 "Relates a population to one of its constituent demes."@en ;
+  rdfs:domain salmon:Population ;
+  rdfs:range salmon:Deme .
+
+salmon:demeOf a owl:ObjectProperty ;
+  rdfs:label "deme of"@en ;
+  iao:0000115 "Relates a deme to the population it belongs to."@en ;
+  owl:inverseOf salmon:hasDeme ;
+  rdfs:domain salmon:Deme ;
+  rdfs:range salmon:Population .
+
+salmon:hasPopulation a owl:ObjectProperty ;
+  rdfs:label "has population"@en ;
+  iao:0000115 "Relates a conservation unit to one of its constituent populations."@en ;
+  rdfs:domain salmon:ConservationUnit ;
+  rdfs:range salmon:Population .
+
+salmon:populationOf a owl:ObjectProperty ;
+  rdfs:label "population of"@en ;
+  iao:0000115 "Relates a population to the conservation unit it belongs to."@en ;
+  owl:inverseOf salmon:hasPopulation ;
+  rdfs:domain salmon:Population ;
+  rdfs:range salmon:ConservationUnit .
+
+salmon:hasConservationUnit a owl:ObjectProperty ;
+  rdfs:label "has conservation unit"@en ;
+  iao:0000115 "Relates a stock management unit to one of its constituent conservation units."@en ;
+  rdfs:domain salmon:StockManagementUnit ;
+  rdfs:range salmon:ConservationUnit .
+
+salmon:conservationUnitOf a owl:ObjectProperty ;
+  rdfs:label "conservation unit of"@en ;
+  iao:0000115 "Relates a conservation unit to the stock management unit it belongs to."@en ;
+  owl:inverseOf salmon:hasConservationUnit ;
+  rdfs:domain salmon:ConservationUnit ;
+  rdfs:range salmon:StockManagementUnit .

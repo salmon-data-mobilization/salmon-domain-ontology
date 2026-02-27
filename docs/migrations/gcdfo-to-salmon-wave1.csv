@@ -1,0 +1,49 @@
+old_iri,new_iri,module,status,notes
+https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum,http://w3id.org/salmon/ReportingOrManagementStratum,01-entity-systematics.ttl,migrated,reusable strata abstraction
+https://w3id.org/gcdfo/salmon#Stock,http://w3id.org/salmon/Stock,01-entity-systematics.ttl,migrated,reusable management/reporting unit
+https://w3id.org/gcdfo/salmon#Deme,http://w3id.org/salmon/Deme,01-entity-systematics.ttl,migrated,biological unit
+https://w3id.org/gcdfo/salmon#Population,http://w3id.org/salmon/Population,01-entity-systematics.ttl,migrated,biological unit
+https://w3id.org/gcdfo/salmon#ConservationUnit,http://w3id.org/salmon/ConservationUnit,01-entity-systematics.ttl,migrated,reusable conservation/assessment unit
+https://w3id.org/gcdfo/salmon#StockManagementUnit,http://w3id.org/salmon/StockManagementUnit,01-entity-systematics.ttl,migrated,reusable management unit
+https://w3id.org/gcdfo/salmon#IndicatorRiver,http://w3id.org/salmon/IndicatorRiver,01-entity-systematics.ttl,migrated,reusable monitoring stratum
+https://w3id.org/gcdfo/salmon#hasDeme,http://w3id.org/salmon/hasDeme,01-entity-systematics.ttl,migrated,composition relation
+https://w3id.org/gcdfo/salmon#demeOf,http://w3id.org/salmon/demeOf,01-entity-systematics.ttl,migrated,composition relation inverse
+https://w3id.org/gcdfo/salmon#hasPopulation,http://w3id.org/salmon/hasPopulation,01-entity-systematics.ttl,migrated,composition relation
+https://w3id.org/gcdfo/salmon#populationOf,http://w3id.org/salmon/populationOf,01-entity-systematics.ttl,migrated,composition relation inverse
+https://w3id.org/gcdfo/salmon#hasConservationUnit,http://w3id.org/salmon/hasConservationUnit,01-entity-systematics.ttl,migrated,composition relation
+https://w3id.org/gcdfo/salmon#SurveyEvent,http://w3id.org/salmon/SurveyEvent,02-observation-measurement.ttl,migrated,reusable monitoring event
+https://w3id.org/gcdfo/salmon#EscapementSurveyEvent,http://w3id.org/salmon/EscapementSurveyEvent,02-observation-measurement.ttl,migrated,reusable escapement event
+https://w3id.org/gcdfo/salmon#EscapementMeasurement,http://w3id.org/salmon/EscapementMeasurement,02-observation-measurement.ttl,migrated,reusable measurement class
+https://w3id.org/gcdfo/salmon#Escapement,http://w3id.org/salmon/Escapement,02-observation-measurement.ttl,migrated,reusable escapement concept
+https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance,http://w3id.org/salmon/ObservedRateOrAbundance,03-assessment-benchmarks.ttl,migrated,base metric class
+https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance,http://w3id.org/salmon/TargetOrLimitRateOrAbundance,03-assessment-benchmarks.ttl,migrated,base target/limit class
+https://w3id.org/gcdfo/salmon#ReferencePoint,http://w3id.org/salmon/ReferencePoint,03-assessment-benchmarks.ttl,migrated,reusable reference class
+https://w3id.org/gcdfo/salmon#LimitReferencePoint,http://w3id.org/salmon/LimitReferencePoint,03-assessment-benchmarks.ttl,migrated,reusable threshold class
+https://w3id.org/gcdfo/salmon#FisheriesReferencePointLower,http://w3id.org/salmon/FisheriesReferencePointLower,03-assessment-benchmarks.ttl,migrated,reusable lower fisheries reference point
+https://w3id.org/gcdfo/salmon#UpperStockReferencePoint,http://w3id.org/salmon/UpperStockReferencePoint,03-assessment-benchmarks.ttl,migrated,reusable upper reference point
+https://w3id.org/gcdfo/salmon#MetricBenchmark,http://w3id.org/salmon/MetricBenchmark,03-assessment-benchmarks.ttl,migrated,reusable benchmark superclass
+https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark,http://w3id.org/salmon/LowerBiologicalBenchmark,03-assessment-benchmarks.ttl,migrated,reusable benchmark class
+https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark,http://w3id.org/salmon/UpperBiologicalBenchmark,03-assessment-benchmarks.ttl,migrated,reusable benchmark class
+https://w3id.org/gcdfo/salmon#WSPRapidStatus,http://w3id.org/salmon/WSPRapidStatus,03-assessment-benchmarks.ttl,migrated,status output class
+https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold,http://w3id.org/salmon/WSPRapidStatusAlgorithmThreshold,03-assessment-benchmarks.ttl,migrated,algorithm threshold class
+https://w3id.org/gcdfo/salmon#ExploitationRate,http://w3id.org/salmon/ExploitationRate,03-assessment-benchmarks.ttl,migrated,reusable exploitation metric
+https://w3id.org/gcdfo/salmon#TotalExploitationRate,http://w3id.org/salmon/TotalExploitationRate,03-assessment-benchmarks.ttl,migrated,reusable exploitation metric subtype
+https://w3id.org/gcdfo/salmon#PolicyFramework,http://w3id.org/salmon/PolicyFramework,04-management-governance.ttl,migrated,governance concept root
+https://w3id.org/gcdfo/salmon#WildSalmonPolicy,http://w3id.org/salmon/WildSalmonPolicy,04-management-governance.ttl,migrated,policy concept
+https://w3id.org/gcdfo/salmon#PrecautionaryApproach,http://w3id.org/salmon/PrecautionaryApproach,04-management-governance.ttl,migrated,policy concept
+https://w3id.org/gcdfo/salmon#ConfidenceCategory,http://w3id.org/salmon/ConfidenceCategory,05-provenance-quality.ttl,migrated,confidence vocabulary root
+https://w3id.org/gcdfo/salmon#RapidStatusConfidenceHigh,http://w3id.org/salmon/RapidStatusConfidenceHigh,05-provenance-quality.ttl,migrated,confidence level
+https://w3id.org/gcdfo/salmon#RapidStatusConfidenceMedium,http://w3id.org/salmon/RapidStatusConfidenceMedium,05-provenance-quality.ttl,migrated,confidence level
+https://w3id.org/gcdfo/salmon#RapidStatusConfidenceLow,http://w3id.org/salmon/RapidStatusConfidenceLow,05-provenance-quality.ttl,migrated,confidence level
+https://w3id.org/gcdfo/salmon#EnumerationMethodScheme,http://w3id.org/salmon/EnumerationMethodScheme,07-controlled-vocabularies.ttl,migrated,picklist scheme
+https://w3id.org/gcdfo/salmon#EstimateMethodScheme,http://w3id.org/salmon/EstimateMethodScheme,07-controlled-vocabularies.ttl,migrated,picklist scheme
+https://w3id.org/gcdfo/salmon#EstimateTypeScheme,http://w3id.org/salmon/EstimateTypeScheme,07-controlled-vocabularies.ttl,migrated,picklist scheme
+https://w3id.org/gcdfo/salmon#BenchmarkLevelScheme,http://w3id.org/salmon/BenchmarkLevelScheme,07-controlled-vocabularies.ttl,migrated,benchmark constraint scheme
+https://w3id.org/gcdfo/salmon#MeasurementContextScheme,http://w3id.org/salmon/MeasurementContextScheme,07-controlled-vocabularies.ttl,migrated,context constraint scheme
+https://w3id.org/gcdfo/salmon#LifePhaseScheme,http://w3id.org/salmon/LifePhaseScheme,07-controlled-vocabularies.ttl,migrated,context constraint scheme
+https://w3id.org/gcdfo/salmon#SalmonOriginScheme,http://w3id.org/salmon/SalmonOriginScheme,07-controlled-vocabularies.ttl,migrated,origin scheme
+https://w3id.org/gcdfo/salmon#CatchContext,http://w3id.org/salmon/CatchContext,07-controlled-vocabularies.ttl,migrated,context concept
+https://w3id.org/gcdfo/salmon#SpawnerStageContext,http://w3id.org/salmon/SpawnerStageContext,07-controlled-vocabularies.ttl,migrated,context concept
+https://w3id.org/gcdfo/salmon#NaturalOrigin,http://w3id.org/salmon/NaturalOrigin,07-controlled-vocabularies.ttl,migrated,origin concept
+https://w3id.org/gcdfo/salmon#LowerBenchmark,http://w3id.org/salmon/LowerBenchmark,07-controlled-vocabularies.ttl,migrated,benchmark qualifier
+https://w3id.org/gcdfo/salmon#UpperBenchmark,http://w3id.org/salmon/UpperBenchmark,07-controlled-vocabularies.ttl,migrated,benchmark qualifier
