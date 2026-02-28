@@ -6,7 +6,7 @@ Shared salmon interoperability ontology for cross-organization data integration.
 
 - `ontology/salmon-domain-ontology.ttl` — modular primary build (imports modules 01–07 + conservative alignment)
 - `ontology/salmon-domain-ontology-research.ttl` — optional research build (adds exploratory alignment module)
-- `ontology/salmon-domain-ontology-rda-case-study.ttl` — optional case-study bridge build (adds profile bridge mappings from RDA juvenile-condition graph)
+- `ontology/salmon-domain-ontology-rda-case-study.ttl` — optional case-study bridge build (adds profile bridge mappings from RDA juvenile-condition graph, including Hakai + Neville decomposition terms)
 - `ontology/modules/` — category modules + alignment modules + profile bridge modules
 - `CONVENTIONS.md` — modeling and namespace conventions (`salmon:` canonical)
 

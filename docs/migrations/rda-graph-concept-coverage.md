@@ -24,9 +24,12 @@ Added to `ontology/modules/02-observation-measurement.ttl`:
 5. `salmon:totalLength`
 6. Taxonomy bridge axiom: `obo:NCBITaxon_8018 rdfs:subClassOf obo:NCBITaxon_8015`
 
-## Profile-bridge additions from graph source terms
+## Profile-bridge additions from graph and decomposition source terms
 
-Added module: `ontology/modules/08-rda-case-study-profile-bridges.ttl`
+Added modules:
+
+1. `ontology/modules/08-rda-case-study-profile-bridges.ttl` (Hakai bridge terms from graph)
+2. `ontology/modules/09-rda-neville-decomposition-profile-bridges.ttl` (Neville decomposition bridge terms)
 
 Mapped Hakai source terms to shared salmon terms using conservative `skos:closeMatch` links:
 
@@ -36,12 +39,25 @@ Mapped Hakai source terms to shared salmon terms using conservative `skos:closeM
 4. `hakai:Fork_Length_Field_Measurement` -> `salmon:ForkLengthMeasurement`
 5. `hakai:Fork_Length_Lab_Measurement` -> `salmon:ForkLengthMeasurement`
 
+Added Neville decomposition bridge concepts (19 unique term concepts) with conservative mappings to shared anchors, including:
+
+1. `neville:StandardSurvey`
+2. `neville:Area`
+3. `neville:Species`
+4. `neville:SampleType`
+5. `neville:Age`
+6. `neville:Length_mm`
+7. `neville:Weight_g`
+8. `neville:AverageConditionFactor`
+9. `neville:AverageLength_mm`
+10. `neville:AverageWeight_g`
+
 ## Build wiring
 
-Added case-study build file:
+Case-study build file:
 
 - `ontology/salmon-domain-ontology-rda-case-study.ttl`
-  - imports shared base build + module 08 profile bridges
+  - imports shared base build + modules 08 and 09 profile bridges
 
 ## Boundary posture retained
 

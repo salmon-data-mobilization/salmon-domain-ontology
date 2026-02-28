@@ -11,7 +11,8 @@ This directory contains the modular build-out for the salmon-domain ontology.
 5. `05-provenance-quality.ttl` — shared provenance/quality artifact classes (program confidence vocabularies profile-scoped).
 6. `06-data-interoperability.ttl` — I-ADOPT/SOSA/Darwin Core interoperability bridge axioms.
 7. `07-controlled-vocabularies.ttl` — small curated shared SKOS schemes/concepts for context, life phase, and origin only.
-8. `08-rda-case-study-profile-bridges.ttl` — profile-layer bridge terms from RDA juvenile-condition case-study mappings (not promoted into shared core).
+8. `08-rda-case-study-profile-bridges.ttl` — Hakai profile-layer bridge terms from RDA juvenile-condition case-study mappings.
+9. `09-rda-neville-decomposition-profile-bridges.ttl` — Neville decomposition profile-layer bridge terms (not promoted into shared core by default).
 
 ## Alignment modules (phase 2 migration)
 
