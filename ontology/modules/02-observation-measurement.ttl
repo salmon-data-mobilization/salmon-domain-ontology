@@ -36,6 +36,18 @@ salmon:forkLength a owl:Class ;
   rdfs:label "Fork length"@en ;
   owl:equivalentClass salmon:FishLength .
 
+salmon:standardLength a owl:Class ;
+  rdfs:label "Standard length"@en ;
+  rdfs:subClassOf salmon:FishLength .
+
+salmon:totalLength a owl:Class ;
+  rdfs:label "Total length"@en ;
+  rdfs:subClassOf salmon:FishLength .
+
+salmon:orbitalLength a owl:Class ;
+  rdfs:label "Orbital length"@en ;
+  rdfs:subClassOf salmon:FishLength .
+
 salmon:FishWeight a owl:Class ;
   rdfs:label "Fish weight"@en ;
   rdfs:subClassOf salmon:MorphologicalCharacteristic .
@@ -83,6 +95,10 @@ salmon:ForkLengthMeasurementFieldMethod a owl:Class ;
 salmon:ForkLengthMeasurementLabMethod a owl:Class ;
   rdfs:label "Fork-length lab method"@en ;
   rdfs:subClassOf salmon:ForkLengthMeasurementMethod .
+
+salmon:EnumerationMethod a owl:Class ;
+  rdfs:label "Enumeration method"@en ;
+  rdfs:subClassOf sosa:Procedure .
 
 salmon:Measurement a owl:Class ;
   rdfs:label "Measurement"@en ;
@@ -151,6 +167,12 @@ salmon:SamplingEvent a owl:Class ;
 
 sosa:FeatureOfInterest sosa:hasSample sosa:Sample .
 sosa:Sample sosa:isResultOf sosa:Sampling .
+
+obo:NCBITaxon_8018 rdfs:subClassOf obo:NCBITaxon_8015 .
+
+salmon:NCBITaxon_8018 a owl:Class ;
+  rdfs:label "Oncorhynchus keta proxy class"@en ;
+  rdfs:subClassOf obo:NCBITaxon_8018 .
 
 #################################################################
 # Reusable escapement and survey terms (migrated from gcdfo)
