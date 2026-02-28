@@ -1,12 +1,11 @@
 @prefix salmon: <http://w3id.org/salmon/> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix iao: <http://purl.obolibrary.org/obo/IAO_> .
 
 <http://w3id.org/salmon-domain-ontology/modules/04-management-governance> a owl:Ontology ;
   rdfs:label "Salmon Domain Ontology Module 04: Management and governance"@en ;
-  rdfs:comment "Management-facing event and policy framework abstractions for shared salmon interoperability."@en .
+  rdfs:comment "Conservative shared event taxonomy. Policy/program-specific schemes remain in profile ontologies."@en .
 
 #################################################################
 # Event taxonomy
@@ -23,31 +22,3 @@ salmon:FishingType a owl:Class ;
 salmon:seiningEvent a owl:Class ;
   rdfs:label "Seining event"@en ;
   rdfs:subClassOf salmon:FishingType .
-
-#################################################################
-# Governance concept vocabulary
-#################################################################
-
-salmon:PolicyFrameworkScheme a skos:ConceptScheme ;
-  skos:prefLabel "Policy framework scheme"@en ;
-  skos:definition "Controlled vocabulary for policy and governance frameworks used in salmon assessment and management contexts."@en ;
-  skos:hasTopConcept salmon:PolicyFramework .
-
-salmon:PolicyFramework a skos:Concept ;
-  skos:prefLabel "Policy framework"@en ;
-  skos:definition "A policy, legal, or governance framework that defines how salmon status metrics, benchmarks, or reference points are interpreted."@en ;
-  skos:inScheme salmon:PolicyFrameworkScheme .
-
-salmon:WildSalmonPolicy a skos:Concept ;
-  skos:prefLabel "Wild Salmon Policy"@en ;
-  skos:altLabel "WSP"@en ;
-  skos:definition "A wild-salmon conservation and management framework that uses benchmark-driven status assessment and integrated planning."@en ;
-  skos:broader salmon:PolicyFramework ;
-  skos:inScheme salmon:PolicyFrameworkScheme .
-
-salmon:PrecautionaryApproach a skos:Concept ;
-  skos:prefLabel "Precautionary approach"@en ;
-  skos:altLabel "PA"@en ;
-  skos:definition "A risk-averse management framework where harvest and rebuilding decisions are tied to explicit reference points and uncertainty treatment."@en ;
-  skos:broader salmon:PolicyFramework ;
-  skos:inScheme salmon:PolicyFrameworkScheme .

@@ -2,14 +2,13 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://w3id.org/salmon-domain-ontology/modules/07-controlled-vocabularies> a owl:Ontology ;
   rdfs:label "Salmon Domain Ontology Module 07: Controlled vocabularies"@en ;
-  rdfs:comment "Cross-agency concept schemes and values for salmon measurement context, escapement methods, benchmark qualifiers, and status vocabularies."@en .
+  rdfs:comment "Small curated shared SKOS layer. Policy/program-specific schemes are profile-scoped by default."@en .
 
 #################################################################
-# Concept schemes
+# Shared concept schemes
 #################################################################
 
 salmon:MeasurementContextScheme a skos:ConceptScheme ;
@@ -24,31 +23,8 @@ salmon:SalmonOriginScheme a skos:ConceptScheme ;
   skos:prefLabel "Salmon origin scheme"@en ;
   skos:hasTopConcept salmon:SalmonOrigin .
 
-salmon:BenchmarkLevelScheme a skos:ConceptScheme ;
-  skos:prefLabel "Benchmark level scheme"@en .
-
-salmon:WSPBiologicalStatusZoneScheme a skos:ConceptScheme ;
-  skos:prefLabel "Biological status zone scheme"@en ;
-  skos:hasTopConcept salmon:WSPBiologicalStatusZone .
-
-salmon:EnumerationMethodScheme a skos:ConceptScheme ;
-  skos:prefLabel "Escapement enumeration method scheme"@en ;
-  skos:hasTopConcept salmon:EnumerationMethod .
-
-salmon:EstimateMethodScheme a skos:ConceptScheme ;
-  skos:prefLabel "Escapement estimate method scheme"@en ;
-  skos:hasTopConcept salmon:EstimateMethod .
-
-salmon:EstimateTypeScheme a skos:ConceptScheme ;
-  skos:prefLabel "Escapement estimate type scheme"@en ;
-  skos:hasTopConcept salmon:EstimateType .
-
-salmon:DowngradeCriteriaScheme a skos:ConceptScheme ;
-  skos:prefLabel "Downgrade criteria scheme"@en ;
-  skos:hasTopConcept salmon:DowngradeCriteria .
-
 #################################################################
-# Context and constraints
+# Shared concepts
 #################################################################
 
 salmon:MeasurementContext a skos:Concept ;
@@ -114,123 +90,3 @@ salmon:HatcheryOrigin a skos:Concept ;
   skos:prefLabel "Hatchery-origin"@en ;
   skos:broader salmon:SalmonOrigin ;
   skos:inScheme salmon:SalmonOriginScheme .
-
-salmon:LowerBenchmark a skos:Concept ;
-  skos:prefLabel "Lower benchmark"@en ;
-  skos:definition "Lower threshold benchmark value, often delineating lower status boundaries."@en ;
-  skos:inScheme salmon:BenchmarkLevelScheme .
-
-salmon:UpperBenchmark a skos:Concept ;
-  skos:prefLabel "Upper benchmark"@en ;
-  skos:definition "Upper threshold benchmark value, often delineating higher status boundaries."@en ;
-  skos:inScheme salmon:BenchmarkLevelScheme .
-
-#################################################################
-# Status vocabularies
-#################################################################
-
-salmon:WSPBiologicalStatusZone a skos:Concept ;
-  skos:prefLabel "Biological status zone"@en ;
-  skos:inScheme salmon:WSPBiologicalStatusZoneScheme .
-
-salmon:GreenZone a skos:Concept ;
-  skos:prefLabel "Green zone"@en ;
-  skos:broader salmon:WSPBiologicalStatusZone ;
-  skos:inScheme salmon:WSPBiologicalStatusZoneScheme .
-
-salmon:AmberZone a skos:Concept ;
-  skos:prefLabel "Amber zone"@en ;
-  skos:broader salmon:WSPBiologicalStatusZone ;
-  skos:inScheme salmon:WSPBiologicalStatusZoneScheme .
-
-salmon:RedZone a skos:Concept ;
-  skos:prefLabel "Red zone"@en ;
-  skos:broader salmon:WSPBiologicalStatusZone ;
-  skos:inScheme salmon:WSPBiologicalStatusZoneScheme .
-
-#################################################################
-# Escapement methods and estimate-quality vocabularies
-#################################################################
-
-salmon:EnumerationMethod a skos:Concept ;
-  skos:prefLabel "Enumeration method"@en ;
-  skos:inScheme salmon:EnumerationMethodScheme .
-
-salmon:AerialSurveyCount a skos:Concept ;
-  skos:prefLabel "Aerial survey count"@en ;
-  skos:broader salmon:EnumerationMethod ;
-  skos:inScheme salmon:EnumerationMethodScheme .
-
-salmon:VisualSnorkelCount a skos:Concept ;
-  skos:prefLabel "Visual snorkel count"@en ;
-  skos:broader salmon:EnumerationMethod ;
-  skos:inScheme salmon:EnumerationMethodScheme .
-
-salmon:FixedSiteCensusManual a skos:Concept ;
-  skos:prefLabel "Fixed site census (manual)"@en ;
-  skos:broader salmon:EnumerationMethod ;
-  skos:inScheme salmon:EnumerationMethodScheme .
-
-salmon:EstimateMethod a skos:Concept ;
-  skos:prefLabel "Estimate method"@en ;
-  skos:inScheme salmon:EstimateMethodScheme .
-
-salmon:AreaUnderTheCurve a skos:Concept ;
-  skos:prefLabel "Area under the curve"@en ;
-  skos:altLabel "AUC"@en ;
-  skos:broader salmon:EstimateMethod ;
-  skos:inScheme salmon:EstimateMethodScheme .
-
-salmon:FixedStationTally a skos:Concept ;
-  skos:prefLabel "Fixed-station tally"@en ;
-  skos:broader salmon:EstimateMethod ;
-  skos:inScheme salmon:EstimateMethodScheme .
-
-salmon:PeakCountAnalysis a skos:Concept ;
-  skos:prefLabel "Peak count analysis"@en ;
-  skos:broader salmon:EstimateMethod ;
-  skos:inScheme salmon:EstimateMethodScheme .
-
-salmon:EstimateType a skos:Concept ;
-  skos:prefLabel "Estimate type"@en ;
-  skos:inScheme salmon:EstimateTypeScheme .
-
-salmon:Type1 a skos:Concept ;
-  skos:prefLabel "Type 1"@en ;
-  skos:notation "Type1"^^xsd:string ;
-  skos:broader salmon:EstimateType ;
-  skos:inScheme salmon:EstimateTypeScheme .
-
-salmon:Type2 a skos:Concept ;
-  skos:prefLabel "Type 2"@en ;
-  skos:notation "Type2"^^xsd:string ;
-  skos:broader salmon:EstimateType ;
-  skos:inScheme salmon:EstimateTypeScheme .
-
-salmon:Type3 a skos:Concept ;
-  skos:prefLabel "Type 3"@en ;
-  skos:notation "Type3"^^xsd:string ;
-  skos:broader salmon:EstimateType ;
-  skos:inScheme salmon:EstimateTypeScheme .
-
-salmon:Type4 a skos:Concept ;
-  skos:prefLabel "Type 4"@en ;
-  skos:notation "Type4"^^xsd:string ;
-  skos:broader salmon:EstimateType ;
-  skos:inScheme salmon:EstimateTypeScheme .
-
-salmon:Type5 a skos:Concept ;
-  skos:prefLabel "Type 5"@en ;
-  skos:notation "Type5"^^xsd:string ;
-  skos:broader salmon:EstimateType ;
-  skos:inScheme salmon:EstimateTypeScheme .
-
-salmon:Type6 a skos:Concept ;
-  skos:prefLabel "Type 6"@en ;
-  skos:notation "Type6"^^xsd:string ;
-  skos:broader salmon:EstimateType ;
-  skos:inScheme salmon:EstimateTypeScheme .
-
-salmon:DowngradeCriteria a skos:Concept ;
-  skos:prefLabel "Downgrade criteria"@en ;
-  skos:inScheme salmon:DowngradeCriteriaScheme .

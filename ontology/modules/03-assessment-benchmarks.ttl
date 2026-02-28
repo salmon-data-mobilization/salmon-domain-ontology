@@ -3,14 +3,13 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix iao: <http://purl.obolibrary.org/obo/IAO_> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 <http://w3id.org/salmon-domain-ontology/modules/03-assessment-benchmarks> a owl:Ontology ;
   rdfs:label "Salmon Domain Ontology Module 03: Assessment and benchmarks"@en ;
-  rdfs:comment "Reusable stock-assessment and benchmark semantics migrated from DFO Salmon Ontology under salmon: namespace for cross-agency interoperability."@en .
+  rdfs:comment "Conservative shared stock-assessment and benchmark semantics. Policy-program-specific reference classes remain profile-scoped."@en .
 
 #################################################################
-# Base measurement/benchmark abstractions (migrated from gcdfo)
+# Base measurement/benchmark abstractions
 #################################################################
 
 salmon:ObservedRateOrAbundance a owl:Class ;
@@ -25,11 +24,11 @@ salmon:TargetOrLimitRateOrAbundance a owl:Class ;
 
 salmon:StockAssessment a owl:Class ;
   rdfs:label "Stock assessment"@en ;
-  iao:0000115 "The scientific process of analyzing data to estimate the abundance and productivity of fish populations across time."@en ;
+  iao:0000115 "The scientific process of analyzing data to estimate abundance and productivity across time."@en ;
   rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000015> .
 
 #################################################################
-# Reference points and benchmark classes
+# Shared benchmark classes (policy-neutral)
 #################################################################
 
 salmon:ReferencePoint a owl:Class ;
@@ -39,25 +38,12 @@ salmon:ReferencePoint a owl:Class ;
 
 salmon:LimitReferencePoint a owl:Class ;
   rdfs:label "Limit reference point"@en ;
-  rdfs:subClassOf salmon:ReferencePoint ;
-  skos:altLabel "LRP"@en ;
-  iao:0000115 "A lower threshold indicating stock status where rebuilding or strict mitigation action is triggered."@en .
-
-salmon:FisheriesReferencePointLower a owl:Class ;
-  rdfs:label "Fisheries reference point - lower"@en ;
-  skos:altLabel "FRP-L"@en ;
-  iao:0000115 "A fisheries-management lower reference point often defined at a management-unit level."@en ;
-  rdfs:subClassOf salmon:LimitReferencePoint .
-
-salmon:UpperStockReferencePoint a owl:Class ;
-  rdfs:label "Upper stock reference point"@en ;
-  skos:altLabel "USR"@en ;
-  iao:0000115 "A threshold above a lower limit reference point used to trigger precautionary management before severe depletion."@en ;
+  iao:0000115 "A lower threshold indicating stock status where stronger mitigation or rebuilding action is triggered."@en ;
   rdfs:subClassOf salmon:ReferencePoint .
 
 salmon:MetricBenchmark a owl:Class ;
   rdfs:label "Metric benchmark"@en ;
-  iao:0000115 "Benchmark value for a metric that helps delineate status zones."@en ;
+  iao:0000115 "Benchmark value for a metric used to delineate status categories."@en ;
   dcterms:source <https://publications.gc.ca/site/eng/9.928944/publication.html> ;
   rdfs:subClassOf iao:0000030 .
 
@@ -71,17 +57,8 @@ salmon:UpperBiologicalBenchmark a owl:Class ;
   iao:0000115 "Upper benchmark value used to delineate higher status boundaries for salmon assessment units."@en ;
   rdfs:subClassOf salmon:MetricBenchmark .
 
-salmon:WSPRapidStatusAlgorithmThreshold a owl:Class ;
-  rdfs:label "Rapid-status algorithm threshold"@en ;
-  iao:0000115 "Algorithm threshold used in rapid status approximations and potentially distinct from expert-defined benchmark classes."@en ;
-  rdfs:subClassOf iao:0000030 .
-
-salmon:WSPRapidStatus a owl:Class ;
-  rdfs:label "Rapid status"@en ;
-  iao:0000115 "Rapid status category output representing the biological status class of a salmon unit under a status algorithm."@en .
-
 #################################################################
-# Exploitation and mortality-related reusable terms
+# Shared exploitation semantics
 #################################################################
 
 salmon:ExploitationRate a owl:Class ;

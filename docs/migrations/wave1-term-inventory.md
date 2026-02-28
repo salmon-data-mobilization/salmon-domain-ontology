@@ -2,28 +2,35 @@
 
 ## Scope rule used
 
-- Migrated: terms that are reusable across organizations, jurisdictions, and salmon assessment programs.
-- Deferred: terms that are DFO-admin-specific or require governance confirmation before re-homing.
+- Conservative default: if uncertain, keep term in profile scope first.
+- Migrate only terms with clear cross-agency reuse and policy-neutral semantics.
+- Keep DFO/program-specific SKOS schemes and policy status vocabularies out of shared core.
 
-## Migrated in wave 1
+## Migrated in wave 1 (shared layer)
 
-See the machine-readable map: `gcdfo-to-salmon-wave1.csv`.
+See machine-readable map: `gcdfo-to-salmon-wave1.csv` (rows with `status=migrated`).
 
-Priority examples migrated:
+Representative migrated set:
 
-- `ExploitationRate`, `TotalExploitationRate`
-- `Escapement`, `EscapementSurveyEvent`, `EscapementMeasurement`
-- `Population`, `Stock`, `ReportingOrManagementStratum`
-- `LowerBenchmark`, `UpperBenchmark`
-- `EnumerationMethodScheme`, `EstimateMethodScheme`, `EstimateTypeScheme`
+- Shared biological/reporting anchors: `Stock`, `Population`, `Deme`, `IndicatorRiver`
+- Shared event/measurement semantics: `SurveyEvent`, `Escapement`, `EscapementMeasurement`
+- Shared quantitative semantics: `ExploitationRate`, `TotalExploitationRate`
+- Shared generic benchmark abstractions: `ReferencePoint`, `MetricBenchmark` family
+- Shared curated SKOS layer: context, life-phase, and origin concepts only
 
-## Deferred (explicitly not moved in this wave)
+## Deferred to profile scope (wave 1)
 
-- DFO-specific implementation and governance metadata that still require profile-layer treatment.
-- `ConservationUnit` and `StockManagementUnit` are treated as DFO-specific and remain in the DFO profile layer (not migrated to shared `salmon:` in wave 1).
-- Terms with unresolved semantic boundaries (for example, where policy framing and jurisdiction-specific legal interpretation are tightly coupled).
+See `status=deferred_profile` rows in `gcdfo-to-salmon-wave1.csv`.
+
+Deferred groups include:
+
+- DFO-specific governance units (`ConservationUnit`, `StockManagementUnit`)
+- WSP-specific classes/concepts and confidence/status schemes
+- Policy framework concepts/schemes
+- Enumeration, estimate method, estimate type, downgrade criteria SKOS families
+- Benchmark-level SKOS scheme and its member concepts
 
 ## Non-destructive migration stance
 
 No term removals are made in `dfo-salmon-ontology` during wave 1.
-The DFO ontology remains intact while this reusable layer is built out in `salmon-domain-ontology`.
+DFO remains intact while shared/profile boundaries are hardened in salmon-domain.

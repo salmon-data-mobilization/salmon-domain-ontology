@@ -1,12 +1,11 @@
 @prefix salmon: <http://w3id.org/salmon/> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix iao: <http://purl.obolibrary.org/obo/IAO_> .
 
 <http://w3id.org/salmon-domain-ontology/modules/05-provenance-quality> a owl:Ontology ;
   rdfs:label "Salmon Domain Ontology Module 05: Provenance and quality"@en ;
-  rdfs:comment "Quality, confidence, and provenance-oriented terms for interpreted salmon status outputs."@en .
+  rdfs:comment "Shared provenance and quality artifact classes. Program-specific confidence vocabularies remain profile-scoped."@en .
 
 salmon:DataQualityAssessment a owl:Class ;
   rdfs:label "Data quality assessment"@en ;
@@ -17,31 +16,3 @@ salmon:MethodDocumentation a owl:Class ;
   rdfs:label "Method documentation"@en ;
   iao:0000115 "A documented method description linked to how a salmon metric or estimate was produced."@en ;
   rdfs:subClassOf iao:0000030 .
-
-salmon:RapidStatusConfidenceScheme a skos:ConceptScheme ;
-  skos:prefLabel "Rapid status confidence scheme"@en ;
-  skos:definition "Controlled vocabulary for categorical confidence ratings attached to rapid-status outputs."@en ;
-  skos:hasTopConcept salmon:ConfidenceCategory .
-
-salmon:ConfidenceCategory a skos:Concept ;
-  skos:prefLabel "Confidence category"@en ;
-  skos:definition "Categorical confidence rating for stock-assessment metrics."@en ;
-  skos:inScheme salmon:RapidStatusConfidenceScheme .
-
-salmon:RapidStatusConfidenceHigh a skos:Concept, salmon:ConfidenceCategory ;
-  rdfs:label "High rapid-status confidence"@en ;
-  skos:prefLabel "High confidence"@en ;
-  iao:0000115 "Confidence category indicating high-quality supporting evidence for rapid status outputs."@en ;
-  skos:inScheme salmon:RapidStatusConfidenceScheme .
-
-salmon:RapidStatusConfidenceMedium a skos:Concept, salmon:ConfidenceCategory ;
-  rdfs:label "Medium rapid-status confidence"@en ;
-  skos:prefLabel "Medium confidence"@en ;
-  iao:0000115 "Confidence category indicating mixed evidence or partial proxy-based support for rapid status outputs."@en ;
-  skos:inScheme salmon:RapidStatusConfidenceScheme .
-
-salmon:RapidStatusConfidenceLow a skos:Concept, salmon:ConfidenceCategory ;
-  rdfs:label "Low rapid-status confidence"@en ;
-  skos:prefLabel "Low confidence"@en ;
-  iao:0000115 "Confidence category indicating limited supporting evidence for rapid status outputs."@en ;
-  skos:inScheme salmon:RapidStatusConfidenceScheme .

@@ -49,7 +49,6 @@ salmon:IndicatorRiver skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfIntere
 salmon:ReferencePoint skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
 salmon:LowerBiologicalBenchmark skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
 salmon:FisheriesReferencePointLower skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
-salmon:WSPRapidStatus skos:closeMatch <https://w3id.org/iadopt/ont/Variable> .
 
 #################################################################
 # Candidate bridge properties

@@ -1,82 +1,153 @@
-## Conventions
+# Conventions
 
-### Alignment Layers (Top-Down)
+This document defines how we model shared salmon semantics versus agency/profile-specific vocabularies.
 
-```
-BFO (Basic Formal Ontology) - Top-Level Ontology
-  └── IAO (Information Artifact Ontology)
-        └── PROV-O (Provenance Ontology)
-              └── SOSA/SSN (Observations & Sensors)
-                    └── I-ADOPT (Variable Decomposition)
-                          └── Darwin Core (Biodiversity)
-                                └── salmon: (Shared Salmon Domain Layer)
-```
+## 1) Goal
 
-### Ontology Usage
+Build a **shared interoperability layer** that supports precise cross-agency integration while still allowing each organization to maintain local policy/program vocabularies.
 
-| Question | Primary Ontology | Secondary |
-|----------|------------------|-----------|
-| What kind of thing is this? | BFO | - |
-| Is this information or physical? | IAO | BFO |
-| Who/what produced this data? | PROV-O | - |
-| How was this measured? | SOSA/SSN | PROV-O |
-| What property was measured? | I-ADOPT | SOSA |
-| How do I publish to GBIF? | Darwin Core | SOSA |
-| What constraints apply? | I-ADOPT | `salmon:` SKOS |
+Conservative default: **if unsure, keep terms in a profile ontology first**. Promote to shared only when reuse is clear.
 
-### Standard Prefixes
+## 2) Layered model (authoritative)
 
-```turtle
-@prefix salmon: <http://w3id.org/salmon/> .
-@prefix bfo:    <http://purl.obolibrary.org/obo/BFO_> .
-@prefix iao:    <http://purl.obolibrary.org/obo/IAO_> .
-@prefix prov:   <http://www.w3.org/ns/prov#> .
-@prefix sosa:   <http://www.w3.org/ns/sosa/> .
-@prefix ssn:    <http://www.w3.org/ns/ssn/> .
-@prefix iop:    <https://w3id.org/iadopt/ont/> .
-@prefix dwc:    <http://rs.tdwg.org/dwc/terms/> .
-@prefix dwciri: <http://rs.tdwg.org/dwc/iri/> .
-@prefix qudt:   <http://qudt.org/schema/qudt/> .
-@prefix unit:   <http://qudt.org/vocab/unit/> .
-@prefix qk:     <http://qudt.org/vocab/quantitykind/> .
-```
+### Layer A — Shared OWL semantic core (`salmon:`)
 
-### Rules of Thumb
+Use for cross-agency concepts with stable semantics and reusable logical structure.
 
-- **Check `salmon:` first** for reusable salmon-domain concepts.
-- Use **external standards** (SOSA, I-ADOPT, Darwin Core, QUDT, etc.) where they are clearly canonical.
-- **Never invent IRIs casually**; document gaps and open issues when terms are missing.
-- Use **QUDT units** consistently (`http://qudt.org/vocab/unit/`).
+Examples:
+- biological entities (`Population`, `Deme`)
+- reusable monitoring/measurement semantics (`SurveyEvent`, `EscapementMeasurement`)
+- reusable quantitative semantics (`ExploitationRate`)
 
-### BFO Alignment Guidance
+### Layer B — Shared SKOS interoperability layer (`salmon:`)
 
-| `salmon:` class type | BFO alignment | Example |
-|----------------------|---------------|---------|
-| Physical entities (salmon, samples) | `bfo:0000040` (material entity) | `salmon:SalmonSpecimen rdfs:subClassOf bfo:0000040` |
-| Qualities/properties | `bfo:0000019` (quality) | `salmon:ForkLength rdfs:subClassOf bfo:0000019` |
-| Roles | `bfo:0000023` (role) | `salmon:BreederRole rdfs:subClassOf bfo:0000023` |
-| Processes/activities | `bfo:0000015` (process) | `salmon:SpawningEvent rdfs:subClassOf bfo:0000015` |
-| Temporal regions | `bfo:0000008` (temporal region) | Return-year interval |
+A **small curated SKOS layer** for truly cross-agency controlled vocabularies.
 
-### I-ADOPT Variable Decomposition
+Use for:
+- shared codelists that are expected to be reused by multiple organizations
+- concept labels/definitions that support operational data harmonization
 
-Variables should be decomposed with I-ADOPT components:
+### Layer C — Agency/profile ontologies (organization namespaces)
 
-| Component | Class IRI | Description |
-|-----------|-----------|-------------|
-| **Variable** | `iop:Variable` | The complete observable property |
-| **Property** | `iop:Property` | The characteristic being measured |
-| **ObjectOfInterest** | `iop:ObjectOfInterest` | Primary entity being observed |
-| **ContextObject** | `iop:ContextObject` | Additional contextual entity |
-| **Matrix** | `iop:Matrix` | Medium or environment |
-| **Constraint** | `iop:Constraint` | Limits scope of observation |
+Use for policy/program-specific SKOS schemes and agency-specific interpretation layers.
 
-### Darwin Core Usage
+Examples:
+- named policy schemes and statuses that are not broadly governed across agencies
+- organization-specific method taxonomies and quality bins
 
-Darwin Core is an interoperability scaffold. Use:
-- `dwc:` when objects are literals
-- `dwciri:` when objects are IRIs (controlled vocab references)
+### Layer D — Mapping/bridge artifacts
 
-### Scope
+Machine-readable mappings that connect profile terms to shared domain terms.
 
-This ontology is the shared interoperability layer for salmon data across organizations and jurisdictions. Keep class/property names broadly reusable. Agency-specific governance or implementation details should remain in separate profile ontologies that import this shared layer.
+Use these to support ingestion, search, and migration without collapsing distinct semantics.
+
+## 3) OWL vs SKOS modeling rules
+
+### Use OWL classes/properties when:
+1. You need formal logical structure (subclass/property reasoning, restrictions, constraints).
+2. The term represents a durable domain concept rather than a codelist entry.
+3. Integration pipelines need deterministic canonicalization.
+
+### Use SKOS concepts/schemes when:
+1. You are modeling code values, method bins, status categories, or policy vocabulary.
+2. Label hierarchy and human interpretation are primary.
+3. Local governance of terms is expected to evolve quickly.
+
+### Dual representation rule
+
+A concept may exist as both OWL and SKOS **only with separate IRIs** and explicit mapping.
+
+## 4) IRI strategy
+
+1. Shared terms use `salmon:` IRIs.
+2. Profile-specific terms use the profile namespace.
+3. Do not overload a single IRI with incompatible roles.
+4. OWL class IRIs and SKOS concept IRIs must remain distinct where both are needed.
+
+## 5) Mapping strength policy
+
+Treat mapping predicates as different evidence strengths:
+
+### Tier 1 (strict / automation-safe)
+- `owl:equivalentClass`
+- `owl:equivalentProperty`
+- `owl:sameAs`
+- `rdfs:subClassOf`
+- `rdfs:subPropertyOf`
+
+### Tier 2 (strong lexical/conceptual)
+- `skos:exactMatch`
+
+### Tier 3 (advisory / candidate only)
+- `skos:closeMatch`
+- `skos:broadMatch`
+- `skos:narrowMatch`
+- `skos:relatedMatch`
+
+Operational rule: Tier 3 links should not auto-canonicalize data into the production graph without review/promotion.
+
+## 6) Profile-to-domain bridge pattern
+
+When a profile concept corresponds to shared domain semantics:
+
+1. Keep the profile concept in profile namespace.
+2. Link it to shared domain semantics using mapping predicates.
+3. Prefer `skos:exactMatch` only when semantics are truly equivalent.
+4. Use `skos:closeMatch`/`broadMatch` as provisional links.
+5. Attach provenance and reviewer metadata for each bridge.
+
+Example (conceptual):
+- `profile:SomeMethodConcept skos:closeMatch salmon:EscapementMeasurement .`
+- `profile:SomeMethodConcept prov:wasDerivedFrom <source-doc> .`
+
+## 7) LLM-assisted integration policy
+
+LLMs may propose mappings, but production integration must follow approval gates.
+
+### Required output from mapping assistants
+1. proposed shared target
+2. mapping predicate suggestion
+3. confidence score
+4. rationale text
+5. recommended action (`accept`, `review`, `defer`, `new-term-request`)
+
+### Ingestion gate
+
+Only approved mappings (Tier 1/2 or explicitly promoted Tier 3) materialize into canonical graph integration transforms.
+
+## 8) Shared-term admission policy
+
+Expert judgment is allowed, but conservative.
+
+Promotion to shared should include:
+1. expected multi-agency reuse
+2. semantic stability across contexts
+3. non-reliance on agency-specific policy interpretation
+4. practical integration benefit
+
+If any criterion is weak, keep term in profile and map to shared anchors.
+
+## 9) Versioning and transition
+
+Current posture:
+1. migration mode can use direct replacement for alpha transitions when risk is low
+2. publish machine-readable old→new mapping for each migration wave
+3. maintain explicit migration notes per release
+4. endpoint cutover timing may be deferred until profile/shared boundary stabilizes
+
+## 10) Current boundary decisions (working set)
+
+### Keep in shared domain (current)
+1. `Stock`
+2. `IndicatorRiver`
+3. core biological and measurement semantics that are policy-neutral
+
+### Keep in profile layer (current)
+1. WSP-specific status and confidence schemes/concepts
+2. Enumeration method scheme (organization/program-specific)
+3. Estimate method scheme (organization/program-specific)
+4. Benchmark level scheme (organization/program-specific)
+5. Policy framework scheme terms that are organization-specific
+6. Estimate type and downgrade-criteria schemes/concepts
+
+These decisions are revisited only with explicit governance review and evidence.
