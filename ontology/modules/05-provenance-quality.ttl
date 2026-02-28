@@ -1,0 +1,18 @@
+@prefix salmon: <http://w3id.org/salmon/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix iao: <http://purl.obolibrary.org/obo/IAO_> .
+
+<http://w3id.org/salmon-domain-ontology/modules/05-provenance-quality> a owl:Ontology ;
+  rdfs:label "Salmon Domain Ontology Module 05: Provenance and quality"@en ;
+  rdfs:comment "Shared provenance and quality artifact classes. Program-specific confidence vocabularies remain profile-scoped."@en .
+
+salmon:DataQualityAssessment a owl:Class ;
+  rdfs:label "Data quality assessment"@en ;
+  iao:0000115 "An assessment artifact describing confidence, uncertainty, and quality constraints for a salmon data product or metric."@en ;
+  rdfs:subClassOf iao:0000030 .
+
+salmon:MethodDocumentation a owl:Class ;
+  rdfs:label "Method documentation"@en ;
+  iao:0000115 "A documented method description linked to how a salmon metric or estimate was produced."@en ;
+  rdfs:subClassOf iao:0000030 .

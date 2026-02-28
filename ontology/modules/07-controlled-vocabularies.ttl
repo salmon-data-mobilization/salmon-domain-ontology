@@ -1,0 +1,92 @@
+@prefix salmon: <http://w3id.org/salmon/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://w3id.org/salmon-domain-ontology/modules/07-controlled-vocabularies> a owl:Ontology ;
+  rdfs:label "Salmon Domain Ontology Module 07: Controlled vocabularies"@en ;
+  rdfs:comment "Small curated shared SKOS layer. Policy/program-specific schemes are profile-scoped by default."@en .
+
+#################################################################
+# Shared concept schemes
+#################################################################
+
+salmon:MeasurementContextScheme a skos:ConceptScheme ;
+  skos:prefLabel "Measurement context scheme"@en ;
+  skos:hasTopConcept salmon:MeasurementContext .
+
+salmon:LifePhaseScheme a skos:ConceptScheme ;
+  skos:prefLabel "Life phase scheme"@en ;
+  skos:hasTopConcept salmon:LifePhase .
+
+salmon:SalmonOriginScheme a skos:ConceptScheme ;
+  skos:prefLabel "Salmon origin scheme"@en ;
+  skos:hasTopConcept salmon:SalmonOrigin .
+
+#################################################################
+# Shared concepts
+#################################################################
+
+salmon:MeasurementContext a skos:Concept ;
+  skos:prefLabel "Measurement context"@en ;
+  skos:inScheme salmon:MeasurementContextScheme ;
+  skos:definition "A context qualifier used to disambiguate interpretation of a measurement."@en .
+
+salmon:CatchContext a skos:Concept ;
+  skos:prefLabel "Catch context"@en ;
+  skos:broader salmon:MeasurementContext ;
+  skos:inScheme salmon:MeasurementContextScheme .
+
+salmon:RunContext a skos:Concept ;
+  skos:prefLabel "Run context"@en ;
+  skos:broader salmon:MeasurementContext ;
+  skos:inScheme salmon:MeasurementContextScheme .
+
+salmon:SpawnerStageContext a skos:Concept ;
+  skos:prefLabel "Spawner stage context"@en ;
+  skos:broader salmon:MeasurementContext ;
+  skos:inScheme salmon:MeasurementContextScheme .
+
+salmon:SurvivalOrMortalityContext a skos:Concept ;
+  skos:prefLabel "Survival or mortality context"@en ;
+  skos:broader salmon:MeasurementContext ;
+  skos:inScheme salmon:MeasurementContextScheme .
+
+salmon:LifePhase a skos:Concept ;
+  skos:prefLabel "Life phase"@en ;
+  skos:inScheme salmon:LifePhaseScheme .
+
+salmon:OceanPhase a skos:Concept ;
+  skos:prefLabel "Ocean phase"@en ;
+  skos:altLabel "Marine phase"@en ;
+  skos:broader salmon:LifePhase ;
+  skos:inScheme salmon:LifePhaseScheme .
+
+salmon:TerminalPhase a skos:Concept ;
+  skos:prefLabel "Terminal phase"@en ;
+  skos:broader salmon:LifePhase ;
+  skos:inScheme salmon:LifePhaseScheme .
+
+salmon:MainstemPhase a skos:Concept ;
+  skos:prefLabel "Mainstem phase"@en ;
+  skos:broader salmon:LifePhase ;
+  skos:inScheme salmon:LifePhaseScheme .
+
+salmon:InRiverPhase a skos:Concept ;
+  skos:prefLabel "In-river phase"@en ;
+  skos:broader salmon:LifePhase ;
+  skos:inScheme salmon:LifePhaseScheme .
+
+salmon:SalmonOrigin a skos:Concept ;
+  skos:prefLabel "Salmon origin"@en ;
+  skos:inScheme salmon:SalmonOriginScheme .
+
+salmon:NaturalOrigin a skos:Concept ;
+  skos:prefLabel "Natural-origin"@en ;
+  skos:broader salmon:SalmonOrigin ;
+  skos:inScheme salmon:SalmonOriginScheme .
+
+salmon:HatcheryOrigin a skos:Concept ;
+  skos:prefLabel "Hatchery-origin"@en ;
+  skos:broader salmon:SalmonOrigin ;
+  skos:inScheme salmon:SalmonOriginScheme .

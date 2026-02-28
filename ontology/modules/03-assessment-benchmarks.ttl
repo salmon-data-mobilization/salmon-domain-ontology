@@ -1,0 +1,72 @@
+@prefix salmon: <http://w3id.org/salmon/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix iao: <http://purl.obolibrary.org/obo/IAO_> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<http://w3id.org/salmon-domain-ontology/modules/03-assessment-benchmarks> a owl:Ontology ;
+  rdfs:label "Salmon Domain Ontology Module 03: Assessment and benchmarks"@en ;
+  rdfs:comment "Conservative shared stock-assessment and benchmark semantics. Policy-program-specific reference classes remain profile-scoped."@en .
+
+#################################################################
+# Base measurement/benchmark abstractions
+#################################################################
+
+salmon:ObservedRateOrAbundance a owl:Class ;
+  rdfs:label "Observed rate or abundance"@en ;
+  iao:0000115 "A measurement datum representing an empirically observed rate, count, or abundance derived from monitoring or survey data."@en ;
+  rdfs:subClassOf iao:0000109 .
+
+salmon:TargetOrLimitRateOrAbundance a owl:Class ;
+  rdfs:label "Target or limit rate or abundance"@en ;
+  iao:0000115 "A value specification representing a policy- or model-defined target or limit."@en ;
+  rdfs:subClassOf iao:0000109 .
+
+salmon:StockAssessment a owl:Class ;
+  rdfs:label "Stock assessment"@en ;
+  iao:0000115 "The scientific process of analyzing data to estimate abundance and productivity across time."@en ;
+  rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000015> .
+
+#################################################################
+# Shared benchmark classes (policy-neutral)
+#################################################################
+
+salmon:ReferencePoint a owl:Class ;
+  rdfs:label "Reference point"@en ;
+  iao:0000115 "A target or limit used to guide management actions."@en ;
+  rdfs:subClassOf iao:0000030 .
+
+salmon:LimitReferencePoint a owl:Class ;
+  rdfs:label "Limit reference point"@en ;
+  iao:0000115 "A lower threshold indicating stock status where stronger mitigation or rebuilding action is triggered."@en ;
+  rdfs:subClassOf salmon:ReferencePoint .
+
+salmon:MetricBenchmark a owl:Class ;
+  rdfs:label "Metric benchmark"@en ;
+  iao:0000115 "Benchmark value for a metric used to delineate status categories."@en ;
+  dcterms:source <https://publications.gc.ca/site/eng/9.928944/publication.html> ;
+  rdfs:subClassOf iao:0000030 .
+
+salmon:LowerBiologicalBenchmark a owl:Class ;
+  rdfs:label "Lower biological benchmark"@en ;
+  iao:0000115 "Lower benchmark value used to delineate lower status boundaries for salmon assessment units."@en ;
+  rdfs:subClassOf salmon:MetricBenchmark .
+
+salmon:UpperBiologicalBenchmark a owl:Class ;
+  rdfs:label "Upper biological benchmark"@en ;
+  iao:0000115 "Upper benchmark value used to delineate higher status boundaries for salmon assessment units."@en ;
+  rdfs:subClassOf salmon:MetricBenchmark .
+
+#################################################################
+# Shared exploitation semantics
+#################################################################
+
+salmon:ExploitationRate a owl:Class ;
+  rdfs:label "Exploitation rate"@en ;
+  iao:0000115 "The proportion of returning adult salmon removed by fishing activity over a defined period."@en ;
+  rdfs:subClassOf salmon:TargetOrLimitRateOrAbundance .
+
+salmon:TotalExploitationRate a owl:Class ;
+  rdfs:label "Total exploitation rate"@en ;
+  iao:0000115 "The overall proportion of returning adult salmon removed by all fisheries over a defined period."@en ;
+  rdfs:subClassOf salmon:ExploitationRate .

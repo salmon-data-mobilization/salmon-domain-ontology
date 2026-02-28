@@ -1,0 +1,30 @@
+@prefix salmon: <http://w3id.org/salmon/> .
+@prefix iadopt: <https://w3id.org/iadopt/ont/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix dwc: <http://rs.tdwg.org/dwc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://w3id.org/salmon-domain-ontology/modules/06-data-interoperability> a owl:Ontology ;
+  rdfs:label "Salmon Domain Ontology Module 06: Data interoperability"@en ;
+  rdfs:comment "Cross-ontology bridge statements for SOSA, I-ADOPT, and Darwin Core interoperability."@en .
+
+#################################################################
+# Upper-level crosswalk bridges (existing salmon-domain work)
+#################################################################
+
+iadopt:Entity owl:equivalentClass sosa:FeatureOfInterest .
+iadopt:Property owl:equivalentClass sosa:Property .
+
+sosa:Observation owl:equivalentClass dwc:Occurrence .
+sosa:Sampling owl:equivalentClass dwc:Event .
+
+sosa:Sample owl:equivalentClass dwc:MaterialSample ;
+  rdfs:comment "Crosswalk used MaterialEntity; aligned here to Darwin Core MaterialSample for concrete publication workflows."@en .
+
+sosa:ObservingProcedure owl:equivalentClass dwc:Protocol ;
+  rdfs:comment "Darwin Core does not define Protocol as an OWL class; this bridge preserves crosswalk intent for practical integration use."@en .
+
+iadopt:Variable a owl:Class .
+iadopt:Constraint a owl:Class .
+iadopt:StatisticalModifier a owl:Class .
