@@ -29,9 +29,12 @@ Use this checklist when adopting the modular `salmon-domain-ontology` migration 
 ## D) Pre-release validation evidence
 
 - [ ] Turtle parse check passes for all `.ttl` files in `ontology/`
-- [ ] Manual review of high-impact mappings (especially `skos:closeMatch`) is recorded
+- [ ] Cutover execution runbook is finalized (`phase2-cutover-execution-runbook.md`)
+- [ ] Tier-3 mapping triage register is recorded (`phase2-tier3-mapping-triage.md`)
+- [ ] DFO smoke-run evidence is recorded using `phase2-downstream-smoke-run-templates.md`
+- [ ] SPSR smoke-run evidence is recorded using `phase2-downstream-smoke-run-templates.md`
 - [ ] Migration docs are present and linked from repo README
-- [ ] Open blockers are tracked as GitHub issues before declaring cutover-ready
+- [ ] Open blockers are tracked in issue #3 before declaring cutover-ready
 
 ## E) Cutover readiness gate
 

@@ -9,7 +9,7 @@ Shared salmon interoperability ontology for cross-organization data integration.
 - `ontology/salmon-domain-ontology-rda-case-study.ttl` — optional case-study bridge build (adds profile bridge mappings from RDA juvenile-condition graph, including Hakai + Neville decomposition terms)
 - `ontology/modules/` — category modules + alignment modules + profile bridge modules
 - `CONVENTIONS.md` — modeling and namespace conventions (`salmon:` canonical)
-- `docs/migrations/README.md` — migration map, boundary rules, adoption checklist, and release-readiness notes
+- `docs/migrations/README.md` — migration map, boundary rules, adoption checklist, cutover runbook, smoke-run templates, and release-readiness notes
 
 ## Phase notes (2026-02-27)
 
