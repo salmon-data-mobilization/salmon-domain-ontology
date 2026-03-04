@@ -1,0 +1,18 @@
+# DFO live smoke preflight log
+UTC 2026-03-02T16:56:57Z
+pwd=/Users/alan/.openclaw/workspace/code/salmon-domain-ontology
+head=473d2a722c5408266040d106b8f86662822b1949
+branch=feat/module-bootstrap-alignment-port-phase1-3
+
+## refresh fixture checks
+{
+  "out_json": "/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/evidence/2026-03-02-phase2-smoke-fixture-results.json",
+  "out_md": "/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/evidence/2026-03-02-phase2-smoke-fixture-results.md",
+  "dfo_overall": "partial",
+  "spsr_overall": "cleared"
+}
+
+## scan DFO local repo for shared salmon namespace token
+
+## count migration statuses
+{'migrated': 23, 'deferred_profile': 38}

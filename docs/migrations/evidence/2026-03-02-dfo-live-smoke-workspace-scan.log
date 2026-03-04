@@ -1,0 +1,65 @@
+# DFO live smoke workspace scan
+UTC 2026-03-02T17:39:03Z
+pwd=/Users/alan/.openclaw/workspace/code/salmon-domain-ontology
+head=aaa7eb77ee1f8f5a5a5ad373981cb96b56fe9b62
+branch=feat/module-bootstrap-alignment-port-phase1-3
+
+## candidate repos with dfo in name
+/Users/alan/.openclaw/workspace/code/dfo-salmon-ontology
+/Users/alan/.openclaw/workspace/code/salmon-domain-ontology
+/Users/alan/.openclaw/workspace/code/salmon-population-summary-repository
+
+## repos containing http://w3id.org/salmon token (first 40 hits)
+/Users/alan/.openclaw/workspace/code/salmon-population-summary-repository/demo/tests_ontology_namespace.py:15:        self.assertEqual(mapped, "http://w3id.org/salmon/Stock")
+/Users/alan/.openclaw/workspace/code/salmon-population-summary-repository/demo/tests_wizard_flow.py:308:        stock_rows = [r for r in rows if r.get("entity_iri") == "http://w3id.org/salmon/Stock"]
+/Users/alan/.openclaw/workspace/code/salmon-population-summary-repository/demo/ontology_namespace.py:24:SALMON_PREFIX_HTTP = "http://w3id.org/salmon/"
+/Users/alan/.openclaw/workspace/code/salmon-population-summary-repository/docs/plans/2026-03-02-dual-namespace-bridge-cutover.md:8:- `http://w3id.org/salmon/...` (mapped migrated subset only)
+/Users/alan/.openclaw/workspace/code/salmon-population-summary-repository/static/sdp_templates/spsr/ontology_namespace_compat.csv:2:https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum,http://w3id.org/salmon/ReportingOrManagementStratum,migrated,source: salmon-domain wave1 migration map
+/Users/alan/.openclaw/workspace/code/salmon-population-summary-repository/static/sdp_templates/spsr/ontology_namespace_compat.csv:3:https://w3id.org/gcdfo/salmon#Stock,http://w3id.org/salmon/Stock,migrated,source: salmon-domain wave1 migration map
+/Users/alan/.openclaw/workspace/code/salmon-population-summary-repository/static/sdp_templates/spsr/ontology_namespace_compat.csv:4:https://w3id.org/gcdfo/salmon#Population,http://w3id.org/salmon/Population,migrated,source: salmon-domain wave1 migration map
+/Users/alan/.openclaw/workspace/code/salmon-population-summary-repository/static/sdp_templates/spsr/ontology_namespace_compat.csv:5:https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark,http://w3id.org/salmon/LowerBiologicalBenchmark,migrated,source: salmon-domain wave1 migration map
+/Users/alan/.openclaw/workspace/code/salmon-population-summary-repository/static/sdp_templates/spsr/ontology_namespace_compat.csv:6:https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark,http://w3id.org/salmon/UpperBiologicalBenchmark,migrated,source: salmon-domain wave1 migration map
+/Users/alan/.openclaw/workspace/code/salmon-population-summary-repository/static/sdp_templates/spsr/ontology_namespace_compat.csv:7:https://w3id.org/gcdfo/salmon#ExploitationRate,http://w3id.org/salmon/ExploitationRate,migrated,source: salmon-domain wave1 migration map
+/Users/alan/.openclaw/workspace/code/salmon-population-summary-repository/static/sdp_templates/spsr/ontology_namespace_compat.csv:8:https://w3id.org/gcdfo/salmon#TotalExploitationRate,http://w3id.org/salmon/TotalExploitationRate,migrated,source: salmon-domain wave1 migration map
+/Users/alan/.openclaw/workspace/code/salmon-population-summary-repository/tmp/issue231-backups/tests_wizard_flow.py:212:        stock_rows = [r for r in rows if r.get("entity_iri") == "http://w3id.org/salmon/Stock"]
+/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/phase2-adoption-checklist.md:7:- [ ] Confirm canonical namespace usage is `http://w3id.org/salmon/` (`salmon:`)
+/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/evidence/2026-03-02-dfo-smoke-run.md:16:- [ ] **Prefix migration check**: consumer configs bind shared namespace to `http://w3id.org/salmon/`.
+/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/evidence/run_phase2_smoke_fixture_checks.py:134:        shared_candidate = f"http://w3id.org/salmon/{local}"
+/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/evidence/run_phase2_smoke_fixture_checks.py:236:        if "/profile/" in s_text and o_text.startswith("http://w3id.org/salmon/"):
+/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/evidence/2026-03-02-phase2-smoke-fixture-results.json:44:        "new_iri": "http://w3id.org/salmon/ReportingOrManagementStratum",
+/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/evidence/2026-03-02-phase2-smoke-fixture-results.json:49:        "new_iri": "http://w3id.org/salmon/Stock",
+/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/evidence/2026-03-02-phase2-smoke-fixture-results.json:54:        "new_iri": "http://w3id.org/salmon/Deme",
+/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/evidence/2026-03-02-phase2-smoke-fixture-results.json:62:        "shared_candidate": "http://w3id.org/salmon/ConservationUnit",
+/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/evidence/2026-03-02-phase2-smoke-fixture-results.json:67:        "shared_candidate": "http://w3id.org/salmon/StockManagementUnit",
+/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/evidence/2026-03-02-phase2-smoke-fixture-results.json:103:        "target": "http://w3id.org/salmon/AggregatedMeasurement"
+/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/evidence/2026-03-02-phase2-smoke-fixture-results.json:108:        "target": "http://w3id.org/salmon/GeographicFeature"
+/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/evidence/2026-03-02-phase2-smoke-fixture-results.json:113:        "target": "http://w3id.org/salmon/Observation"
+/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/evidence/2026-03-02-phase2-smoke-fixture-results.json:118:        "target": "http://w3id.org/salmon/ForkLengthMeasurement"
+/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/evidence/2026-03-02-phase2-smoke-fixture-results.json:123:        "target": "http://w3id.org/salmon/SurveyEvent"
+/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/evidence/2026-03-02-phase2-smoke-fixture-results.json:128:        "target": "http://w3id.org/salmon/ForkLengthMeasurementFieldMethod"
+/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/evidence/2026-03-02-phase2-smoke-fixture-results.json:133:        "target": "http://w3id.org/salmon/forkLength"
+/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/evidence/2026-03-02-phase2-smoke-fixture-results.json:138:        "target": "http://w3id.org/salmon/ForkLengthMeasurementLabMethod"
+/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/evidence/2026-03-02-phase2-smoke-fixture-results.json:143:        "target": "http://w3id.org/salmon/FishWeight"
+/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/evidence/2026-03-02-phase2-smoke-fixture-results.json:148:        "target": "http://w3id.org/salmon/GeographicFeature"
+/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/evidence/2026-03-02-dfo-live-smoke-prereq-package.md:53:1. Config evidence showing `http://w3id.org/salmon/` binding in the live consumer runtime.
+/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/phase2-dfo-live-smoke-runbook.md:26:1. Prefix migration check in **actual consumer config/runtime** (`http://w3id.org/salmon/` binding)
+/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/phase2-dfo-live-smoke-runbook.md:58:# Expected: one or more hits containing http://w3id.org/salmon/
+/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/phase2-dfo-live-smoke-runbook.md:59:grep -RIn "http://w3id.org/salmon/" "$DFO_CONSUMER_REPO" \
+/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/phase2-dfo-live-smoke-runbook.md:85:- `01-prefix-binding.txt`: at least one config hit with `http://w3id.org/salmon/`
+/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/gcdfo-to-salmon-wave1.csv:2:https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum,http://w3id.org/salmon/ReportingOrManagementStratum,01-entity-systematics.ttl,migrated,shared abstraction
+/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/gcdfo-to-salmon-wave1.csv:3:https://w3id.org/gcdfo/salmon#Stock,http://w3id.org/salmon/Stock,01-entity-systematics.ttl,migrated,explicitly approved shared
+/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/gcdfo-to-salmon-wave1.csv:4:https://w3id.org/gcdfo/salmon#Deme,http://w3id.org/salmon/Deme,01-entity-systematics.ttl,migrated,shared biological unit
+/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/gcdfo-to-salmon-wave1.csv:5:https://w3id.org/gcdfo/salmon#Population,http://w3id.org/salmon/Population,01-entity-systematics.ttl,migrated,shared biological unit
+
+## dfo-salmon-ontology token hits
+
+## potential smoke/consumer entrypoints in dfo-salmon-ontology (targeted files)
+/Users/alan/.openclaw/workspace/code/dfo-salmon-ontology/README.md:59:7. **Run validations**: Run `make theme-coverage` (smoke) or `make test` (theme coverage + ELK reasoning); use `make quality-check` for the full ROBOT report. Note: If using `devenv`/`nix` (optional), prefix commands with `devenv shell`.
+/Users/alan/.openclaw/workspace/code/dfo-salmon-ontology/docs/entrypoints.md:23:- Test command(s): `devenv shell make test` (runs theme coverage + ELK reasoning) against the canonical `ontology/dfo-salmon.ttl`
+/Users/alan/.openclaw/workspace/code/dfo-salmon-ontology/docs/entrypoints.md:24:- Fastest smoke test: `devenv shell make theme-coverage`
+
+## existing live-parity artifact search
+
+## candidate baseline/output files (name contains dfo+baseline or dfo+output)
+/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/evidence/check_dfo_output_parity.py
+/Users/alan/.openclaw/workspace/tmp/subagents/sdo-final-20260302-0935/docs/migrations/evidence/check_dfo_output_parity.py

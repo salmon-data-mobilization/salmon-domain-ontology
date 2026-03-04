@@ -1,0 +1,146 @@
+@prefix salmon: <http://w3id.org/salmon/> .
+@prefix neville: <https://w3id.org/salmon/profile/neville/> .
+@prefix rda: <https://w3id.org/salmon/profile/rda-case-study/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix iadopt: <https://w3id.org/iadopt/ont/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+
+<http://w3id.org/salmon-domain-ontology/modules/09-rda-neville-decomposition-profile-bridges> a owl:Ontology ;
+  rdfs:label "Salmon Domain Ontology Module 09: RDA Neville decomposition profile bridges"@en ;
+  rdfs:comment "Profile-layer bridge concepts from Neville juvenile salmon decomposition materials. Terms remain profile-scoped and map conservatively to shared salmon-domain anchors."@en ;
+  dcterms:source <https://docs.google.com/document/d/1myb-EsbtiJS7-x5wyuzMT9anrQyFC6zELy-WwykChRE/edit> ;
+  dcterms:source <https://drive.google.com/drive/folders/1lM-qrgRib_vob-YEYzpqYqGCG_xBwo1V> ;
+  dcterms:source <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> .
+
+rda:NevilleDecompositionTermScheme a skos:ConceptScheme ;
+  skos:prefLabel "Neville decomposition term scheme (RDA case-study bridge)"@en ;
+  skos:definition "Bridge scheme for terms used in the Neville decomposition case-study table."@en ;
+  skos:hasTopConcept neville:StandardSurvey, neville:Area, neville:Species,
+    neville:SampleType, neville:Age, neville:Length_mm, neville:Weight_g,
+    neville:AverageConditionFactor .
+
+neville:StandardSurvey a skos:Concept ;
+  skos:prefLabel "Standard Survey"@en ;
+  skos:definition "Categorical yes/no indicator for whether sampling was conducted on the annual standard survey trackline."@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:relatedMatch salmon:SurveyEvent ;
+  prov:wasDerivedFrom <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> .
+
+neville:Area a skos:Concept ;
+  skos:prefLabel "Area"@en ;
+  skos:definition "General geographic area or stratum of sampling (for example, Strait of Georgia, Bute Inlet, Discovery Islands, Howe Sound)."@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:closeMatch salmon:GeographicFeature ;
+  prov:wasDerivedFrom <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> .
+
+neville:Species a skos:Concept ;
+  skos:prefLabel "Species"@en ;
+  skos:definition "Common name and taxonomic assignment of sampled salmon."@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:closeMatch obo:NCBITaxon_8015 ;
+  prov:wasDerivedFrom <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> .
+
+neville:SampleType a skos:Concept ;
+  skos:prefLabel "Sample Type"@en ;
+  skos:definition "Subsampling strategy (for example Random, Select, Total)."@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:relatedMatch salmon:SurveyEvent ;
+  prov:wasDerivedFrom <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> .
+
+neville:Age a skos:Concept ;
+  skos:prefLabel "Age"@en ;
+  skos:definition "Ocean age category (for example 0+ and 1+) used in the case-study decomposition."@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:relatedMatch salmon:SalmonLifeStage ;
+  prov:wasDerivedFrom <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> .
+
+neville:Length_mm a skos:Concept ;
+  skos:prefLabel "Length (mm)"@en ;
+  skos:definition "Fork length measurement in millimetres."@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:closeMatch salmon:forkLength ;
+  prov:wasDerivedFrom <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> .
+
+neville:Weight_g a skos:Concept ;
+  skos:prefLabel "Weight (g)"@en ;
+  skos:definition "Body mass measurement in grams."@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:closeMatch salmon:FishWeight ;
+  prov:wasDerivedFrom <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> .
+
+neville:AverageConditionFactor a skos:Concept ;
+  skos:prefLabel "Average Condition Factor"@en ;
+  skos:definition "Derived Fulton's K condition factor (K = 10^5 * W / L^3)."@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:relatedMatch salmon:AggregatedMeasurement ;
+  skos:relatedMatch salmon:FishWeight ;
+  skos:relatedMatch salmon:forkLength ;
+  prov:wasDerivedFrom <https://docs.google.com/spreadsheets/d/10Bd7bhTJvOOr-V1wK6YyAj9A4PvxKKpumEvcyIobBlw/edit> .
+
+neville:NonStandardSurvey a skos:Concept ;
+  skos:prefLabel "Non-standard Survey"@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:relatedMatch neville:StandardSurvey ;
+  skos:relatedMatch salmon:SurveyEvent .
+
+neville:NonStandardSurveyArea a skos:Concept ;
+  skos:prefLabel "Non-standard Survey Area"@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:closeMatch salmon:GeographicFeature .
+
+neville:StandardDeviationWeight_g a skos:Concept ;
+  skos:prefLabel "Standard Deviation (g) [of weight]"@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:closeMatch iadopt:StatisticalModifier ;
+  skos:relatedMatch salmon:FishWeight .
+
+neville:StandardDeviationLength_mm a skos:Concept ;
+  skos:prefLabel "Standard Deviation (mm) [of length]"@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:closeMatch iadopt:StatisticalModifier ;
+  skos:relatedMatch salmon:forkLength .
+
+neville:SpatialAndTemporalExtent a skos:Concept ;
+  skos:prefLabel "Spatial and Temporal Extent"@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:relatedMatch salmon:GeographicFeature ;
+  skos:relatedMatch time:Instant .
+
+neville:NumberSampled a skos:Concept ;
+  skos:prefLabel "Number Sampled"@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:relatedMatch salmon:AggregatedMeasurement .
+
+neville:ADCWT a skos:Concept ;
+  skos:prefLabel "ADCWT"@en ;
+  skos:definition "Coded-wire-tag related value in the Neville decomposition context."@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:relatedMatch salmon:Observation .
+
+neville:WoundsParasitesOther a skos:Concept ;
+  skos:prefLabel "Wounds, Parasites, Other"@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:relatedMatch salmon:Observation .
+
+neville:AverageLength_mm a skos:Concept ;
+  skos:prefLabel "Average Length (mm)"@en ;
+  skos:definition "Average fork length for a juvenile salmon subset in a defined spatial-temporal extent."@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:closeMatch salmon:AggregatedMeasurement ;
+  skos:relatedMatch salmon:forkLength .
+
+neville:AverageWeight_g a skos:Concept ;
+  skos:prefLabel "Average Weight (g)"@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:closeMatch salmon:AggregatedMeasurement ;
+  skos:relatedMatch salmon:FishWeight .
+
+neville:SurveyArea a skos:Concept ;
+  skos:prefLabel "Survey Area"@en ;
+  skos:inScheme rda:NevilleDecompositionTermScheme ;
+  skos:closeMatch salmon:GeographicFeature .

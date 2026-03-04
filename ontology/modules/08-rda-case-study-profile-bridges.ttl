@@ -1,0 +1,52 @@
+@prefix salmon: <http://w3id.org/salmon/> .
+@prefix hakai: <https://w3id.org/salmon/profile/hakai/> .
+@prefix rda: <https://w3id.org/salmon/profile/rda-case-study/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<http://w3id.org/salmon-domain-ontology/modules/08-rda-case-study-profile-bridges> a owl:Ontology ;
+  rdfs:label "Salmon Domain Ontology Module 08: RDA case-study profile bridges"@en ;
+  rdfs:comment "Profile-layer bridge concepts from the RDA juvenile salmon condition case-study graph. This module captures source vocabulary terms and maps them to shared salmon-domain semantics without promoting profile terms into shared core."@en ;
+  dcterms:source <https://drive.google.com/file/d/1-WPKX6XwDiyLGZGT-bcF36N4ankpNi1o/view> ;
+  dcterms:source <https://docs.google.com/document/d/1myb-EsbtiJS7-x5wyuzMT9anrQyFC6zELy-WwykChRE/edit> .
+
+rda:HakaiJSPMeasurementTermScheme a skos:ConceptScheme ;
+  skos:prefLabel "Hakai JSP measurement term scheme (RDA case-study bridge)"@en ;
+  skos:definition "Bridge scheme for mapping Hakai source terms to shared salmon ontology terms in the RDA juvenile-condition case-study."@en ;
+  skos:hasTopConcept hakai:Fork_Length_Measurement_Method .
+
+hakai:Fork_Length_Measurement_Method a skos:Concept ;
+  skos:prefLabel "Fork Length Measurement Method"@en ;
+  skos:inScheme rda:HakaiJSPMeasurementTermScheme ;
+  skos:definition "Hakai source term representing fork-length measurement method in case-study mapping."@en ;
+  skos:closeMatch salmon:FishForkLengthMeasurementMethod ;
+  prov:wasDerivedFrom <https://drive.google.com/file/d/1-WPKX6XwDiyLGZGT-bcF36N4ankpNi1o/view> .
+
+hakai:fork_length_measurement_field_method a skos:Concept ;
+  skos:prefLabel "fork_length_measurement_field_method"@en ;
+  skos:inScheme rda:HakaiJSPMeasurementTermScheme ;
+  skos:closeMatch salmon:ForkLengthMeasurementFieldMethod ;
+  prov:wasDerivedFrom <https://drive.google.com/file/d/1-WPKX6XwDiyLGZGT-bcF36N4ankpNi1o/view> .
+
+hakai:fork_length_measurement_lab_method a skos:Concept ;
+  skos:prefLabel "fork_length_measurement_lab_method"@en ;
+  skos:inScheme rda:HakaiJSPMeasurementTermScheme ;
+  skos:closeMatch salmon:ForkLengthMeasurementLabMethod ;
+  prov:wasDerivedFrom <https://drive.google.com/file/d/1-WPKX6XwDiyLGZGT-bcF36N4ankpNi1o/view> .
+
+hakai:Fork_Length_Field_Measurement a skos:Concept ;
+  skos:prefLabel "Fork Length Field Measurement"@en ;
+  skos:inScheme rda:HakaiJSPMeasurementTermScheme ;
+  skos:closeMatch salmon:ForkLengthMeasurement ;
+  skos:note "Graph label appears as hakai:Fork_Length_Field_Measurement in yEd export."@en ;
+  prov:wasDerivedFrom <https://drive.google.com/file/d/1-WPKX6XwDiyLGZGT-bcF36N4ankpNi1o/view> .
+
+hakai:Fork_Length_Lab_Measurement a skos:Concept ;
+  skos:prefLabel "Fork Length Lab Measurement"@en ;
+  skos:inScheme rda:HakaiJSPMeasurementTermScheme ;
+  skos:closeMatch salmon:ForkLengthMeasurement ;
+  skos:note "Graph label appears as hakai:Fork_Length_Lab_Measurement in yEd export."@en ;
+  prov:wasDerivedFrom <https://drive.google.com/file/d/1-WPKX6XwDiyLGZGT-bcF36N4ankpNi1o/view> .

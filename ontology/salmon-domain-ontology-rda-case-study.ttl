@@ -1,0 +1,10 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://w3id.org/salmon-domain-ontology/rda-case-study> a owl:Ontology ;
+  rdfs:label "Salmon Domain Ontology (RDA case-study bridge build)"@en ;
+  rdfs:comment "Build that layers RDA juvenile-condition profile bridge terms on top of the shared salmon-domain core."@en ;
+  owl:imports
+    <http://w3id.org/salmon-domain-ontology>,
+    <http://w3id.org/salmon-domain-ontology/modules/08-rda-case-study-profile-bridges>,
+    <http://w3id.org/salmon-domain-ontology/modules/09-rda-neville-decomposition-profile-bridges> .

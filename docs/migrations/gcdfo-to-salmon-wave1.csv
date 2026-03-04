@@ -1,0 +1,62 @@
+old_iri,new_iri,module,status,notes
+https://w3id.org/gcdfo/salmon#ReportingOrManagementStratum,http://w3id.org/salmon/ReportingOrManagementStratum,01-entity-systematics.ttl,migrated,shared abstraction
+https://w3id.org/gcdfo/salmon#Stock,http://w3id.org/salmon/Stock,01-entity-systematics.ttl,migrated,explicitly approved shared
+https://w3id.org/gcdfo/salmon#Deme,http://w3id.org/salmon/Deme,01-entity-systematics.ttl,migrated,shared biological unit
+https://w3id.org/gcdfo/salmon#Population,http://w3id.org/salmon/Population,01-entity-systematics.ttl,migrated,shared biological unit
+https://w3id.org/gcdfo/salmon#IndicatorRiver,http://w3id.org/salmon/IndicatorRiver,01-entity-systematics.ttl,migrated,explicitly approved shared
+https://w3id.org/gcdfo/salmon#hasDeme,http://w3id.org/salmon/hasDeme,01-entity-systematics.ttl,migrated,shared composition relation
+https://w3id.org/gcdfo/salmon#demeOf,http://w3id.org/salmon/demeOf,01-entity-systematics.ttl,migrated,shared composition relation inverse
+https://w3id.org/gcdfo/salmon#hasPopulation,http://w3id.org/salmon/hasPopulation,01-entity-systematics.ttl,migrated,re-scoped to generic reporting/management stratum
+https://w3id.org/gcdfo/salmon#populationOf,http://w3id.org/salmon/populationOf,01-entity-systematics.ttl,migrated,re-scoped inverse
+https://w3id.org/gcdfo/salmon#SurveyEvent,http://w3id.org/salmon/SurveyEvent,02-observation-measurement.ttl,migrated,shared monitoring event
+https://w3id.org/gcdfo/salmon#EscapementSurveyEvent,http://w3id.org/salmon/EscapementSurveyEvent,02-observation-measurement.ttl,migrated,shared event
+https://w3id.org/gcdfo/salmon#EscapementMeasurement,http://w3id.org/salmon/EscapementMeasurement,02-observation-measurement.ttl,migrated,shared measurement class
+https://w3id.org/gcdfo/salmon#Escapement,http://w3id.org/salmon/Escapement,02-observation-measurement.ttl,migrated,shared concept
+https://w3id.org/gcdfo/salmon#ObservedRateOrAbundance,http://w3id.org/salmon/ObservedRateOrAbundance,03-assessment-benchmarks.ttl,migrated,shared base metric
+https://w3id.org/gcdfo/salmon#TargetOrLimitRateOrAbundance,http://w3id.org/salmon/TargetOrLimitRateOrAbundance,03-assessment-benchmarks.ttl,migrated,shared base target/limit metric
+https://w3id.org/gcdfo/salmon#StockAssessment,http://w3id.org/salmon/StockAssessment,03-assessment-benchmarks.ttl,migrated,shared assessment process
+https://w3id.org/gcdfo/salmon#ReferencePoint,http://w3id.org/salmon/ReferencePoint,03-assessment-benchmarks.ttl,migrated,policy-neutral reference abstraction
+https://w3id.org/gcdfo/salmon#LimitReferencePoint,http://w3id.org/salmon/LimitReferencePoint,03-assessment-benchmarks.ttl,migrated,policy-neutral lower-threshold abstraction
+https://w3id.org/gcdfo/salmon#MetricBenchmark,http://w3id.org/salmon/MetricBenchmark,03-assessment-benchmarks.ttl,migrated,shared benchmark abstraction
+https://w3id.org/gcdfo/salmon#LowerBiologicalBenchmark,http://w3id.org/salmon/LowerBiologicalBenchmark,03-assessment-benchmarks.ttl,migrated,shared benchmark abstraction
+https://w3id.org/gcdfo/salmon#UpperBiologicalBenchmark,http://w3id.org/salmon/UpperBiologicalBenchmark,03-assessment-benchmarks.ttl,migrated,shared benchmark abstraction
+https://w3id.org/gcdfo/salmon#ExploitationRate,http://w3id.org/salmon/ExploitationRate,03-assessment-benchmarks.ttl,migrated,shared exploitation metric
+https://w3id.org/gcdfo/salmon#TotalExploitationRate,http://w3id.org/salmon/TotalExploitationRate,03-assessment-benchmarks.ttl,migrated,shared exploitation metric subtype
+https://w3id.org/gcdfo/salmon#ConservationUnit,,deferred-profile,deferred_profile,DFO-specific boundary decision
+https://w3id.org/gcdfo/salmon#StockManagementUnit,,deferred-profile,deferred_profile,DFO-specific boundary decision
+https://w3id.org/gcdfo/salmon#hasConservationUnit,,deferred-profile,deferred_profile,depends on SMU/CU profile scope
+https://w3id.org/gcdfo/salmon#FisheriesReferencePointLower,,deferred-profile,deferred_profile,policy-program-specific reference construct
+https://w3id.org/gcdfo/salmon#UpperStockReferencePoint,,deferred-profile,deferred_profile,policy-program-specific reference construct
+https://w3id.org/gcdfo/salmon#WSPRapidStatus,,deferred-profile,deferred_profile,WSP-specific
+https://w3id.org/gcdfo/salmon#WSPRapidStatusAlgorithmThreshold,,deferred-profile,deferred_profile,WSP-specific
+https://w3id.org/gcdfo/salmon#PolicyFrameworkScheme,,deferred-profile,deferred_profile,explicitly scoped to profile layer
+https://w3id.org/gcdfo/salmon#PolicyFramework,,deferred-profile,deferred_profile,explicitly scoped to profile layer
+https://w3id.org/gcdfo/salmon#WildSalmonPolicy,,deferred-profile,deferred_profile,WSP/policy-specific
+https://w3id.org/gcdfo/salmon#PrecautionaryApproach,,deferred-profile,deferred_profile,decision 4-1:B
+https://w3id.org/gcdfo/salmon#RapidStatusConfidenceScheme,,deferred-profile,deferred_profile,WSP/rapid-status-specific
+https://w3id.org/gcdfo/salmon#ConfidenceCategory,,deferred-profile,deferred_profile,WSP/rapid-status-specific
+https://w3id.org/gcdfo/salmon#RapidStatusConfidenceHigh,,deferred-profile,deferred_profile,WSP/rapid-status-specific
+https://w3id.org/gcdfo/salmon#RapidStatusConfidenceMedium,,deferred-profile,deferred_profile,WSP/rapid-status-specific
+https://w3id.org/gcdfo/salmon#RapidStatusConfidenceLow,,deferred-profile,deferred_profile,WSP/rapid-status-specific
+https://w3id.org/gcdfo/salmon#EnumerationMethodScheme,,deferred-profile,deferred_profile,explicitly scoped to DFO profile
+https://w3id.org/gcdfo/salmon#EstimateMethodScheme,,deferred-profile,deferred_profile,explicitly scoped to DFO profile
+https://w3id.org/gcdfo/salmon#BenchmarkLevelScheme,,deferred-profile,deferred_profile,explicitly scoped to DFO profile
+https://w3id.org/gcdfo/salmon#EstimateTypeScheme,,deferred-profile,deferred_profile,decision 4-2:B
+https://w3id.org/gcdfo/salmon#DowngradeCriteriaScheme,,deferred-profile,deferred_profile,decision 4-3:B
+https://w3id.org/gcdfo/salmon#LowerBenchmark,,deferred-profile,deferred_profile,belongs to benchmark-level profile scheme
+https://w3id.org/gcdfo/salmon#UpperBenchmark,,deferred-profile,deferred_profile,belongs to benchmark-level profile scheme
+https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZoneScheme,,deferred-profile,deferred_profile,WSP-specific
+https://w3id.org/gcdfo/salmon#WSPBiologicalStatusZone,,deferred-profile,deferred_profile,WSP-specific
+https://w3id.org/gcdfo/salmon#GreenZone,,deferred-profile,deferred_profile,WSP-specific
+https://w3id.org/gcdfo/salmon#AmberZone,,deferred-profile,deferred_profile,WSP-specific
+https://w3id.org/gcdfo/salmon#RedZone,,deferred-profile,deferred_profile,WSP-specific
+https://w3id.org/gcdfo/salmon#EnumerationMethod,,deferred-profile,deferred_profile,DFO-specific SKOS scheme root
+https://w3id.org/gcdfo/salmon#EstimateMethod,,deferred-profile,deferred_profile,DFO-specific SKOS scheme root
+https://w3id.org/gcdfo/salmon#EstimateType,,deferred-profile,deferred_profile,DFO-specific SKOS scheme root
+https://w3id.org/gcdfo/salmon#Type1,,deferred-profile,deferred_profile,decision 4-2:B
+https://w3id.org/gcdfo/salmon#Type2,,deferred-profile,deferred_profile,decision 4-2:B
+https://w3id.org/gcdfo/salmon#Type3,,deferred-profile,deferred_profile,decision 4-2:B
+https://w3id.org/gcdfo/salmon#Type4,,deferred-profile,deferred_profile,decision 4-2:B
+https://w3id.org/gcdfo/salmon#Type5,,deferred-profile,deferred_profile,decision 4-2:B
+https://w3id.org/gcdfo/salmon#Type6,,deferred-profile,deferred_profile,decision 4-2:B
+https://w3id.org/gcdfo/salmon#DowngradeCriteria,,deferred-profile,deferred_profile,decision 4-3:B

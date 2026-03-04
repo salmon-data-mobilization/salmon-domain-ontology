@@ -1,0 +1,153 @@
+{
+  "generated_at": "2026-03-02T08:31:33.900308",
+  "workspace_assets": {
+    "migration_csv": "/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/gcdfo-to-salmon-wave1.csv",
+    "spsr_compat_csv": "/Users/alan/.openclaw/workspace/code/salmon-population-summary-repository/static/sdp_templates/spsr/ontology_namespace_compat.csv",
+    "spsr_column_dictionary": "/Users/alan/.openclaw/workspace/code/salmon-population-summary-repository/static/sdp_templates/spsr/column_dictionary.csv",
+    "spsr_test_log": "/Users/alan/.openclaw/workspace/code/salmon-domain-ontology/docs/migrations/evidence/2026-03-02-spsr-smoke-managepy-tests.log"
+  },
+  "migration_map_counts": {
+    "migrated": 23,
+    "deferred_profile": 38
+  },
+  "dfo": {
+    "overall": "partial",
+    "checks": [
+      {
+        "name": "Migrated-term check",
+        "status": "pass",
+        "evidence": "3/3 sampled migrated terms resolve in shared modules: ReportingOrManagementStratum, Stock, Deme"
+      },
+      {
+        "name": "Deferred-profile check",
+        "status": "pass",
+        "evidence": "ConservationUnit + StockManagementUnit are not promoted into shared salmon: namespace."
+      },
+      {
+        "name": "Bridge handling check",
+        "status": "pass",
+        "evidence": "Deferred-profile terms remain consumable in local templates (ConservationUnit rows=125, StockManagementUnit rows=84)."
+      },
+      {
+        "name": "Prefix migration check",
+        "status": "gap",
+        "evidence": "No local DFO consumer asset in dfo-salmon-ontology currently references w3id.org/salmon/. DFO live consumer config is external/not present in this workspace."
+      },
+      {
+        "name": "Output parity check",
+        "status": "gap",
+        "evidence": "No local DFO consumer run artifact baseline was available to compare field-level output parity. Requires DFO consumer execution output from the operational environment."
+      }
+    ],
+    "migrated_presence": [
+      {
+        "new_iri": "http://w3id.org/salmon/ReportingOrManagementStratum",
+        "module": "01-entity-systematics.ttl",
+        "present": true
+      },
+      {
+        "new_iri": "http://w3id.org/salmon/Stock",
+        "module": "01-entity-systematics.ttl",
+        "present": true
+      },
+      {
+        "new_iri": "http://w3id.org/salmon/Deme",
+        "module": "01-entity-systematics.ttl",
+        "present": true
+      }
+    ],
+    "deferred_eval": [
+      {
+        "old_iri": "https://w3id.org/gcdfo/salmon#ConservationUnit",
+        "shared_candidate": "http://w3id.org/salmon/ConservationUnit",
+        "promoted": false
+      },
+      {
+        "old_iri": "https://w3id.org/gcdfo/salmon#StockManagementUnit",
+        "shared_candidate": "http://w3id.org/salmon/StockManagementUnit",
+        "promoted": false
+      }
+    ],
+    "dfo_salmon_namespace_hits": []
+  },
+  "spsr": {
+    "overall": "cleared",
+    "checks": [
+      {
+        "name": "Prefix/query update check",
+        "status": "pass",
+        "evidence": "SPSR namespace bridge map contains 7 explicit migrated gcdfo\u2192salmon mappings."
+      },
+      {
+        "name": "Bridge resolution check",
+        "status": "pass",
+        "evidence": "27 bridge mappings resolve to shared typed targets (sample: AggregatedMeasurement, GeographicFeature, Observation)."
+      },
+      {
+        "name": "Tier-3 safety check",
+        "status": "pass",
+        "evidence": "No owl:equivalentClass / owl:equivalentProperty / skos:exactMatch assertions in bridge modules 08/09."
+      },
+      {
+        "name": "Report continuity + regression scan",
+        "status": "pass",
+        "evidence": "Targeted SPSR smoke tests passed (4/4)."
+      }
+    ],
+    "bridge_links_total": 27,
+    "bridge_links_resolvable": 27,
+    "bridge_links_sample": [
+      {
+        "source": "https://w3id.org/salmon/profile/neville/AverageConditionFactor",
+        "predicate": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+        "target": "http://w3id.org/salmon/AggregatedMeasurement"
+      },
+      {
+        "source": "https://w3id.org/salmon/profile/neville/Area",
+        "predicate": "http://www.w3.org/2004/02/skos/core#closeMatch",
+        "target": "http://w3id.org/salmon/GeographicFeature"
+      },
+      {
+        "source": "https://w3id.org/salmon/profile/neville/ADCWT",
+        "predicate": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+        "target": "http://w3id.org/salmon/Observation"
+      },
+      {
+        "source": "https://w3id.org/salmon/profile/hakai/Fork_Length_Lab_Measurement",
+        "predicate": "http://www.w3.org/2004/02/skos/core#closeMatch",
+        "target": "http://w3id.org/salmon/ForkLengthMeasurement"
+      },
+      {
+        "source": "https://w3id.org/salmon/profile/neville/SampleType",
+        "predicate": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+        "target": "http://w3id.org/salmon/SurveyEvent"
+      },
+      {
+        "source": "https://w3id.org/salmon/profile/hakai/fork_length_measurement_field_method",
+        "predicate": "http://www.w3.org/2004/02/skos/core#closeMatch",
+        "target": "http://w3id.org/salmon/ForkLengthMeasurementFieldMethod"
+      },
+      {
+        "source": "https://w3id.org/salmon/profile/neville/AverageConditionFactor",
+        "predicate": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+        "target": "http://w3id.org/salmon/forkLength"
+      },
+      {
+        "source": "https://w3id.org/salmon/profile/hakai/fork_length_measurement_lab_method",
+        "predicate": "http://www.w3.org/2004/02/skos/core#closeMatch",
+        "target": "http://w3id.org/salmon/ForkLengthMeasurementLabMethod"
+      },
+      {
+        "source": "https://w3id.org/salmon/profile/neville/AverageWeight_g",
+        "predicate": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+        "target": "http://w3id.org/salmon/FishWeight"
+      },
+      {
+        "source": "https://w3id.org/salmon/profile/neville/SpatialAndTemporalExtent",
+        "predicate": "http://www.w3.org/2004/02/skos/core#relatedMatch",
+        "target": "http://w3id.org/salmon/GeographicFeature"
+      }
+    ],
+    "disallowed_bridge_assertions": []
+  }
+}

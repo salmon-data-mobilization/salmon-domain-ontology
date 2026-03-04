@@ -1,0 +1,15 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://w3id.org/salmon-domain-ontology> a owl:Ontology ;
+  rdfs:label "Salmon Domain Ontology (modular build)"@en ;
+  rdfs:comment "Primary modular import graph for reusable salmon-domain concepts and cross-ontology alignments. Phase-1/2/3 scaffold and migration baseline."@en ;
+  owl:imports
+    <http://w3id.org/salmon-domain-ontology/modules/01-entity-systematics>,
+    <http://w3id.org/salmon-domain-ontology/modules/02-observation-measurement>,
+    <http://w3id.org/salmon-domain-ontology/modules/03-assessment-benchmarks>,
+    <http://w3id.org/salmon-domain-ontology/modules/04-management-governance>,
+    <http://w3id.org/salmon-domain-ontology/modules/05-provenance-quality>,
+    <http://w3id.org/salmon-domain-ontology/modules/06-data-interoperability>,
+    <http://w3id.org/salmon-domain-ontology/modules/07-controlled-vocabularies>,
+    <http://w3id.org/salmon-domain-ontology/modules/alignment-main> .

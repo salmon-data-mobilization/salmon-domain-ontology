@@ -1,0 +1,127 @@
+/Users/alan/.openclaw/workspace/code/salmon-population-summary-repository/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+Creating test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
+Found 4 test(s).
+Operations to perform:
+  Synchronize unmigrated apps: debug_toolbar, django_google_fonts, drf_spectacular, messages, rest_framework, staticfiles
+  Apply all migrations: admin, auth, contenttypes, demo, reversion, sessions
+Synchronizing apps without migrations:
+  Creating tables...
+    Running deferred SQL...
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying demo.0001_initial... OK
+  Applying demo.0002_alter_cu_catch_ocean_age_1_and_more... OK
+  Applying demo.0003_alter_cu_lower_wsp_benchmark_and_more... OK
+  Applying demo.0004_remove_cu_catch_indicator_cu_and_more... OK
+  Applying demo.0006_remove_cu_catch_year_remove_cu_spawners_year_and_more... OK
+  Applying demo.0007_cu_catch_year_cu_spawners_year_smu_year_year... OK
+  Applying demo.0008_rename_mortality_rate_smu_year_mainstem_mortality_rate_and_more... OK
+  Applying demo.0009_smu_static_metadata_cu_static_metadata_and_more... OK
+  Applying demo.0010_smu_year_marine_survival_rate... OK
+  Applying demo.0011_smu_year_metadata... OK
+  Applying demo.0012_pop_year_remove_cu_spawners_cu_id_and_more... OK
+  Applying demo.0013_alter_pop_year_year_alter_smu_year_year... OK
+  Applying demo.0014_remove_cu_pfma_id_population_indicator_cwt... OK
+  Applying demo.0015_rename_hatchery_spawners_pop_year_phos... OK
+  Applying demo.0016_pop_year_enhancement_objective_and_more... OK
+  Applying demo.0017_alter_population_indicator_cwt... OK
+  Applying demo.0018_remove_cu_indicator_cwt... OK
+  Applying demo.0019_remove_population_indicator_cwt_and_more... OK
+  Applying demo.0020_rename_marine_survival_rate_smu_year_cwt_marine_survival_rate_and_more... OK
+  Applying demo.0021_pfma_smu_indicator_cwt_smu_year_er_and_more... OK
+  Applying demo.0022_pop_year_expansion_factor... OK
+  Applying demo.0023_alter_cu_lower_wsp_benchmark_and_more... OK
+  Applying demo.0024_remove_smu_year_er... OK
+  Applying demo.0025_remove_pop_year_pre_spawn_mortality... OK
+  Applying demo.0026_remove_pop_year_productions_target... OK
+  Applying demo.0027_alter_pop_year_is_enhanced... OK
+  Applying demo.0028_smu_static_metadata_date_updated_alter_cu_smu_id_and_more... OK
+  Applying demo.0029_alter_population_pfma_id... OK
+  Applying demo.0030_alter_population_pfma_id... OK
+  Applying demo.0031_alter_cu_cu_name_alter_pfma_pfma_name_and_more... OK
+  Applying demo.0032_pfma_metadata_pop_metadata_and_more... OK
+  Applying demo.0033_remove_cu_static_metadata_field_name_and_more... OK
+  Applying demo.0034_remove_smu_static_metadata_date_updated... OK
+  Applying demo.0035_pop_year_recruits_cuyear... OK
+  Applying demo.0036_cuyear_range_lower_cuyear_range_upper... OK
+  Applying demo.0037_remove_cu_lower_wsp_benchmark_and_more... OK
+  Applying demo.0038_remove_smu_indicator_cwt_and_more... OK
+  Applying demo.0039_delete_smu_year_metadata... OK
+  Applying demo.0040_remove_cu_cu_name... OK
+  Applying demo.0041_cu_metadata_delete_cu_static_metadata... OK
+  Applying demo.0042_remove_pfma_lower_management_level_and_more... OK
+  Applying demo.0043_pfma_metadata_age_type_and_more... OK
+  Applying demo.0044_cuyear_total_spawners... OK
+  Applying demo.0045_remove_smu_species_smu_smu_name... OK
+  Applying demo.0046_cu_cu_name... OK
+  Applying demo.0047_cuyear_mainstem_age_1... OK
+  Applying demo.0048_cuyear_mainstem_age_2... OK
+  Applying demo.0049_rename_er_cuyear_total_exploitation_rate_and_more... OK
+  Applying demo.0050_rename_limit_reference_point_cu_metadata_lrp_and_more... OK
+  Applying demo.0051_alter_cu_metadata_lrp_alter_cu_metadata_reference_and_more... OK
+  Applying demo.0052_remove_cu_metadata_id_cu_metadata_submission_id... OK
+  Applying demo.0053_alter_cu_cu_id... OK
+  Applying demo.0054_remove_cuyear_id_cuyear_cu_year_id_and_more... OK
+  Applying demo.0055_rename_method_data_analysis_cu_metadata_method_and_more... OK
+  Applying demo.0056_cu_cu_type_cu_dfo_area_cu_life_history_type... OK
+  Applying demo.0057_alter_cu_cu_name... OK
+  Applying demo.0058_remove_cu_dfo_area_smu_dfo_area... OK
+  Applying demo.0059_remove_cu_metadata_submission_id_cu_metadata_id... OK
+  Applying demo.0060_remove_cu_metadata_species_name... OK
+  Applying demo.0061_rename_method_cu_metadata_method_analysis_and_more... OK
+  Applying demo.0062_rename_method_pop_metadata_method_analysis_and_more... OK
+  Applying demo.0063_remove_cu_lrp_remove_cu_rr_remove_cu_tr_and_more... OK
+  Applying demo.0064_cuyear_recruits_age_1_cuyear_recruits_age_2_and_more... OK
+  Applying demo.0065_cu_lower_wsp_benchmark_cu_upper_wsp_benchmark... OK
+  Applying demo.0066_rename_information_quality_pop_metadata_infomation_quality_and_more... OK
+  Applying demo.0067_rename_recruits_age_1_cuyear_run_age_1_and_more... OK
+  Applying demo.0068_indicator_year_and_more... OK
+  Applying demo.0069_rename_indicator_id_indicator_year_indicator_and_more... OK
+  Applying demo.0070_rename_indicator_indicator_year_indicator_cwt_and_more... OK
+  Applying demo.0071_rename_info_quality_nz_indicator_metadata_index_quality_and_more... OK
+  Applying demo.0072_indicator_metadata_indicator_cwt_alter_cu_cu_name... OK
+  Applying demo.0073_alter_population_pop_name... OK
+  Applying demo.0074_alter_cu_smu_id... OK
+  Applying demo.0075_cu_lrp_cu_rr_cu_tr_cu_usr... OK
+  Applying demo.0076_cuyear_mainstem_catch_cuyear_ocean_catch_and_more... OK
+  Applying demo.0077_remove_pop_year_marine_survival_index_and_more... OK
+  Applying demo.0078_alter_pop_year_phos... OK
+  Applying demo.0079_alter_cu_metadata_reference_and_more... OK
+  Applying demo.0080_cu_created_at_cu_created_by_cu_modified_by_and_more... OK
+  Applying demo.0081_cu_unique_cu_key_cu_metadata_unique_cu_metadata_key_and_more... OK
+  Applying demo.0082_custatus_custatus_unique_cu_status_year... OK
+  Applying demo.0083_increase_reference_field_length... OK
+  Applying demo.0084_add_wsp_columns_to_cuyear... OK
+  Applying demo.0085_add_uploadrun_audit... OK
+  Applying demo.0086_backfill_custatus_to_cuyear... OK
+  Applying reversion.0001_squashed_0004_auto_20160611_1202... OK
+  Applying reversion.0002_add_index_on_version_for_content_type_and_db... OK
+  Applying sessions.0001_initial... OK
+System check identified no issues (0 silenced).
+test_download_sdp_templates_zip_contains_core_files (demo.tests_wizard_flow.UploadEntryAndWizardTests) ... ok
+test_download_templates_rewrites_migrated_ontology_iris_when_salmon_preferred (demo.tests_wizard_flow.UploadEntryAndWizardTests) ... ok
+test_download_templates_preserve_namespace_keeps_original_iris (demo.tests_wizard_flow.UploadEntryAndWizardTests) ... ok
+test_dictionary_glossary_full_and_core_views_render (demo.tests_wizard_flow.UploadEntryAndWizardTests) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 1.764s
+
+OK
+Destroying test database for alias 'default' ('file:memorydb_default?mode=memory&cache=shared')...
