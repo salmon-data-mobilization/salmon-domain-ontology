@@ -2,6 +2,11 @@
 
 This directory contains the modular build-out for the salmon-domain ontology.
 
+If you are new to ontologies, read this first:
+- `../../docs/guides/modules-and-bridges-for-biologists.md`
+
+That guide explains (in plain language) how modules, local program ontologies, and bridge profiles work together when mapping real datasets.
+
 ## Category modules (phase 1 scaffold)
 
 1. `01-entity-systematics.ttl` — core entities, strata classes, and biological unit composition relations.

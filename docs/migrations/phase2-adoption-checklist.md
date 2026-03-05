@@ -4,7 +4,7 @@ Use this checklist when adopting the modular `salmon-domain-ontology` migration 
 
 ## A) Ontology maintainers (repo-level)
 
-- [ ] Confirm canonical namespace usage is `http://w3id.org/salmon/` (`salmon:`)
+- [ ] Confirm canonical namespace usage matches `docs/publishing/namespace-decision.md` (proposed: `https://w3id.org/salmon-domain-ontology/` as `salmon:`)
 - [ ] Confirm shared build imports modules `01`-`07` + `alignment-main`
 - [ ] Confirm case-study build imports modules `08` and `09` only as profile bridges
 - [ ] Verify migration map (`gcdfo-to-salmon-wave1.csv`) is up to date for migrated/deferred terms
