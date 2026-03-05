@@ -26,6 +26,12 @@ If you want to contribute:
 - `docs/migrations/README.md` — migration map, boundary rules, adoption checklist, cutover runbook, smoke-run templates, and release-readiness notes
 - `docs/publishing/namespace-decision.md` — namespace stabilization decision and freeze rule
 - `docs/publishing/w3id-request-payload.md` — ready-to-submit W3ID registration payload
+- `docs/guides/modules-and-bridges-for-biologists.md` — beginner-friendly guide to modules, local profiles, and bridge mapping
+
+## New to ontologies?
+
+Start with `docs/guides/modules-and-bridges-for-biologists.md`.
+It explains the module + bridge approach in plain language for dataset teams.
 
 ## Publishing status (important)
 
