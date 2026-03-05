@@ -5,6 +5,8 @@
 - `gcdfo-to-salmon-wave1.csv` — machine-readable old->new IRI map with migration status
 - `wave1-term-inventory.md` — migrated vs deferred scope summary
 - `rda-graph-concept-coverage.md` — RDA juvenile-condition graph coverage and bridge additions
+- `../publishing/namespace-decision.md` — canonical namespace decision + freeze rule before broad downstream cutover
+- `../publishing/w3id-request-payload.md` — W3ID registration payload/template
 
 ## Phase 2 cutover operations
 

@@ -24,3 +24,13 @@ If you want to contribute:
 - `ontology/modules/` — category modules + alignment modules + profile bridge modules
 - `CONVENTIONS.md` — modeling and namespace conventions (`salmon:` canonical)
 - `docs/migrations/README.md` — migration map, boundary rules, adoption checklist, cutover runbook, smoke-run templates, and release-readiness notes
+- `docs/publishing/namespace-decision.md` — namespace stabilization decision and freeze rule
+- `docs/publishing/w3id-request-payload.md` — ready-to-submit W3ID registration payload
+
+## Publishing status (important)
+
+Namespace stabilization is in progress and must complete before broad downstream cutover.
+
+- `w3id.org/salmon` is currently controlled by another project.
+- `w3id.org/salmon-domain-ontology` registration is being prepared.
+- Until W3ID registration + in-repo IRI rewrite are complete, dependent-app migrations should remain limited/surgical.

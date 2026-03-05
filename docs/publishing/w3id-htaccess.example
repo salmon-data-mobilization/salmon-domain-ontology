@@ -1,0 +1,21 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+# Main ontology build
+RewriteRule ^$ https://raw.githubusercontent.com/salmon-data-mobilization/salmon-domain-ontology/main/ontology/salmon-domain-ontology.ttl [R=302,L]
+RewriteRule ^ontology/?$ https://raw.githubusercontent.com/salmon-data-mobilization/salmon-domain-ontology/main/ontology/salmon-domain-ontology.ttl [R=302,L]
+
+# Optional build entrypoints
+RewriteRule ^research/?$ https://raw.githubusercontent.com/salmon-data-mobilization/salmon-domain-ontology/main/ontology/salmon-domain-ontology-research.ttl [R=302,L]
+RewriteRule ^rda-case-study/?$ https://raw.githubusercontent.com/salmon-data-mobilization/salmon-domain-ontology/main/ontology/salmon-domain-ontology-rda-case-study.ttl [R=302,L]
+
+# Module IRIs
+RewriteRule ^modules/([A-Za-z0-9._-]+)/?$ https://raw.githubusercontent.com/salmon-data-mobilization/salmon-domain-ontology/main/ontology/modules/$1.ttl [R=302,L]
+
+# Profile bridge namespace roots
+RewriteRule ^profile/hakai/?$ https://raw.githubusercontent.com/salmon-data-mobilization/salmon-domain-ontology/main/ontology/modules/08-rda-case-study-profile-bridges.ttl [R=302,L]
+RewriteRule ^profile/neville/?$ https://raw.githubusercontent.com/salmon-data-mobilization/salmon-domain-ontology/main/ontology/modules/09-rda-neville-decomposition-profile-bridges.ttl [R=302,L]
+RewriteRule ^profile/rda-case-study/?$ https://raw.githubusercontent.com/salmon-data-mobilization/salmon-domain-ontology/main/ontology/salmon-domain-ontology-rda-case-study.ttl [R=302,L]
+
+# Any term IRI (e.g., /Stock) resolves to canonical ontology graph
+RewriteRule ^[A-Za-z0-9._-]+/?$ https://raw.githubusercontent.com/salmon-data-mobilization/salmon-domain-ontology/main/ontology/salmon-domain-ontology.ttl [R=302,L]
