@@ -35,13 +35,3 @@ If you want to contribute:
 
 Start with `docs/guides/modules-and-bridges-for-biologists.md`.
 It explains the module + bridge approach in plain language for dataset teams.
-
-## Publishing status (important)
-
-Namespace stabilization is in progress and must complete before broad downstream cutover.
-
-- `https://w3id.org/smn` is live and is the canonical namespace for the shared layer (`smn:`).
-- `https://w3id.org/salmon/` remains controlled by another project and should not be treated as ours.
-- The current public W3ID surface is intentionally conservative and Turtle-first: root, `/latest`, representative term/module/build/profile paths resolve to current Turtle artifacts.
-- Public HTML/RDF/XML/JSON-LD/versioned release targets are not live yet.
-- Until the first stabilization release/tag and downstream consumer validation are complete, dependent-app migrations should remain limited/surgical.
