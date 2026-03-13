@@ -32,7 +32,7 @@ Current publication gaps:
 1. No GitHub Pages site (or equivalent public HTML doc surface) is live for this repo.
 2. No published RDF/XML serialization exists.
 3. No published JSON-LD serialization exists.
-4. No SemVer release snapshots/tags exist for version-path redirects.
+4. No W3ID-backed SemVer release snapshot redirects are live yet. The repo tag `0.0.0` exists, but version-path redirects are still future work.
 
 Because of those gaps, the live `.htaccess` rules currently use a safe latest-Turtle fallback and keep the full DFO-style content-negotiation pattern documented for later activation.
 
@@ -61,7 +61,7 @@ Run these only after stable public assets exist:
 curl -I -H 'Accept: text/turtle' https://w3id.org/smn
 curl -I -H 'Accept: application/rdf+xml' https://w3id.org/smn
 curl -I -H 'Accept: application/ld+json' https://w3id.org/smn
-curl -I https://w3id.org/smn/0.1.0
+curl -I https://w3id.org/smn/0.0.0
 ```
 
 Expected: `303` redirects to latest HTML/Turtle/RDFXML/JSON-LD assets plus SemVer release snapshots.

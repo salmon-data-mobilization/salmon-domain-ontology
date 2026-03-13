@@ -92,7 +92,7 @@ Expected for the current registration: root returns `301` to the trailing-slash 
 curl -I -H 'Accept: text/turtle' https://w3id.org/smn
 curl -I -H 'Accept: application/rdf+xml' https://w3id.org/smn
 curl -I -H 'Accept: application/ld+json' https://w3id.org/smn
-curl -I https://w3id.org/smn/0.1.0
+curl -I https://w3id.org/smn/0.0.0
 ```
 
 Expected after publication targets exist: content-negotiated `303` redirects for latest HTML/Turtle/RDFXML/JSON-LD plus SemVer version-path redirects.

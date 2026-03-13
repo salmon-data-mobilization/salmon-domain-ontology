@@ -1,19 +1,22 @@
 # Namespace decision for Salmon Domain Ontology (`smn`)
 
-Status: **implemented; stabilization release pending**
+Status: **implemented; stabilized in `0.0.0` pre-alpha tag**
 Owner: `@Br-Johnson`
 Date: 2026-03-13
 
-## Why this is needed now
+This file is the authoritative record of the canonical shared namespace decision.
+The transition is no longer pending: the live `smn` W3ID path, canonical IRI rewrites,
+migration-doc alignment, and the `0.0.0` pre-alpha stabilization tag closed the
+phase-2 namespace cutover package.
 
-Current state is materially better than before, but not fully closed for broad downstream migration:
+## Why this decision mattered
+
+The project needed a maintainer-controlled persistent namespace because:
 
 - `https://w3id.org/salmon/` resolves to an unrelated external project (name collision).
-- `https://w3id.org/smn` is now live and gives the project a maintainer-controlled persistent base.
-- The live W3ID surface is intentionally conservative: root, `/latest`, representative term/module/build/profile paths currently resolve to Turtle artifacts only.
+- `https://w3id.org/smn` is live and gives the project a maintainer-controlled persistent base.
 - Internal ontology files and migration artifacts previously used draft IRIs under `http://w3id.org/salmon/` and `http://w3id.org/salmon-domain-ontology`, which are not the canonical persistent identifiers.
-
-Until that live namespace state is documented and tagged, broad app-level cutover should remain gated.
+- The live W3ID publication surface is intentionally conservative for now: root, `/latest`, representative term/module/build/profile paths currently resolve to Turtle artifacts only.
 
 ## Canonical namespace decision
 
@@ -44,23 +47,23 @@ Use one persistent shared-layer base:
 | `https://w3id.org/salmon-domain-ontology...` | `https://w3id.org/smn...` |
 | `https://w3id.org/salmon/profile/<p>/...` | `https://w3id.org/smn/profile/<p>/...` |
 
-## Freeze rule
+## Closure gate used before broad downstream cutover
 
-Do **not** perform broad downstream cutover until all are true:
+The namespace transition was treated as complete only after all were true:
 
-1. The `smn` W3ID path is live and redirect behavior is recorded.
-2. Ontology IRIs in this repo are rewritten to the canonical `https://w3id.org/smn` base.
-3. Current migration docs/maps used by downstream consumers are updated to the same canonical `smn` namespace story.
-4. One stabilization release is tagged from the live namespace state.
+1. The `smn` W3ID path was live and redirect behavior was recorded.
+2. Ontology IRIs in this repo were rewritten to the canonical `https://w3id.org/smn` base.
+3. Migration docs/maps used by downstream consumers were updated to the same canonical `smn` namespace story.
+4. One stabilization release was tagged from the live namespace state.
 
-## Acceptance checklist
+## Closure checklist
 
 - [x] W3ID path `smn` is merged and resolvable
 - [x] Conservative Turtle-first redirect behavior is recorded (`docs/publishing/evidence/2026-03-13-w3id-live-redirect-check.md`)
 - [x] Ontology files updated to canonical `smn` IRIs
 - [x] Migration map (`docs/migrations/gcdfo-to-salmon-wave1.csv`) updated to canonical `new_iri` values
 - [x] README + conventions + cutover docs updated to the same canonical namespace story
-- [ ] One stabilization release tagged from the live namespace state
+- [x] Stabilization release tagged from the live namespace state (`0.0.0`)
 
 ## Publication caveat
 
@@ -69,7 +72,7 @@ The W3ID registration is live, but the repo does **not** yet expose a DFO-style 
 - no published HTML docs are available,
 - no published RDF/XML serialization is available,
 - no published JSON-LD serialization is available,
-- no SemVer release snapshot directories exist yet.
+- no SemVer release snapshot directories are published behind W3ID yet.
 
 That means the current W3ID behavior is an intentionally conservative Turtle-first publication surface, not the richer final content-negotiated/versioned surface. See `w3id-request-payload.md`, `w3id-smn-draft/`, and `docs/publishing/evidence/2026-03-13-w3id-live-redirect-check.md`.
 

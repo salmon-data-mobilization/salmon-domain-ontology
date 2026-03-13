@@ -1,0 +1,35 @@
+# Cursor indexing configuration template
+# This file uses negation patterns to INCLUDE files that are gitignored
+# but should still be indexed by Cursor Agent
+#
+# Note: Cursor respects .gitignore by default. These negation patterns
+# override .gitignore exclusions to include specific files for indexing.
+#
+# Copy this file to your project root as `.cursorignore` and customize as needed.
+
+# Documentation directories that are gitignored but contain useful context
+!docs/adr/0001.md
+!docs/notes/
+!docs/notes/**/*
+!docs/entrypoints.md
+!docs/plans/
+!docs/plans/**/*
+!docs/tech-debt.md
+!docs/todo-list.md
+!docs/context/
+!docs/context/**/*
+!docs:context/
+!docs:context/**/*
+!docs/examples/
+!docs/examples/**/*
+!docs/ontology_applications/
+!docs/ontology_applications/**/*
+
+# AGENTS.md (gitignored but contains workspace rules)
+!AGENTS.md
+
+!.cursorignore
+
+# .cursor directory (for cursor-specific configs)
+!.cursor/
+!.cursor/**/*
