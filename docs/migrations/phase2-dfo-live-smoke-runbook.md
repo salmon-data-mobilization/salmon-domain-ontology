@@ -49,8 +49,9 @@ all of the following:
      for this phase
    - confirm DFO provider-side docs/route-bundle references align to the locked
      boundary: `smn:` shared layer, `gcdfo:` DFO-specific/profile layer
-   - confirm PR #54 is merged and referenced as provider-side route-coverage
-     evidence
+   - confirm the canonical machine-readable route-contract home is merged **SPSR
+     PR #247**, with closed DFO PR #54 treated only as the transfer/pointer
+     trail (not the enduring evidence anchor)
 2. **Pre-cleared fixture/prereq evidence retained**
    - keep the existing prerequisite package linked; do not pretend it is a live
      consumer run
@@ -68,7 +69,7 @@ The replacement DFO-side closure package is:
 - the provider-verification issue note described below
 - `docs/migrations/evidence/2026-03-02-dfo-live-smoke-prereq-package.md`
 - the SPSR smoke evidence comment/artifacts already linked in issue #3
-- merged DFO route-coverage evidence (PR #54)
+- merged SPSR route-contract evidence (PR #247), with DFO PR #54 retained only as the closed transfer/pointer trail if needed
 - final issue #3 go/no-go note
 
 ## 5) Provider-verification note template for issue #3
@@ -80,12 +81,12 @@ The replacement DFO-side closure package is:
 - Statement: No separate DFO downstream consumer runtime/check-out/baseline artifact exists for this phase-2 cutover, so the former live DFO smoke gate is not applicable.
 - Provider-side checks:
   - DFO docs/route bundle align to `smn:` shared / `gcdfo:` DFO-specific boundary
-  - PR #54 is merged and serves as the route-coverage/provider-side evidence anchor
+  - merged SPSR PR #247 serves as the canonical route-contract/provider-side evidence anchor; closed DFO PR #54 is only transfer/pointer context if cited
   - Existing DFO prerequisite/fixture evidence is retained as non-live supporting evidence only
   - SPSR remains the operative downstream consumer smoke lane for this phase
 - Evidence:
   - <link to prereq package>
-  - <link to PR #54 or merged artifact>
+  - <link to SPSR PR #247 or merged artifact>
   - <link to SPSR smoke evidence comment>
 - Notes: <regressions or none>
 ```

@@ -36,7 +36,7 @@ for the current phase. It replaces the old live-smoke expectation.
 
 - [ ] **No-runtime confirmation**: no separate DFO downstream consumer runtime/check-out/baseline artifact exists for this phase.
 - [ ] **Boundary alignment check**: DFO docs/provider references align to `smn:` shared terms and `gcdfo:` DFO-specific/profile terms.
-- [ ] **Route-coverage anchor check**: merged PR #54 is linked as provider-side route-coverage evidence.
+- [ ] **Route-contract anchor check**: merged SPSR PR #247 is linked as the canonical machine-readable route-contract evidence; closed DFO PR #54 is treated only as transfer/pointer context if referenced.
 - [ ] **Fixture evidence retention check**: existing prereq/fixture evidence is retained as non-live supporting evidence.
 - [ ] **Consumer-lane handoff check**: SPSR remains the operative downstream smoke lane for this phase.
 
@@ -49,7 +49,7 @@ for the current phase. It replaces the old live-smoke expectation.
 - Result: PASS | FAIL
 - Evidence:
   - <link to prereq package>
-  - <link to PR #54 or merged artifact>
+  - <link to SPSR PR #247 or merged artifact>
   - <link to SPSR smoke evidence comment>
 - Notes: No separate DFO downstream consumer runtime exists for this phase, so the former live-smoke gate is not applicable.
 ```
