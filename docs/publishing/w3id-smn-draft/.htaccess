@@ -7,9 +7,9 @@
 #
 # Live baseline status:
 # - Active rules below match the conservative Turtle-first surface currently live.
-# - The repo currently exposes Turtle sources only.
-# - GitHub Pages / HTML docs / RDF/XML / JSON-LD / SemVer release snapshots do not exist yet.
-# - When those targets exist, replace the fallback with the commented DFO-style latest/version rules.
+# - The repo now carries generated latest assets under docs/ plus docs/releases/0.0.0/.
+# - Those assets are not yet the stable public targets served by W3ID.
+# - When stable public targets are chosen and verified, replace the fallback with the commented DFO-style latest/version rules.
 #
 # Maintainer repository:
 #   https://github.com/salmon-data-mobilization/salmon-domain-ontology

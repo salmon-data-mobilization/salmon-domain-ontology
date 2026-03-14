@@ -13,7 +13,7 @@ Current live behavior:
 - `https://w3id.org/smn` resolves as the canonical ontology IRI.
 - The live redirect surface is intentionally conservative and Turtle-first.
 - Root, `/latest`, representative term paths, module paths, build paths, and profile roots resolve via `303` to raw GitHub Turtle artifacts.
-- HTML docs, RDF/XML, JSON-LD, and versioned release snapshot targets are still future work.
+- The repo now also carries generated latest assets at `docs/index.html`, `docs/smn.ttl`, `docs/smn.owl`, `docs/smn.jsonld`, plus an immutable `docs/releases/0.0.0/` snapshot; those assets are not yet what W3ID serves.
 
 This file keeps the merged registration payload in-repo and records the follow-up publication work still needed.
 
@@ -69,6 +69,8 @@ Follow-up after publication-target work:
 - add SemVer version-path redirects matching the live DFO pattern
 ```
 
+Since that registration landed, the repo has gained generated in-repo assets under `docs/` plus `docs/releases/0.0.0/`, but the live W3ID rules still intentionally serve the conservative Turtle-first surface until stable public targets are chosen and verified.
+
 ## Verification commands for the live registration
 
 ### Conservative Turtle-first checks
@@ -92,14 +94,14 @@ Expected for the current registration: root returns `301` to the trailing-slash 
 curl -I -H 'Accept: text/turtle' https://w3id.org/smn
 curl -I -H 'Accept: application/rdf+xml' https://w3id.org/smn
 curl -I -H 'Accept: application/ld+json' https://w3id.org/smn
-curl -I https://w3id.org/smn/0.1.0
+curl -I https://w3id.org/smn/0.0.0
 ```
 
 Expected after publication targets exist: content-negotiated `303` redirects for latest HTML/Turtle/RDFXML/JSON-LD plus SemVer version-path redirects.
 
 ## Next publication step
 
-Publish or stage a stable public asset surface for:
+Keep the in-repo generation flow producing the current asset surface:
 
 - latest HTML docs,
 - latest Turtle,
@@ -107,4 +109,4 @@ Publish or stage a stable public asset surface for:
 - latest JSON-LD,
 - versioned release snapshots.
 
-Then replace the conservative fallback sections in the W3ID rules with the final DFO-style latest/version redirect rules.
+Then publish or stage those assets on a stable public host, verify the routed targets, and only then replace the conservative fallback sections in the W3ID rules with the final DFO-style latest/version redirect rules.

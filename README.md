@@ -26,10 +26,30 @@ If you want to contribute:
 - `ontology/salmon-domain-ontology-rda-case-study.ttl` — optional case-study bridge build (adds profile bridge mappings from RDA juvenile-condition graph, including Hakai + Neville decomposition terms)
 - `ontology/modules/` — category modules + alignment modules + profile bridge modules
 - `CONVENTIONS.md` — modeling and namespace conventions (`smn:` canonical)
+- `docs/context/widoco.md` — WIDOCO publication workflow and output contract
 - `docs/migrations/README.md` — migration map, boundary rules, adoption checklist, cutover runbook, smoke-run templates, and release-readiness notes
 - `docs/publishing/namespace-decision.md` — namespace stabilization decision and freeze rule
 - `docs/publishing/w3id-request-payload.md` — merged `smn` W3ID registration record + follow-up publication checklist
 - `docs/guides/modules-and-bridges-for-biologists.md` — beginner-friendly guide to modules, local profiles, and bridge mapping
+
+## Docs / publication workflow
+
+The repo now has a first-pass publication pipeline matching the DFO pattern in a lighter form.
+
+Core commands:
+- `make install-widoco`
+- `make install-robot`
+- `make docs-refresh`
+- `make release-snapshot VERSION=X.Y.Z`
+
+Generated publication targets:
+- `docs/index.html`
+- `docs/smn.ttl`
+- `docs/smn.owl`
+- `docs/smn.jsonld`
+- `docs/releases/<version>/`
+
+Note: Java is required for WIDOCO and ROBOT. The repo now carries generated latest assets under `docs/` plus an immutable `docs/releases/0.0.0/` snapshot, but W3ID should not be upgraded to HTML/RDF/XML/JSON-LD/version redirects until those public targets are published on a stable host and verified.
 
 ## New to ontologies?
 

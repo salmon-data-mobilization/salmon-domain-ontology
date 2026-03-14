@@ -1,0 +1,6 @@
+.DS_Store
+.cursor/
+.local-backup/
+__pycache__/
+release/
+tools/*.jar

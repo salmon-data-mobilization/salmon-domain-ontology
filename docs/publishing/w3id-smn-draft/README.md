@@ -27,14 +27,14 @@ Salmon Domain Ontology shared namespace (`smn:`).
 This folder records the conservative Turtle-first W3ID registration materials now live for `smn`.
 Keep it as the local reference copy for future redirect revisions.
 
-Current publication gaps:
+Current publication posture:
 
-1. No GitHub Pages site (or equivalent public HTML doc surface) is live for this repo.
-2. No published RDF/XML serialization exists.
-3. No published JSON-LD serialization exists.
-4. No SemVer release snapshots/tags exist for version-path redirects.
+1. Generated latest assets now exist in-repo at `docs/index.html`, `docs/smn.ttl`, `docs/smn.owl`, and `docs/smn.jsonld`.
+2. An immutable `docs/releases/0.0.0/` snapshot now exists in-repo.
+3. No stable public host is yet wired into W3ID for the HTML/RDF/XML/JSON-LD/latest-version surface.
+4. No W3ID-backed SemVer release snapshot redirects are live yet; version-path routing is still future work.
 
-Because of those gaps, the live `.htaccess` rules currently use a safe latest-Turtle fallback and keep the full DFO-style content-negotiation pattern documented for later activation.
+Because of that routing gap, the live `.htaccess` rules currently use a safe latest-Turtle fallback and keep the full DFO-style content-negotiation pattern documented for later activation.
 
 ## Verification commands
 
@@ -61,14 +61,14 @@ Run these only after stable public assets exist:
 curl -I -H 'Accept: text/turtle' https://w3id.org/smn
 curl -I -H 'Accept: application/rdf+xml' https://w3id.org/smn
 curl -I -H 'Accept: application/ld+json' https://w3id.org/smn
-curl -I https://w3id.org/smn/0.1.0
+curl -I https://w3id.org/smn/0.0.0
 ```
 
 Expected: `303` redirects to latest HTML/Turtle/RDFXML/JSON-LD assets plus SemVer release snapshots.
 
 ## Upgrade step
 
-Before switching the W3ID rules to the richer publication pattern, publish or stage a stable public target surface for:
+Before switching the W3ID rules to the richer publication pattern, publish or stage the existing asset surface on a stable public target for:
 
 - latest HTML docs,
 - latest Turtle,

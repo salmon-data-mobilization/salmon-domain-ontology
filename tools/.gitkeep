@@ -1,0 +1,1 @@
+# Keep tools/ in git; JARs are downloaded locally and ignored.

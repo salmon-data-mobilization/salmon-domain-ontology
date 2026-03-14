@@ -1,6 +1,10 @@
 # Phase 2 adoption checklist
 
-Use this checklist when adopting the modular `salmon-domain-ontology` migration artifacts.
+Status: **retained as the post-closeout reference checklist; phase 2 is closed and `0.0.0` is tagged**
+
+Use sections A-C when adopting or validating the modular `salmon-domain-ontology`
+artifacts in downstream work. Section D records the repo-level closeout evidence
+that cleared the original phase-2 gate.
 
 ## A) Ontology maintainers (repo-level)
 
@@ -26,16 +30,18 @@ Use this checklist when adopting the modular `salmon-domain-ontology` migration 
 - [ ] Confirm no hard dependency on removed-in-shared policy-specific SKOS families
 - [ ] Run one end-to-end SPSR extraction/report smoke test on case-study build
 
-## D) Pre-release validation evidence
+## D) Phase-2 closeout evidence (historical gate)
 
-- [ ] Turtle parse check passes for all `.ttl` files in `ontology/`
-- [ ] Cutover execution runbook is finalized (`phase2-cutover-execution-runbook.md`)
-- [ ] Tier-3 mapping triage register is recorded (`phase2-tier3-mapping-triage.md`)
-- [ ] DFO smoke-run evidence is recorded using `phase2-downstream-smoke-run-templates.md`
-- [ ] SPSR smoke-run evidence is recorded using `phase2-downstream-smoke-run-templates.md`
-- [ ] Migration docs are present and linked from repo README
-- [ ] Open blockers are tracked in issue #3 before declaring cutover-ready
+- [x] Turtle parse check passed for all `.ttl` files in `ontology/`
+- [x] Cutover execution runbook finalized (`phase2-cutover-execution-runbook.md`)
+- [x] Tier-3 mapping triage register recorded (`phase2-tier3-mapping-triage.md`)
+- [x] DFO provider-verification note recorded in place of the fictional separate DFO live-smoke gate (`phase2-dfo-live-smoke-runbook.md`)
+- [x] SPSR smoke-run evidence recorded using `phase2-downstream-smoke-run-templates.md`
+- [x] Migration docs present and linked from repo README
+- [x] Original issue #3 blocker package cleared before the `0.0.0` stabilization tag
 
-## E) Cutover readiness gate
+## E) Current use of this checklist
 
-Cutover is ready only when A-D are complete and release-readiness notes show no unresolved blocking items for DFO/SPSR consumers.
+Phase 2 already closed. Use A-C as an adopter checklist for future downstream
+work; do not treat D as an open blocker register unless a new migration/cutover
+cycle is explicitly opened.

@@ -1,0 +1,46 @@
+[
+  {
+    "@id": "https://w3id.org/smn",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Ontology"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Primary modular import graph for reusable salmon-domain concepts and cross-ontology alignments. Phase-1/2/3 scaffold and migration baseline."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Salmon Domain Ontology (modular build)"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#imports": [
+      {
+        "@id": "https://w3id.org/smn/modules/01-entity-systematics"
+      },
+      {
+        "@id": "https://w3id.org/smn/modules/02-observation-measurement"
+      },
+      {
+        "@id": "https://w3id.org/smn/modules/03-assessment-benchmarks"
+      },
+      {
+        "@id": "https://w3id.org/smn/modules/04-management-governance"
+      },
+      {
+        "@id": "https://w3id.org/smn/modules/05-provenance-quality"
+      },
+      {
+        "@id": "https://w3id.org/smn/modules/06-data-interoperability"
+      },
+      {
+        "@id": "https://w3id.org/smn/modules/07-controlled-vocabularies"
+      },
+      {
+        "@id": "https://w3id.org/smn/modules/alignment-main"
+      }
+    ]
+  }
+]
