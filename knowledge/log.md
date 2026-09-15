@@ -49,3 +49,17 @@
   The artifact now reads `smn:Term` instead of `<https://w3id.org/smn/Term>`,
   which is a large one-time diff in `salmon-domain-ontology.ttl` and
   `docs/smn.ttl` with no semantic content.
+- 2026-09-15 — Referential-integrity gate for asserted superclasses (hub item
+  B-143): `scripts/verify_superclass_declarations.py` plus CONVENTIONS 5b
+  rule 7. The finding worth carrying forward is negative and is now on the
+  builds card: **the ELK reasoner gate cannot see this defect and never
+  could**, because an un-axiomatised IRI is a class about which nothing is
+  known, so the closure stays consistent — demonstrated by running
+  `make verify-reasoner` against a deliberately broken module and watching it
+  pass green. The first run found **9 undeclared superclass IRIs**, not the 1
+  the item was cut from: `sosa:Property` (a wrong term in a namespace that is
+  vendored — item B-107) and eight in namespaces never vendored at all. Landed
+  staged rather than enforcing, because a check that arrives red teaches its
+  first reader to weaken it; the two-direction fixture and the
+  new-violation half are enforced from day one, and the staged half fails on a
+  stale baseline entry so the switch-on cannot be quietly skipped.

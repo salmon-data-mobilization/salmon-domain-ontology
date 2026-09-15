@@ -165,6 +165,31 @@ These close the policy gaps the alignment pass found (findings F1/F2/F5/F7).
    `scripts/verify_mapping_policy.py` (checks 4 and 5), which carries the
    condition that would retire it.
 
+7. **An asserted superclass names something (2026-09-15).** Every IRI a module
+   asserts as the object of `rdfs:subClassOf` is **declared**: some file in
+   `ontology/modules/` or `ontology/imports/` carries `rdf:type owl:Class`,
+   `rdf:type rdfs:Class`, or `rdf:type owl:DeprecatedClass` for it. Either a
+   vendored import or a bare declaration stub satisfies this — rule 2 permits
+   a stub anywhere, so the cheap remedy is always available and the rule costs
+   nothing to keep. Built-in classes of OWL and RDFS are outside it, being
+   defined by their specifications rather than by anything shipped here.
+
+   **Appearing as the object of `rdfs:subClassOf` is not itself a
+   declaration.** That is the whole content of the rule: without it, every
+   assertion vacuously justifies its own target.
+
+   **The reasoner does not enforce this and cannot be asked to.** ELK reads an
+   un-axiomatised IRI as a class about which nothing is known, so nothing is
+   entailed, nothing contradicts, and `make verify-reasoner` passes — verified
+   2026-09-15 by running the gate against a deliberately broken module and
+   watching ELK report the closure consistent with zero unsatisfiable classes.
+   A reasoner asks whether the axioms contradict each other; this rule asks
+   whether a name refers to anything. Enforced by
+   `scripts/verify_superclass_declarations.py`, which carries both its own
+   retirement condition and the switch-on condition for its currently staged
+   state. *Currently staged:* nine IRIs predate the rule and are recorded in
+   `docs/tech-debt.md`; new violations already fail.
+
 ## 6) Profile-to-domain bridge pattern
 
 When a profile concept corresponds to shared domain semantics:

@@ -9,7 +9,7 @@ FLAT_TTL := salmon-domain-ontology.ttl
 COMPOSE_FLAT_TTL := $(FLAT_TTL)
 WIDOCO_INPUT := release/tmp/widoco-input.ttl
 
-.PHONY: help install-robot install-widoco check-robot check-widoco compose-case-study-modules compose-flat-ttl docs-widoco-input verify-ontology-parse verify-year-age-semantic-contract verify-flat-ttl verify-doc-term-anchors verify-doc-version-metadata test ci verify-generated-artifacts docs-widoco docs-serializations docs-postprocess docs-refresh snapshot-release release-snapshot release
+.PHONY: help install-robot install-widoco check-robot check-widoco compose-case-study-modules compose-flat-ttl docs-widoco-input verify-ontology-parse verify-year-age-semantic-contract verify-flat-ttl verify-doc-term-anchors verify-doc-version-metadata verify-superclass-declarations verify-superclass-declarations-staged test ci verify-generated-artifacts docs-widoco docs-serializations docs-postprocess docs-refresh snapshot-release release-snapshot release
 
 help:
 	@echo "Salmon Domain Ontology build targets"
@@ -23,6 +23,8 @@ help:
 	@echo "  verify-flat-ttl  Verify committed flat TTL is in sync with source"
 	@echo "  verify-doc-term-anchors  Verify WIDOCO HTML exposes stable #/Term anchors"
 	@echo "  verify-doc-version-metadata  Verify WIDOCO HTML exposes ontology version metadata"
+	@echo "  verify-superclass-declarations  Fail on any undeclared asserted superclass IRI (not yet in 'test'; see B-143)"
+	@echo "  verify-superclass-declarations-staged  Same check, reporting the recorded B-143 backlog without failing"
 	@echo "  test            Run the fast validation bundle"
 	@echo "  ci              Run the full local CI bundle (docs refresh + validation)"
 	@echo "  verify-generated-artifacts  Rebuild publication artifacts and fail if git shows drift"
@@ -131,7 +133,32 @@ verify-doc-term-anchors:
 verify-doc-version-metadata:
 	@python3 scripts/verify_widoco_version_metadata.py
 
-test: verify-ontology-parse verify-case-study-modules verify-year-age-semantic-contract verify-mapping-policy verify-method-shapes verify-flat-ttl verify-doc-term-anchors verify-doc-version-metadata
+# The real gate: fails on any superclass IRI asserted in ontology/modules/ that
+# neither those modules nor a vendored import declares. It is RED over the
+# modules as they stand (9 IRIs, hub item B-143), so it is deliberately NOT a
+# prerequisite of `test` yet -- a check that arrives red teaches its first
+# reader to weaken it.
+#
+# SWITCH-ON CONDITION (2026-09-15): when scripts/verify_superclass_declarations.py
+# has an empty KNOWN_UNDECLARED, replace `verify-superclass-declarations-staged`
+# in the `test` prerequisites below with `verify-superclass-declarations` and
+# delete the staged target. The last baseline entry to clear is sosa:Property,
+# which is hub item B-107, itself blocked on smn pull request #27. The script's
+# staged mode fails on a stale baseline entry, so that swap cannot be forgotten:
+# landing B-107 turns CI red until it is done.
+verify-superclass-declarations:
+	@python3 scripts/verify_superclass_declarations.py
+
+# The staged half, and the one `test` runs today. It is fatal on the
+# two-direction fixture, on any undeclared superclass IRI outside the recorded
+# B-143 backlog, and on any backlog entry that has since been declared. It is
+# silent-but-reporting only on the 9 already known. The fixture is enforced from
+# day one on purpose: a staged check whose own demonstration is also staged rots
+# before it ever guards anything.
+verify-superclass-declarations-staged:
+	@python3 scripts/verify_superclass_declarations.py --staged
+
+test: verify-ontology-parse verify-case-study-modules verify-year-age-semantic-contract verify-mapping-policy verify-method-shapes verify-superclass-declarations-staged verify-flat-ttl verify-doc-term-anchors verify-doc-version-metadata
 	@echo "Validation bundle completed."
 
 ci: docs-refresh test
