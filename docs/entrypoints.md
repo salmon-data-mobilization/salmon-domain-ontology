@@ -20,6 +20,8 @@ Purpose: keep one short, reliable map of what starts the ontology builds, what i
 - Verify year/age/abundance semantic contracts and the mixed-grain example: `make verify-year-age-semantic-contract`
 - Verify WIDOCO term anchors stay stable: `make verify-doc-term-anchors`
 - Verify WIDOCO version metadata renders from source: `make verify-doc-version-metadata`
+- Verify every asserted superclass IRI is declared or vendored: `make verify-superclass-declarations` (**not a prerequisite of `make test` yet** — red over the modules as they stand; hub item B-143)
+- The staged half of that check, which `make test` does run: `make verify-superclass-declarations-staged`
 - Run the fast validation bundle: `make test`
 - Run the full local CI bundle: `make ci`
 - CI drift gate for generated artifacts: `make verify-generated-artifacts`
@@ -60,6 +62,14 @@ Purpose: keep one short, reliable map of what starts the ontology builds, what i
   - Verify the generated WIDOCO HTML still exposes ontology release metadata:
     ```bash
     make verify-doc-version-metadata
+    ```
+  - Verify no module asserts a superclass IRI that nothing declares or vendors.
+    The reasoner gate does **not** cover this: ELK reads an un-axiomatised IRI
+    as a class about which nothing is known, so the closure stays consistent
+    and `make verify-reasoner` passes over the defect.
+    ```bash
+    make verify-superclass-declarations         # the real gate; red today (B-143)
+    make verify-superclass-declarations-staged  # what make test runs today
     ```
   - Run the full fast validation bundle:
     ```bash
