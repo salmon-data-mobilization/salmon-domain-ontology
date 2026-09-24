@@ -16,7 +16,7 @@ step 1 of `metasalmon/knowledge/plans/2026-08-12-ontology-alignment-pass.md`.
 ## What holds
 
 - File-level OWL/SKOS separation is clean: modules 01–05 pure OWL, module
-  07 pure SKOS (**12 schemes, 55 concepts** as of 2026-09-24; 10/49 as of
+  07 pure SKOS (**13 schemes, 59 concepts** as of 2026-09-24; 10/49 as of
   2026-08-13 — the original recon counted 8/36 before `smn:MethodScheme` and
   `smn:StatisticalModifierScheme` landed; six method concepts carry
   `sosa:Procedure` and seven carry `iadopt:StatisticalModifier` instance
