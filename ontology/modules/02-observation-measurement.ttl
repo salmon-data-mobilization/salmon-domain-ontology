@@ -84,6 +84,7 @@ smn:SalmonLifeStage a owl:Class ;
 
 smn:Life-HistoryCharacteristic a owl:Class ;
   rdfs:label "Life-history characteristic"@en ;
+  rdfs:comment "A characteristic that can be observed, not a controlled value. Do not use this IRI as the vocabulary identifier for a coded life-history column: the values belong to module 07's smn:LifeHistoryTypeScheme and its two axis schemes, smn:JuvenileFreshwaterResidenceDurationScheme and smn:JuvenileRearingHabitatScheme, and a code list needs a skos:ConceptScheme, not an owl:Class (CONVENTIONS sections 3 and 4)."@en ;
   rdfs:subClassOf smn:Characteristic ;
   rdfs:isDefinedBy <https://w3id.org/smn> .
 
@@ -326,7 +327,7 @@ smn:hasJuvenileFreshwaterResidenceDuration a owl:ObjectProperty ;
   iao:0000115 "Relates a named life-history type to its value on the juvenile freshwater residence duration axis: how long juveniles remain in fresh water between emergence and seaward migration."@en ;
   rdfs:range skos:Concept ;
   rdfs:seeAlso smn:JuvenileFreshwaterResidenceDurationScheme ;
-  rdfs:comment "A vocabulary-structure property: it records the decomposition that defines that named type rather than an observation about any fish. Domain is omitted rather than asserted as skos:Concept, which would be true of every concept in module 07 and therefore say nothing. The name carries \"duration\" because without it the property reads as whether the group has a freshwater residence at all, which is true of every anadromous salmon and therefore says nothing; it carries \"juvenile\" because adults also reside in fresh water, on a migration this axis does not measure."@en ;
+  rdfs:comment "A vocabulary-structure property: its subject is a concept in smn:LifeHistoryTypeScheme, and it records the decomposition that defines that named type rather than an observation about any fish. Domain is omitted rather than asserted as skos:Concept, which would be true of every concept in module 07 and therefore say nothing. The name carries \"duration\" because without it the property reads as whether the group has a freshwater residence at all, which is true of every anadromous salmon and therefore says nothing; it carries \"juvenile\" because adults also reside in fresh water, on a migration this axis does not measure."@en ;
   rdfs:isDefinedBy <https://w3id.org/smn> .
 
 smn:hasJuvenileRearingHabitat a owl:ObjectProperty ;
@@ -334,5 +335,5 @@ smn:hasJuvenileRearingHabitat a owl:ObjectProperty ;
   iao:0000115 "Relates a named life-history type to its value on the juvenile rearing habitat axis: the kind of fresh water in which juveniles rear before migrating to sea."@en ;
   rdfs:range skos:Concept ;
   rdfs:seeAlso smn:JuvenileRearingHabitatScheme ;
-  rdfs:comment "A vocabulary-structure property, like smn:hasJuvenileFreshwaterResidenceDuration. The value is a kind of water, never a named water body: smn:hasJuvenileRearingHabitat asserts lake-versus-flowing-water, and the unqualified name a future property relating a population to an actual lake or river would want is deliberately left free. \"Rearing\" rather than \"nursery\" because the salmon literature applies \"nursery\" to freshwater lakes and to estuaries alike, so the word does not say which kind of water is meant."@en ;
+  rdfs:comment "A vocabulary-structure property, like smn:hasJuvenileFreshwaterResidenceDuration. The value is a kind of water, never a named water body: smn:hasJuvenileRearingHabitat asserts lake-versus-flowing-water, and the unqualified name a future property relating a population to an actual lake or river would want is deliberately left free. \"Rearing\" rather than \"nursery\" because the salmon literature applies \"nursery\" to freshwater lakes and to estuaries alike, so the word does not say which kind of water is meant. A named type may carry no value on this axis: smn:SockeyeSeaTypeLifeHistory does not."@en ;
   rdfs:isDefinedBy <https://w3id.org/smn> .
