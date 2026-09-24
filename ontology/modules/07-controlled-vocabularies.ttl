@@ -11,7 +11,7 @@
 
 <https://w3id.org/smn/modules/07-controlled-vocabularies> a owl:Ontology ;
   rdfs:label "Salmon Domain Ontology Module 07: Controlled vocabularies"@en ;
-  rdfs:comment "Curated shared SKOS layer for reusable year basis, age, context, life-phase, origin, method, statistical-modifier, juvenile-freshwater-residence-duration, juvenile-rearing-habitat, and life-history-type concepts. Named life-history types are species-scoped and defined as combinations of the axis schemes; species is carried as a Darwin Core literal plus a WoRMS identifier, never as a concept or class. Policy/program-specific schemes, including agency code lists that compose several of these axes into one code, remain profile-scoped by default."@en .
+  rdfs:comment "Curated shared SKOS layer for reusable year basis, age, context, life-phase, origin, method, statistical-modifier, juvenile-freshwater-residence-duration, juvenile-rearing-habitat, life-history-type, and cycle-line concepts. Named life-history types are species-scoped and defined as combinations of the axis schemes; species is carried as a Darwin Core literal plus a WoRMS identifier, never as a concept or class. Policy/program-specific schemes, including agency code lists that compose several of these axes into one code, remain profile-scoped by default."@en .
 
 #################################################################
 # Shared concept schemes
@@ -750,3 +750,49 @@ smn:SockeyeSeaTypeLifeHistory a skos:Concept ;
   rdfs:isDefinedBy <https://w3id.org/smn> ;
   iao:0000119 "The ecotype label sea-type sockeye salmon: Wood, C.C., Riddell, B.E., and Rutherford, D.T. 1987, Can. Spec. Publ. Fish. Aquat. Sci. 96:12-24. The underlying scale-reading term sea type, and the phrase itself: Gilbert, C.H. 1913, Age at maturity of the Pacific coast salmon of the genus Oncorhynchus, Bulletin of the United States Bureau of Fisheries 32:1-22, page 8, in the Sockeye section. The freshwater-annulus discriminator, and the identification of Harrison River and Widgeon Slough as the sea-type populations: Beacham, T.D. and Withler, R.E. 2017, PLOS ONE 12(9):e0183713. The chinook rename that created the ocean-type ambiguity: Healey, M.C. 1991, Life history of chinook salmon (Oncorhynchus tshawytscha), in Groot, C. and Margolis, L. (eds.), Pacific Salmon Life Histories, UBC Press, page 314. Not Burgner 1991, which the 2026-08-17 draft cited here and which the citation record attaches to lake-type rather than to this concept."@en ;
   dcterms:source <https://doi.org/10.1371/journal.pone.0183713> .
+
+#################################################################
+# Cycle line
+#################################################################
+
+smn:CycleLineScheme a skos:ConceptScheme ;
+  skos:prefLabel "Cycle line scheme"@en ;
+  skos:hasTopConcept smn:CycleLine ;
+  skos:definition "Controlled vocabulary for cycle lines: the year series a population's returns fall into when the years are partitioned modulo the population's cycle period, under a declared year basis."@en ;
+  skos:scopeNote "The construct is a year series, not a lineage. Reproductive independence is an additional claim that holds only where age at return is invariant, and it is asserted with smn:hasCycleLine rather than built into these definitions. Pink Salmon return at age 2 invariantly, so the brood-year and return-year partitions coincide and each line is closed under reproduction. Fraser Sockeye are the counter-case: more than 92 percent return at age 4 (Peterman and Dorner 2011) but real age-3 and age-5 components exist, so a fish spawned on one line can return on another, the class is not closed, and the brood-year and return-year partitions of the same fish are not equivalent. Declaring a year basis from smn:YearBasisScheme therefore selects which assertion is being made; it does not reconcile the two."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "The construct, and the invariance condition it depends on, are the broodline of Holtby, L.B. and Ciruna, K.A. 2007, Conservation Units for Pacific Salmon under the Wild Salmon Policy, DFO Canadian Science Advisory Secretariat Research Document 2007/070, glossary: in a semelparous species, if the age of reproduction is fixed or nearly so, the fish spawning in sequential generations are called broodlines, and in Pink Salmon there are even-year and odd-year broodlines in most rivers. That document treats the two as separate races for establishing Conservation Units. The name cycle line is this vocabulary's, not that document's, which uses broodline throughout; see the scope note on smn:CycleLine."@en ;
+  dcterms:source <https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2007/2007_070-eng.htm> .
+
+smn:CycleLine a skos:Concept ;
+  skos:prefLabel "Cycle line"@en ;
+  skos:altLabel "Broodline"@en ;
+  skos:inScheme smn:CycleLineScheme ;
+  skos:topConceptOf smn:CycleLineScheme ;
+  skos:definition "One year series of a salmon population's returns, comprising the years congruent to one another modulo the population's cycle period under a declared year basis."@en ;
+  skos:scopeNote "Naming caution, recorded because it is unresolved: cycle line is this vocabulary's coinage. Holtby and Ciruna (2007), the framework this scheme draws on, says broodline and never says cycle line, and in Fraser Sockeye practice a cycle line is one of the four lines of the cyclic-dominance model — which is the model this concept defers. The term therefore currently names a construct in a scheme that excludes it. Cyclic dominance is a separate, deferred model and is not represented here: whether a line is dominant, subdominant, or off-cycle is a time-scoped status a line holds in one system, not the identity of the line. Its successor is named rather than left open — DFO's three Conservation Unit fields Cyclic (a boolean of the CU), Cyc_Dom, and Cyc_Dom_Year (which line, for that CU, in that period), whose values are dominant, subdominant, and off-cycle. Modelling those retires this deferral."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "The construct, and the invariance condition it depends on, are the broodline of Holtby, L.B. and Ciruna, K.A. 2007, Conservation Units for Pacific Salmon under the Wild Salmon Policy, DFO Canadian Science Advisory Secretariat Research Document 2007/070, glossary: in a semelparous species, if the age of reproduction is fixed or nearly so, the fish spawning in sequential generations are called broodlines, and in Pink Salmon there are even-year and odd-year broodlines in most rivers. That document treats the two as separate races for establishing Conservation Units. The name cycle line is this vocabulary's, not that document's, which uses broodline throughout; see the scope note on smn:CycleLine."@en ;
+  dcterms:source <https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2007/2007_070-eng.htm> .
+
+smn:OddYearCycleLine a skos:Concept ;
+  skos:prefLabel "Odd-year cycle line"@en ;
+  skos:altLabel "Odd Year"@en ;
+  skos:broader smn:CycleLine ;
+  skos:inScheme smn:CycleLineScheme ;
+  skos:definition "The cycle line of a two-year-cycle population whose years, under the declared year basis, are odd-numbered."@en ;
+  skos:scopeNote "One half of the composite DFO Conservation Unit species code PKO, Pink-Odd, whose other half is the species. Scoped to two-year-cycle populations because that is the case in which the odd-year series is also closed under reproduction; for a longer or variable cycle period the parity of a year is not a lineage."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "The construct, and the invariance condition it depends on, are the broodline of Holtby, L.B. and Ciruna, K.A. 2007, Conservation Units for Pacific Salmon under the Wild Salmon Policy, DFO Canadian Science Advisory Secretariat Research Document 2007/070, glossary: in a semelparous species, if the age of reproduction is fixed or nearly so, the fish spawning in sequential generations are called broodlines, and in Pink Salmon there are even-year and odd-year broodlines in most rivers. That document treats the two as separate races for establishing Conservation Units. The name cycle line is this vocabulary's, not that document's, which uses broodline throughout; see the scope note on smn:CycleLine."@en ;
+  dcterms:source <https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2007/2007_070-eng.htm> .
+
+smn:EvenYearCycleLine a skos:Concept ;
+  skos:prefLabel "Even-year cycle line"@en ;
+  skos:altLabel "Even Year"@en ;
+  skos:broader smn:CycleLine ;
+  skos:inScheme smn:CycleLineScheme ;
+  skos:definition "The cycle line of a two-year-cycle population whose years, under the declared year basis, are even-numbered."@en ;
+  skos:scopeNote "One half of the composite DFO Conservation Unit species code PKE, Pink-Even. Minted from the source code list rather than from observed data: DFO maintains even-year Pink Conservation Units, and a dataset holding only odd-year rows is a property of that dataset, not of the vocabulary."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "The construct, and the invariance condition it depends on, are the broodline of Holtby, L.B. and Ciruna, K.A. 2007, Conservation Units for Pacific Salmon under the Wild Salmon Policy, DFO Canadian Science Advisory Secretariat Research Document 2007/070, glossary: in a semelparous species, if the age of reproduction is fixed or nearly so, the fish spawning in sequential generations are called broodlines, and in Pink Salmon there are even-year and odd-year broodlines in most rivers. That document treats the two as separate races for establishing Conservation Units. The name cycle line is this vocabulary's, not that document's, which uses broodline throughout; see the scope note on smn:CycleLine."@en ;
+  dcterms:source <https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2007/2007_070-eng.htm> .

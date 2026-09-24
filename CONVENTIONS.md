@@ -238,7 +238,8 @@ values 1 through 7 as evidenced, and that stands, because integer ages are not
 an enumeration anyone publishes the end of. Where the source enumerates its
 own values, take the enumeration; where it does not, mint as evidenced.
 
-**Applications on record.**
+**Applications on record.** `smn:EvenYearCycleLine`, for DFO's even-year Pink
+code `PKE`, which the motivating SPSR extract contains no row of;
 `smn:SockeyeSeaTypeLifeHistory`, which the source vocabulary documents and the
 extract's coded column cannot express (ADR-0005); and Pacific Fishery
 Management Area subareas, where every subarea that Schedule 2 of the Pacific
