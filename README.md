@@ -55,6 +55,7 @@ Core commands:
 - `make compose-flat-ttl`
 - `make verify-ontology-parse`
 - `make verify-year-age-semantic-contract`
+- `make verify-term-definitions`
 - `make verify-flat-ttl`
 - `make verify-doc-term-anchors`
 - `make verify-doc-version-metadata`

@@ -18,6 +18,7 @@ Purpose: keep one short, reliable map of what starts the ontology builds, what i
 - Verify flat TTL is up-to-date: `make verify-flat-ttl`
 - Verify ontology Turtle parses cleanly: `make verify-ontology-parse`
 - Verify year/age/abundance semantic contracts and the mixed-grain example: `make verify-year-age-semantic-contract`
+- Verify every local term has a definition, or a row in `ontology/definition-exemptions.csv` naming the item that will define or delete it: `make verify-term-definitions`
 - Verify WIDOCO term anchors stay stable: `make verify-doc-term-anchors`
 - Verify WIDOCO version metadata renders from source: `make verify-doc-version-metadata`
 - Run the fast validation bundle: `make test`
@@ -52,6 +53,10 @@ Purpose: keep one short, reliable map of what starts the ontology builds, what i
   - Verify year-basis, age-axis, abundance, mapping, and worked-example contracts:
     ```bash
     make verify-year-age-semantic-contract
+    ```
+  - Verify every local `smn:` term has a definition, or an exemption row that is not stale:
+    ```bash
+    make verify-term-definitions
     ```
   - Verify documented `smn:` terms still expose stable WIDOCO `#/Term` anchors:
     ```bash
