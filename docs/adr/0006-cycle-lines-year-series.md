@@ -8,10 +8,12 @@
 > three concepts, `smn:hasCycleLine` and `smn:stratifiedByCycleLine`. The
 > split rewords nothing. Every paragraph that is not a split note is the
 > original text, copied verbatim, and a passage that concerns more than one
-> part is copied into each. The only additions are split notes like this one,
-> and HTML comments that mark passages which are salmon-domain evidence rather
-> than decisions. Knowledge-log entries dated 2026-08-17 and 2026-08-25 that
-> cite ADR-0003 mean the combined ADR, not this file.
+> part is copied into each, except the passages the next note lists, which
+> were corrected after the split without a ruling. The only additions are
+> split notes like this one, and HTML comments that mark passages which are
+> salmon-domain evidence rather than decisions. Knowledge-log entries dated
+> 2026-08-17 and 2026-08-25 that cite ADR-0003 mean the combined ADR, not this
+> file.
 >
 > Decision numbers are the combined ADR's, kept so that its cross-references
 > still resolve. Each ADR travels with its own part, so a tree that carries
@@ -30,6 +32,36 @@
 > - 8: ADR-0005; its `PKO`/`PKE` half also in ADR-0006.
 > - 9c: ADR-0005; its table rows on the axis terms and on the cycle-line terms
 >   also in ADR-0004 and ADR-0006.
+
+> **Corrections after the split (2026-09-24), not part of the original text.**
+> The passages below were corrected without a ruling, because each was an
+> error of fact, citation or cross-reference that the research on the split
+> found. The pull request that carries this ADR lists each correction with its
+> original wording and its evidence. Line numbers are the combined ADR's.
+>
+> - Status: the corrections are decision 9, not decision 8 (a stale
+>   cross-reference). (line 24)
+> - Decision 5: more than 92% of Fraser sockeye return at age 4 (Peterman and
+>   Dorner 2011), not "roughly 89–92%". (line 364)
+> - Decision 5: 19 `PKO` CUs and 13 current `PKE` CUs plus a Fraser even-year
+>   bin, not 14 `PKE` CUs; the unsourced `Cyclic = FALSE` claim is withdrawn.
+>   (lines 370–374)
+> - Decision 5: the Broodline glossary entry is on printed p. 328, not p. 327.
+>   (line 394)
+> - Decision 7: five properties range on `skos:Concept`, not three, and the
+>   omitted domains have three different reasons, only one with a retirement
+>   condition. (lines 470–475)
+> - Decision 8's heading: `SER` does not decompose onto a named type; it does
+>   decompose onto the habitat value. (line 477)
+> - Decision 9c: the Broodline glossary entry is on printed p. 328, not p.
+>   327. (line 665)
+> - Downstream: #68 is Lake Type and #74 is River Type, so it is #74 that
+>   waits for the `SER` subtlety. (lines 808–812)
+> - Sources read: the Broodline glossary entry is on printed p. 328, not p.
+>   327. (line 1003)
+> - Sources read: footnote 27 is about a genetic sample. (line 1005)
+> - Other evidence: the corrected `PKO`/`PKE` counts, and no public source for
+>   Fraser Pink's `Cyclic` value. (lines 1087–1089)
 
 ## Status
 
@@ -52,7 +84,7 @@ year-series construct.
 The 2026-08-25 revision applies five further rulings from Brett Johnson
 (2026-08-24/25, recorded below as Q6-1 through Q6-5), and corrects **one
 substantive defect and a set of mis-citations that the rulings did not ask
-about and that nobody had questioned**. Those corrections are decision 8, and
+about and that nobody had questioned**. Those corrections are decision 9, and
 they are the part of this revision worth reading first: a term in the previous
 draft asserted two things that cannot both be true, and several `iao:0000119`
 provenance notes cited sources that do not say what was attributed to them.
@@ -145,7 +177,7 @@ everywhere.
 withdrawn.** For pink, age at return is invariantly 2, so a year's residue
 class is **closed under reproduction**: every fish spawned on the odd line
 returns on the odd line, and the class is a lineage. For Fraser sockeye,
-roughly 89–92% return at age 4 with real age-3 and age-5 components, so a fish
+more than 92% return at age 4 (Peterman & Dorner 2011, p. 13) with real age-3 and age-5 components, so a fish
 spawned on one line can return on another. The class is **not closed**, and
 brood-year and return-year bases give **non-equivalent partitions of the same
 fish**. Declaring a year basis does not reconcile those partitions; it selects
@@ -153,13 +185,13 @@ which assertion is being made.
 
 <!-- commons-evidence E11 end -->
 
-<!-- commons-evidence E12 begin: salmon-domain evidence, not a decision (DFO CU tables split pink by line (19 PKO, 14 PKE) and no sockeye CU by line); a candidate for salmon-knowledge-commons -->
+<!-- commons-evidence E12 begin: salmon-domain evidence, not a decision (DFO CU tables split pink by line (19 PKO CUs, 13 current PKE CUs and a Fraser even-year bin) and no sockeye CU by line); a candidate for salmon-knowledge-commons -->
 
 DFO's own data individuates the two cases. Pink CUs are split by line —
-19 `PKO` and 14 `PKE`, with `FRASER RIVER` appearing as both `PKO-01` and
-`PKE-9005` — while **zero** sockeye CUs anywhere are split by cycle line. DFO
-also records Fraser Pink as `Cyclic = FALSE`, which is a useful reminder that
-the dominance fields cut across this scheme rather than along it.
+19 `PKO` CUs and 13 current `PKE` CUs, with the Fraser even-year sites held
+in a bin, `PKE-9005`, that DFO marks "Not a CU" — while **zero** sockeye CUs anywhere are split by cycle line.
+(Corrected 2026-09-24: this paragraph also said DFO records Fraser Pink as `Cyclic = FALSE`;
+no public source for that value was found, so the claim is withdrawn.)
 
 <!-- commons-evidence E12 end -->
 
@@ -178,12 +210,12 @@ A single property with a scope note would have been acceptable and cheaper. Two
 is chosen because the distinction is the whole content of the correction above,
 and a scope note is the part of a term that consumers skip.
 
-<!-- commons-evidence E13 begin: salmon-domain evidence, not a decision (Holtby & Ciruna 2007 say broodline, never cycle line (glossary p. 327)); a candidate for salmon-knowledge-commons -->
+<!-- commons-evidence E13 begin: salmon-domain evidence, not a decision (Holtby & Ciruna 2007 say broodline, never cycle line (glossary, printed p. 328)); a candidate for salmon-knowledge-commons -->
 
 **The name "cycle line" is this vocabulary's coinage, and the 2026-08-25
 source check found it is doubly unsupported.** Holtby and Ciruna 2007 — the
 framework this scheme draws on — contains the string "cycle line" **zero
-times**. Its term is **broodline**, and its glossary (printed p. 327) defines
+times**. Its term is **broodline**, and its glossary (printed p. 328) defines
 it in terms this scheme should have been written from in the first place: *"if
 the age of reproduction is fixed or nearly so then all (or nearly all) of the
 fish spawning in a particular year are the offspring of fish that spawned in a
@@ -252,18 +284,18 @@ module 07. None is an `owl:Class`, and none reuses the IRI of one. The five new
 object properties are `owl:ObjectProperty` in modules 01 and 02; none is a
 concept.
 
-The three new properties that range on `skos:Concept` do so deliberately:
+The five new properties that range on `skos:Concept` do so deliberately:
 values come from a named scheme, pointed at with `rdfs:seeAlso`, in the same
 way `smn:broodYear` points at `smn:BroodYearBasis`. `rdfs:domain` is omitted on
-all five properties, with the omission and its retirement condition recorded in
-the module comments — the legitimate subjects have no common superclass in this
-build, and an OWL 2 EL-safe union domain is not expressible.
+all five, for three reasons recorded in the module comments: for `smn:hasLifeHistory` and `smn:hasCycleLine`, the legitimate subjects have no common superclass in this build and an OWL 2 EL-safe union domain is not expressible (module 01, with a retirement condition);
+for `smn:stratifiedByCycleLine`, the subject may be an observation or a table row, as on `smn:broodYear`; and for the two axis properties, a `skos:Concept` domain
+would be true of every concept in module 07 and so say nothing (module 02). Only the module-01 omission records a retirement condition.
 
 > **Split note.** The counts in this decision are the combined proposal's. This
 > part's share is three concepts in one scheme, and two object properties, one
 > in module 01 and one in module 02.
 
-### 8. The composite DFO code list stays out of the shared layer, and one of its codes does not decompose
+### 8. The composite DFO code list stays out of the shared layer, and one of its codes does not decompose onto a named type
 
 `SEL`/`SER`/`PKE`/`PKO`/`CK`/`CM`/`CO` is a DFO Conservation Unit indexing
 convention. Under CONVENTIONS section 2 it is Layer C — an agency code list —
@@ -303,7 +335,7 @@ Three distinct problems, all now fixed:
 
 | Term(s) | Was cited for | Finding |
 |---|---|---|
-| all four cycle-line terms | Holtby & Ciruna 2007, "cycle-line axis … which separates odd-year and even-year Pink Salmon" | **"cycle line" occurs zero times** in the 358-page document. Its term is **broodline**, defined in the glossary (p. 327). Substance corroborated, label not — see decision 5. |
+| all four cycle-line terms | Holtby & Ciruna 2007, "cycle-line axis … which separates odd-year and even-year Pink Salmon" | **"cycle line" occurs zero times** in the 358-page document. Its term is **broodline**, defined in the glossary (printed p. 328). Substance corroborated, label not — see decision 5. |
 
 <!-- commons-evidence E19 end -->
 
@@ -361,10 +393,10 @@ output *field* handle. Its scope note asking for taxonomic IRIs is
 **satisfied differently than it asks**: under Q6-1 the answer is
 `dwc:scientificName` plus a WoRMS `dwc:scientificNameID` on the gcdfo codes
 themselves, and there is no IRI to supply. Issue #70 closes by reference to
-this ADR; **#74 (species) can now close too**, with Q6-1 as the answer; #68
+this ADR; **#68 (Lake Type) can close too**, answered by `smn:SockeyeLakeTypeLifeHistory`; #74 (River Type)
 closes only once the `SER` subtlety is carried into the gcdfo code, since
 closing it against a single named type would encode the defect this revision
-removed.
+removed. (Issue numbers corrected 2026-09-24 from the hub's S9 record, which checked the issues on 2026-08-18.)
 
 > **Split note.** The `SER` guidance and the species annotations in this
 > paragraph concern the terms of ADR-0004 and ADR-0005. This ADR's share is the
@@ -417,9 +449,9 @@ is said so explicitly.
   under the Wild Salmon Policy.* DFO Can. Sci. Advis. Sec. Res. Doc. 2007/070.
   **Read in full (358 pp.).** Verified in it: "sea-type" occurs exactly once,
   in a reference-list entry (p. 80); "cycle line" occurs zero times; the
-  **Broodline** glossary entry (p. 327); the sockeye trio at §9.2 and the
+  **Broodline** glossary entry (printed p. 328); the sockeye trio at §9.2 and the
   glossary heading *"River/ocean-types of sockeye"*; the 50-ha residual rule;
-  footnote 27 on the Harrison assumption; and the chinook non-split at p. 9.
+  footnote 27, on a genetic sample (see decision 9a item 7); and the chinook non-split at p. 9.
 
 ### Rulings recorded in this ADR
 
@@ -440,9 +472,9 @@ is said so explicitly.
 - `dfo-salmon-ontology` issues #68, #74, #70 (evidence pass 2026-08-16);
   taxonomic-authority and life-history literature review 2026-08-17.
 - Source code list: SPSR data dictionary crosswalk, `demo_cu`/`CU_ID` notes
-  column. CU individuation counts (19 `PKO`, 14 `PKE`, `FRASER RIVER` as both
-  `PKO-01` and `PKE-9005`, no sockeye CU split by line, Fraser Pink
-  `Cyclic = FALSE`) from the DFO Conservation Unit tables.
+  column. CU individuation counts (19 `PKO` CUs, 13 current `PKE` CUs plus the
+  Fraser even-year bin `PKE-9005`, which DFO marks "Not a CU"; no sockeye CU split by line)
+  from the DFO Conservation Unit tables; no public source gives Fraser Pink's `Cyclic` value.
 
 <!-- commons-evidence E24 end -->
 
