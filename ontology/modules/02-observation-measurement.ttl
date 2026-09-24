@@ -9,6 +9,7 @@
 @prefix iao: <http://purl.obolibrary.org/obo/IAO_> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 <https://w3id.org/smn/modules/02-observation-measurement> a owl:Ontology ;
   rdfs:label "Salmon Domain Ontology Module 02: Observation and measurement"@en ;
@@ -313,3 +314,25 @@ smn:catchYear a owl:DatatypeProperty ;
   rdfs:isDefinedBy <https://w3id.org/smn> ;
   iao:0000119 "Adapted from GC DFO Salmon Ontology term gcdfo:CatchYear."@en ;
   dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> .
+
+#################################################################
+# Life-history axis decomposition
+# (proposed 2026-08-17, revised 2026-08-25 — see
+#  docs/adr/0004-juvenile-life-history-axes.md)
+#################################################################
+
+smn:hasJuvenileFreshwaterResidenceDuration a owl:ObjectProperty ;
+  rdfs:label "has juvenile freshwater residence duration"@en ;
+  iao:0000115 "Relates a named life-history type to its value on the juvenile freshwater residence duration axis: how long juveniles remain in fresh water between emergence and seaward migration."@en ;
+  rdfs:range skos:Concept ;
+  rdfs:seeAlso smn:JuvenileFreshwaterResidenceDurationScheme ;
+  rdfs:comment "A vocabulary-structure property: it records the decomposition that defines that named type rather than an observation about any fish. Domain is omitted rather than asserted as skos:Concept, which would be true of every concept in module 07 and therefore say nothing. The name carries \"duration\" because without it the property reads as whether the group has a freshwater residence at all, which is true of every anadromous salmon and therefore says nothing; it carries \"juvenile\" because adults also reside in fresh water, on a migration this axis does not measure."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
+
+smn:hasJuvenileRearingHabitat a owl:ObjectProperty ;
+  rdfs:label "has juvenile rearing habitat"@en ;
+  iao:0000115 "Relates a named life-history type to its value on the juvenile rearing habitat axis: the kind of rearing environment in which juveniles grow before migrating to sea."@en ;
+  rdfs:range skos:Concept ;
+  rdfs:seeAlso smn:JuvenileRearingHabitatScheme ;
+  rdfs:comment "A vocabulary-structure property, like smn:hasJuvenileFreshwaterResidenceDuration. The value is a kind of water, never a named water body: smn:hasJuvenileRearingHabitat asserts lake-versus-flowing-water, and the unqualified name a future property relating a population to an actual lake or river would want is deliberately left free. \"Rearing\" rather than \"nursery\" because the salmon literature applies \"nursery\" to freshwater lakes and to estuaries alike, so the word does not say which kind of water is meant."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
