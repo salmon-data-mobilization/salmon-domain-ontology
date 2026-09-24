@@ -85,6 +85,8 @@
   Riddell & Rutherford 1987; the scale term to Gilbert 1913 (read, and
   cross-checked against a second scan); "river-type" to Semko 1954 via Wood et
   al.; with Pavey et al. 2010's inverted attribution recorded as contested.
+  (Correction, 2026-09-24: the Broodline glossary entry is on printed p. 328,
+  PDF p. 336, not p. 327.)
 - 2026-08-25 — **The sea-type "homograph" in the 2026-08-17 draft was
   backwards.** Gilbert 1913 coined "sea type" **in his Sockeye section**
   (p. 8), applied it across five species, and his chinook section (p. 13)
@@ -119,16 +121,9 @@
   concepts**: it records what is released, and the proposal would make it
   14/62 only on merge. If ADR-0003 is accepted, bump that count in the same
   PR that merges it; if it is rejected or reshaped, nothing needs undoing.
-- 2026-08-17 — Reproducibility defect found and fixed while proposing those
-  terms: the generated root flat TTL was **hash-order dependent**. The merged
-  graph carried no prefix bindings, so rdflib invented `ns1:`/`ns2:`/... for
-  predicate namespaces in store-iteration order; one such namespace was stable
-  by luck, two were not. Eight generator runs on `main` gave one hash; eight on
-  the branch gave four. `make verify-flat-ttl` would have flaked in CI with no
-  source change behind it. Fixed by binding the prefixes the modules declare;
-  see the builds card. The artifact now reads `smn:Term` instead of
-  `<https://w3id.org/smn/Term>`, which is a large one-time diff in
-  `salmon-domain-ontology.ttl` and `docs/smn.ttl` with no semantic content.
+- 2026-08-17 — Reproducibility defect found while proposing those terms. It
+  was split out and merged on its own as PR 29; the 2026-08-21 entry below
+  records it.
 - 2026-08-17 — Three rulings recorded in ADR-0003 (Brett Johnson, 2026-08-17),
   which reshaped that proposal after a taxonomic-authority and life-history
   literature review. (1) **Steelhead is in scope**, and steelhead has no
