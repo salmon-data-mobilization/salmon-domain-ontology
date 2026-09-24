@@ -602,16 +602,16 @@ smn:YearlingFreshwaterResidence a skos:Concept ;
   skos:inScheme smn:JuvenileFreshwaterResidenceDurationScheme ;
   skos:definition "Juvenile freshwater residence of one year or more: juveniles overwinter at least once in fresh water before migrating seaward, and therefore carry at least one freshwater annulus on the scale."@en ;
   rdfs:isDefinedBy <https://w3id.org/smn> ;
-  iao:0000119 "Beacham, T.D. and Withler, R.E. 2017, PLOS ONE 12(9):e0183713, whose lake-type juveniles rear in nursery lakes for at least one year and whose river-type juveniles rear in riverine habitat for one to two years."@en ;
+  iao:0000119 "Beacham, T.D. and Withler, R.E. 2017, PLOS ONE 12(9):e0183713, pages 1 and 2, whose lake-type juveniles rear in nursery lakes for at least one year and whose river-type juveniles rear in the river environment for at least one year. The figure of one to two years for river-type rearing is from Gustafson, R.G., Wainwright, T.C., Winans, G.A., Waknitz, F.W., Parker, L.T. and Waples, R.S. 1997, Status review of sockeye salmon from Washington and Oregon, NOAA Tech. Memo. NMFS-NWFSC-33, page 20."@en ;
   dcterms:source <https://doi.org/10.1371/journal.pone.0183713> .
 
 smn:JuvenileRearingHabitatScheme a skos:ConceptScheme ;
   skos:prefLabel "Juvenile rearing habitat scheme"@en ;
   skos:hasTopConcept smn:JuvenileRearingHabitat ;
   skos:definition "Controlled vocabulary for the habitat axis of juvenile salmon life history: the kind of rearing environment juveniles occupy between emergence and seaward migration."@en ;
-  skos:scopeNote "Species-neutral by construction, and independent of the duration axis: the same kind of rearing habitat is used by groups that leave in their first year and by groups that stay a year or more, which is why the two axes cross-classify rather than nest. Values are kinds of water, never named water bodies; a property relating a population to an actual lake or river is a different property and is not minted here. Do not populate this scheme with the potamodromous vocabulary adfluvial / fluvial / lacustrine (Rieman and McIntyre 1993), despite lacustrine resembling lake and fluvial resembling river. That vocabulary classifies migration patterns completed within fresh water and treats anadromy as a separate category alongside them, so calling an anadromous Sockeye population adfluvial is a category error. Applying it to non-anadromous Oncorhynchus nerka (kokanee) is defensible and would be a different scheme."@en ;
+  skos:scopeNote "Species-neutral by construction, and independent of the duration axis: the same kind of rearing habitat is used by groups that leave in their first year and by groups that stay a year or more, which is why the two axes cross-classify rather than nest. Values are kinds of water, never named water bodies; a property relating a population to an actual lake or river is a different property and is not minted here. Do not populate this scheme with the potamodromous vocabulary of Rieman and McIntyre (1993), who divide migratory bull trout into fluvial and adfluvial (or lacustrine) forms beside the resident form, despite lacustrine resembling lake and fluvial resembling river. That vocabulary classifies migration completed within fresh water and has no anadromous category, because anadromy had not been demonstrated in bull trout, so calling an anadromous Sockeye population adfluvial is a category error. Applying it to non-anadromous Oncorhynchus nerka (kokanee) is defensible and would be a different scheme."@en ;
   rdfs:isDefinedBy <https://w3id.org/smn> ;
-  iao:0000119 "The lake-versus-riverine rearing distinction in Sockeye Salmon is stated by Beacham, T.D. and Withler, R.E. 2017, PLOS ONE 12(9):e0183713, which groups the river-type and sea-type forms together on the ground that neither rears in lakes. It is also the cut DFO itself makes: the glossary of Holtby, L.B. and Ciruna, K.A. 2007, DFO Can. Sci. Advis. Sec. Res. Doc. 2007/070, defines the river/ocean-types of sockeye as juveniles adapted to rearing in flowing water instead of lakes."@en ;
+  iao:0000119 "The lake-versus-riverine rearing distinction in Sockeye Salmon is drawn by Wood, C.C., Bickham, J.W., Nelson, R.J., Foote, C.J. and Patton, J.C. 2008, Recurrent evolution of life history ecotypes in sockeye salmon, Evolutionary Applications 1:207-221, who group the river-type and sea-type forms together because, by definition, neither rears in lakes; Beacham, T.D. and Withler, R.E. 2017, PLOS ONE 12(9):e0183713, page 2, report that grouping. It is also the cut DFO itself makes: the glossary of Holtby, L.B. and Ciruna, K.A. 2007, DFO Can. Sci. Advis. Sec. Res. Doc. 2007/070, defines the river/ocean-types of sockeye as juveniles adapted to rearing in flowing water instead of lakes."@en ;
   dcterms:source <https://doi.org/10.1371/journal.pone.0183713> .
 
 smn:JuvenileRearingHabitat a skos:Concept ;
@@ -627,9 +627,9 @@ smn:LakeRearingHabitat a skos:Concept ;
   skos:prefLabel "Lake rearing habitat"@en ;
   skos:broader smn:JuvenileRearingHabitat ;
   skos:inScheme smn:JuvenileRearingHabitatScheme ;
-  skos:definition "Rearing habitat in which juveniles grow in a lake, typically a nursery lake associated with the spawning tributary."@en ;
+  skos:definition "Rearing habitat in which juveniles grow in a lake, such as the nursery lake of lake-type Sockeye Salmon or a lake used for rearing by juvenile Chinook or coho salmon."@en ;
   rdfs:isDefinedBy <https://w3id.org/smn> ;
-  iao:0000119 "Beacham, T.D. and Withler, R.E. 2017, PLOS ONE 12(9):e0183713, whose lake-type Sockeye Salmon rear in nursery lakes."@en ;
+  iao:0000119 "Beacham, T.D. and Withler, R.E. 2017, PLOS ONE 12(9):e0183713, page 1, whose lake-type Sockeye Salmon rear in nursery lakes. Stalberg, H.C., Lauzier, R.B., MacIsaac, E.A., Porter, M. and Murray, C. 2009, Canada's Policy for Conservation of Wild Pacific Salmon: Stream, Lake, and Estuarine Habitat Indicators, Can. Manuscr. Rep. Fish. Aquat. Sci. 2859, section 3.1.2, page 17, for lakes as rearing habitat of Chinook, coho and sockeye salmon."@en ;
   dcterms:source <https://doi.org/10.1371/journal.pone.0183713> .
 
 smn:RiverineRearingHabitat a skos:Concept ;

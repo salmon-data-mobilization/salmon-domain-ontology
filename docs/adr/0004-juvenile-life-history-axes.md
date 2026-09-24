@@ -8,10 +8,11 @@
 > schemes, their six concepts, and the two axis properties. The split rewords
 > nothing. Every paragraph that is not a split note is the original text,
 > copied verbatim, and a passage that concerns more than one part is copied
-> into each. The only additions are split notes like this one, and HTML
-> comments that mark passages which are salmon-domain evidence rather than
-> decisions. Knowledge-log entries dated 2026-08-17 and 2026-08-25 that cite
-> ADR-0003 mean the combined ADR, not this file.
+> into each, except the passages the next note lists, which were corrected
+> after the split without a ruling. The only additions are split notes like
+> this one, and HTML comments that mark passages which are salmon-domain
+> evidence rather than decisions. Knowledge-log entries dated 2026-08-17 and
+> 2026-08-25 that cite ADR-0003 mean the combined ADR, not this file.
 >
 > Decision numbers are the combined ADR's, kept so that its cross-references
 > still resolve. Each ADR travels with its own part, so a tree that carries
@@ -30,6 +31,30 @@
 > - 8: ADR-0005; its `PKO`/`PKE` half also in ADR-0006.
 > - 9c: ADR-0005; its table rows on the axis terms and on the cycle-line terms
 >   also in ADR-0004 and ADR-0006.
+
+> **Corrections after the split (2026-09-24), not part of the original text.**
+> The passages below were corrected without a ruling, because each was an
+> error of fact, citation or cross-reference that the research on the split
+> found. The pull request that carries this ADR lists each correction with its
+> original wording and its evidence. Line numbers are the combined ADR's.
+>
+> - Status: the corrections are decision 9, not decision 8 (a stale
+>   cross-reference). (line 24)
+> - Decision 2: cycle lines are decision 5, not decision 4 (a stale
+>   cross-reference). (line 184)
+> - Decision 2: the reason for "rearing" rather than "nursery" now rests on
+>   the sources (the literature uses "nursery" for lakes and estuaries alike);
+>   the earlier reason was unsourced. (lines 207–211)
+> - Decision 4: Rieman and McIntyre's bull trout vocabulary has fluvial and
+>   adfluvial (lacustrine) forms beside a resident form and no anadromous
+>   category at all; the text had said it treats anadromy as a separate
+>   category. (lines 335–341)
+> - Decision 7: five properties range on `skos:Concept`, not three, and the
+>   omitted domains have three different reasons, only one with a retirement
+>   condition. (lines 470–475)
+> - Sources read: the Broodline glossary entry is on printed p. 328, not p.
+>   327. (line 1003)
+> - Sources read: footnote 27 is about a genetic sample. (line 1005)
 
 ## Status
 
@@ -55,7 +80,7 @@ year-series construct.
 The 2026-08-25 revision applies five further rulings from Brett Johnson
 (2026-08-24/25, recorded below as Q6-1 through Q6-5), and corrects **one
 substantive defect and a set of mis-citations that the rulings did not ask
-about and that nobody had questioned**. Those corrections are decision 8, and
+about and that nobody had questioned**. Those corrections are decision 9, and
 they are the part of this revision worth reading first: a term in the previous
 draft asserted two things that cannot both be true, and several `iao:0000119`
 provenance notes cited sources that do not say what was attributed to them.
@@ -136,7 +161,7 @@ revision's open question 3 is not minted**:
 > **Split note.** The ruling's third property, and its row of this table, travel
 > with ADR-0005, whose part mints it. The two rows above are this part's.
 
-The two cycle-line properties of decision 4 are a separate construct and are
+The two cycle-line properties of decision 5 are a separate construct and are
 not part of this count.
 
 **The names, argued, because the ruling gives the first one and asks for the
@@ -151,10 +176,10 @@ because adults also reside in fresh water, on a spawning migration this axis
 does not measure.
 
 `smn:hasJuvenileRearingHabitat` replaces `smn:hasJuvenileNurseryHabitat`.
-**"Rearing" rather than "nursery"** because rearing habitat is the settled
-term for the juvenile freshwater growth phase in the Pacific salmon
-literature, while "nursery area" carries a distinct and largely
-marine/estuarine sense; DFO's own framework document uses "nursery lakes" for
+**"Rearing" rather than "nursery"** because the salmon literature applies
+"nursery" to freshwater lakes and to estuaries alike (Healey 1991, p. 314:
+"freshwater and estuarine nursery habitats"), so the word does not say which
+kind of water is meant; DFO's own framework document uses "nursery lakes" for
 the lake case specifically but describes the axis itself as where juveniles
 "rear". **"Juvenile" is kept here for a different reason than on the duration
 property:** `smn:hasRearingHabitat`, unqualified, is the name a future
@@ -226,12 +251,12 @@ and each defined as a combination of axis values.
 > **Split note.** Of this table, this part mints the first two rows. The third
 > row is ADR-0005's and the fourth is ADR-0006's.
 
-<!-- commons-evidence E10 begin: salmon-domain evidence, not a decision (adfluvial / fluvial / lacustrine is a potamodromous classification); a candidate for salmon-knowledge-commons -->
+<!-- commons-evidence E10 begin: salmon-domain evidence, not a decision (the bull trout resident / fluvial / adfluvial (lacustrine) vocabulary is a potamodromous classification with no anadromous category); a candidate for salmon-knowledge-commons -->
 
-**`adfluvial`/`fluvial`/`lacustrine` is not this vocabulary.** It is a
-potamodromous classification (Rieman and McIntyre 1993), and it treats anadromy
-as a *separate category alongside* those terms rather than as something they
-qualify. Applying "adfluvial" to an anadromous sockeye population is a category
+**`fluvial`/`adfluvial` (or `lacustrine`) is not this vocabulary.** It is a
+potamodromous classification of migratory bull trout, beside a resident form
+(Rieman and McIntyre 1993, p. 2), and it has no anadromous category at all:
+*"Anadromy has not been demonstrated in bull trout"*. Applying "adfluvial" to an anadromous sockeye population is a category
 error; applying it to kokanee is defensible and would be a different scheme.
 The surface similarity — lacustrine resembles lake, fluvial resembles river —
 is exactly why the rearing-habitat scheme says so in a scope note.
@@ -245,12 +270,12 @@ module 07. None is an `owl:Class`, and none reuses the IRI of one. The five new
 object properties are `owl:ObjectProperty` in modules 01 and 02; none is a
 concept.
 
-The three new properties that range on `skos:Concept` do so deliberately:
+The five new properties that range on `skos:Concept` do so deliberately:
 values come from a named scheme, pointed at with `rdfs:seeAlso`, in the same
 way `smn:broodYear` points at `smn:BroodYearBasis`. `rdfs:domain` is omitted on
-all five properties, with the omission and its retirement condition recorded in
-the module comments — the legitimate subjects have no common superclass in this
-build, and an OWL 2 EL-safe union domain is not expressible.
+all five, for three reasons recorded in the module comments: for `smn:hasLifeHistory` and `smn:hasCycleLine`, the legitimate subjects have no common superclass in this build and an OWL 2 EL-safe union domain is not expressible (module 01, with a retirement condition);
+for `smn:stratifiedByCycleLine`, the subject may be an observation or a table row, as on `smn:broodYear`; and for the two axis properties, a `skos:Concept` domain
+would be true of every concept in module 07 and so say nothing (module 02). Only the module-01 omission records a retirement condition.
 
 > **Split note.** The counts in this decision are the combined proposal's. This
 > part's share is six concepts in two schemes, and two object properties, both
@@ -373,9 +398,9 @@ is said so explicitly.
   under the Wild Salmon Policy.* DFO Can. Sci. Advis. Sec. Res. Doc. 2007/070.
   **Read in full (358 pp.).** Verified in it: "sea-type" occurs exactly once,
   in a reference-list entry (p. 80); "cycle line" occurs zero times; the
-  **Broodline** glossary entry (p. 327); the sockeye trio at §9.2 and the
+  **Broodline** glossary entry (printed p. 328); the sockeye trio at §9.2 and the
   glossary heading *"River/ocean-types of sockeye"*; the 50-ha residual rule;
-  footnote 27 on the Harrison assumption; and the chinook non-split at p. 9.
+  footnote 27, on a genetic sample (see decision 9a item 7); and the chinook non-split at p. 9.
 
 **Literature:**
 
