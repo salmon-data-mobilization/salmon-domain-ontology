@@ -9,6 +9,8 @@ from pathlib import Path
 from rdflib import Graph, Literal, Namespace, URIRef
 from rdflib.namespace import OWL, RDF, RDFS, SKOS, XSD
 
+from verify_term_definitions import has_definition
+
 
 SMN = Namespace("https://w3id.org/smn/")
 GCDFO = Namespace("https://w3id.org/gcdfo/salmon#")
@@ -18,7 +20,6 @@ QB = Namespace("http://purl.org/linked-data/cube#")
 SOSA = Namespace("http://www.w3.org/ns/sosa/")
 TIME = Namespace("http://www.w3.org/2006/time#")
 DWC = Namespace("http://rs.tdwg.org/dwc/terms/")
-IAO_DEFINITION = URIRef("http://purl.obolibrary.org/obo/IAO_0000115")
 EX = Namespace("https://w3id.org/smn/example/fraser-stock-recruit#")
 
 
@@ -29,12 +30,15 @@ def require(graph: Graph, triple: tuple, message: str) -> None:
 
 
 def require_term_annotations(graph: Graph, term: URIRef, *, skos_term: bool) -> None:
-    """Check the repository's minimum human-facing annotation contract."""
+    """Check the repository's minimum human-facing annotation contract.
+
+    Which property holds a definition is decided in verify_term_definitions.py,
+    which applies the same rule to every local term, so it is not restated here.
+    """
     label_property = SKOS.prefLabel if skos_term else RDFS.label
-    definition_property = SKOS.definition if skos_term else IAO_DEFINITION
     if not list(graph.objects(term, label_property)):
         raise AssertionError(f"{term} has no preferred label")
-    if not list(graph.objects(term, definition_property)):
+    if not has_definition(graph, term, skos_term=skos_term):
         raise AssertionError(f"{term} has no definition")
     require(
         graph,
