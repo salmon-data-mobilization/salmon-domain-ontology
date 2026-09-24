@@ -7,11 +7,12 @@
 > commit `949ed95`). It is the part that adds `CONVENTIONS.md` section 8b, and
 > it mints no term. The split rewords nothing. Every paragraph that is not a
 > split note is the original text, copied verbatim, and a passage that
-> concerns more than one part is copied into each. The only additions are
-> split notes like this one, and HTML comments that mark passages which are
-> salmon-domain evidence rather than decisions. Knowledge-log entries dated
-> 2026-08-17 and 2026-08-25 that cite ADR-0003 mean the combined ADR, not this
-> file.
+> concerns more than one part is copied into each, except the passages the
+> next note lists, which were corrected after the split without a ruling. The
+> only additions are split notes like this one, and HTML comments that mark
+> passages which are salmon-domain evidence rather than decisions.
+> Knowledge-log entries dated 2026-08-17 and 2026-08-25 that cite ADR-0003
+> mean the combined ADR, not this file.
 >
 > Decision numbers are the combined ADR's, kept so that its cross-references
 > still resolve. Each ADR travels with its own part, so a tree that carries
@@ -30,6 +31,15 @@
 > - 8: ADR-0005; its `PKO`/`PKE` half also in ADR-0006.
 > - 9c: ADR-0005; its table rows on the axis terms and on the cycle-line terms
 >   also in ADR-0004 and ADR-0006.
+
+> **Corrections after the split (2026-09-24), not part of the original text.**
+> The passages below were corrected without a ruling, because each was an
+> error of fact, citation or cross-reference that the research on the split
+> found. The pull request that carries this ADR lists each correction with its
+> original wording and its evidence. Line numbers are the combined ADR's.
+>
+> - Status: the corrections are decision 9, not decision 8 (a stale
+>   cross-reference). (line 24)
 
 ## Status
 
@@ -55,7 +65,7 @@ year-series construct.
 The 2026-08-25 revision applies five further rulings from Brett Johnson
 (2026-08-24/25, recorded below as Q6-1 through Q6-5), and corrects **one
 substantive defect and a set of mis-citations that the rulings did not ask
-about and that nobody had questioned**. Those corrections are decision 8, and
+about and that nobody had questioned**. Those corrections are decision 9, and
 they are the part of this revision worth reading first: a term in the previous
 draft asserted two things that cannot both be true, and several `iao:0000119`
 provenance notes cited sources that do not say what was attributed to them.

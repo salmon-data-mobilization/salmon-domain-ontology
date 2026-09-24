@@ -239,8 +239,9 @@ an enumeration anyone publishes the end of. Where the source enumerates its
 own values, take the enumeration; where it does not, mint as evidenced.
 
 **Applications on record.** Pacific Fishery
-Management Area subareas, where the DFO subarea list is minted whole rather
-than trimmed to the subareas a given catch extract touches.
+Management Area subareas, where every subarea that Schedule 2 of the Pacific
+Fishery Management Area Regulations, 2007 (SOR/2007-77) names is minted, in
+gcdfo (its ADR-009), rather than only the subareas a given catch extract touches.
 
 ## 9) Versioning and transition
 
