@@ -2562,6 +2562,228 @@
     ]
   },
   {
+    "@id": "https://w3id.org/smn/JuvenileFreshwaterResidenceDuration",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "The duration axis is the original scale-reading distinction of Gilbert, C.H. 1913, Age at maturity of the Pacific coast salmon of the genus Oncorhynchus, Bulletin of the United States Bureau of Fisheries 32:1-22. Its modern statement for Sockeye Salmon, in freshwater-annulus terms, is Beacham, T.D. and Withler, R.E. 2017, PLOS ONE 12(9):e0183713."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://doi.org/10.1371/journal.pone.0183713"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "The length of time juveniles of a salmon group remain in fresh water between emergence and seaward migration, expressed as a controlled value."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/smn/JuvenileFreshwaterResidenceDurationScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Juvenile freshwater residence duration"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#topConceptOf": [
+      {
+        "@id": "https://w3id.org/smn/JuvenileFreshwaterResidenceDurationScheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/JuvenileFreshwaterResidenceDurationScheme",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "The duration axis is the original scale-reading distinction of Gilbert, C.H. 1913, Age at maturity of the Pacific coast salmon of the genus Oncorhynchus, Bulletin of the United States Bureau of Fisheries 32:1-22, whose sea type and stream type separate fish by whether the scale nucleus records a freshwater winter. Its modern statement for Sockeye Salmon, in freshwater-annulus terms, is Beacham, T.D. and Withler, R.E. 2017, Population structure of sea-type and lake-type sockeye salmon and kokanee in the Fraser River and Columbia River drainages, PLOS ONE 12(9):e0183713."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://doi.org/10.1371/journal.pone.0183713"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Controlled vocabulary for the duration axis of juvenile salmon life history: how long juveniles remain in fresh water between emergence and seaward migration."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#hasTopConcept": [
+      {
+        "@id": "https://w3id.org/smn/JuvenileFreshwaterResidenceDuration"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Juvenile freshwater residence duration scheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Species-neutral by construction. This is an axis a named life-history type is defined from, not a life-history type itself: a value here carries no claim about where juveniles reared, how adults behave, or what genetic structure the group has. It is also not age at maturity, which Healey (1991) treats as tactical variation within a race rather than as race-defining. The scheme is deliberately coarse — a two-valued cut at the first freshwater winter — because that cut is what a scale reader can actually determine: a fish that overwinters in fresh water lays down a freshwater annulus and one that does not, does not."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/JuvenileRearingHabitat",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "The lake-versus-riverine rearing distinction in Sockeye Salmon is stated by Beacham, T.D. and Withler, R.E. 2017, PLOS ONE 12(9):e0183713."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://doi.org/10.1371/journal.pone.0183713"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "The kind of rearing environment in which juveniles of a salmon group grow before migrating to sea, expressed as a controlled value."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/smn/JuvenileRearingHabitatScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Juvenile rearing habitat"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#topConceptOf": [
+      {
+        "@id": "https://w3id.org/smn/JuvenileRearingHabitatScheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/JuvenileRearingHabitatScheme",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "The lake-versus-riverine rearing distinction in Sockeye Salmon is stated by Beacham, T.D. and Withler, R.E. 2017, PLOS ONE 12(9):e0183713, which groups the river-type and sea-type forms together on the ground that neither rears in lakes. It is also the cut DFO itself makes: the glossary of Holtby, L.B. and Ciruna, K.A. 2007, DFO Can. Sci. Advis. Sec. Res. Doc. 2007/070, defines the river/ocean-types of sockeye as juveniles adapted to rearing in flowing water instead of lakes."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://doi.org/10.1371/journal.pone.0183713"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Controlled vocabulary for the habitat axis of juvenile salmon life history: the kind of rearing environment juveniles occupy between emergence and seaward migration."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#hasTopConcept": [
+      {
+        "@id": "https://w3id.org/smn/JuvenileRearingHabitat"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Juvenile rearing habitat scheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Species-neutral by construction, and independent of the duration axis: the same kind of rearing habitat is used by groups that leave in their first year and by groups that stay a year or more, which is why the two axes cross-classify rather than nest. Values are kinds of water, never named water bodies; a property relating a population to an actual lake or river is a different property and is not minted here. Do not populate this scheme with the potamodromous vocabulary adfluvial / fluvial / lacustrine (Rieman and McIntyre 1993), despite lacustrine resembling lake and fluvial resembling river. That vocabulary classifies migration patterns completed within fresh water and treats anadromy as a separate category alongside them, so calling an anadromous Sockeye population adfluvial is a category error. Applying it to non-anadromous Oncorhynchus nerka (kokanee) is defensible and would be a different scheme."
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/LakeRearingHabitat",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Beacham, T.D. and Withler, R.E. 2017, PLOS ONE 12(9):e0183713, whose lake-type Sockeye Salmon rear in nursery lakes."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://doi.org/10.1371/journal.pone.0183713"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/smn/JuvenileRearingHabitat"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Rearing habitat in which juveniles grow in a lake, typically a nursery lake associated with the spawning tributary."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/smn/JuvenileRearingHabitatScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Lake rearing habitat"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/smn/Life-HistoryCharacteristic",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
@@ -3671,6 +3893,56 @@
     ]
   },
   {
+    "@id": "https://w3id.org/smn/RiverineRearingHabitat",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Beacham, T.D. and Withler, R.E. 2017, PLOS ONE 12(9):e0183713, whose sea-type and river-type Sockeye Salmon both rear in river habitats, with sea-type juveniles rearing for several months in estuarine waters."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://doi.org/10.1371/journal.pone.0183713"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/smn/JuvenileRearingHabitat"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Rearing habitat in which juveniles grow in flowing water, or in an associated slough or estuary, rather than in a lake."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/smn/JuvenileRearingHabitatScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Riverine rearing habitat"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "en",
+        "@value": "Deliberately spans the river-slough-estuary continuum rather than cutting it, because the Sockeye Salmon groups that use it are reported across that whole range and the distinction that separates those groups is duration, not position along the continuum. Where an estuarine-versus-fluvial distinction is itself the subject, model it as a narrower concept rather than by reinterpreting this one."
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/smn/Run",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
@@ -4169,6 +4441,62 @@
     ]
   },
   {
+    "@id": "https://w3id.org/smn/SubyearlingFreshwaterResidence",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Beacham, T.D. and Withler, R.E. 2017, Population structure of sea-type and lake-type sockeye salmon and kokanee in the Fraser River and Columbia River drainages, PLOS ONE 12(9):e0183713, which states that sea-type juveniles do not spend a winter in fresh water and thus lack a freshwater annulus."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://doi.org/10.1371/journal.pone.0183713"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "Subyearling migrant"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/smn/JuvenileFreshwaterResidenceDuration"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Juvenile freshwater residence of less than one year: juveniles migrate seaward during their first year, without overwintering in fresh water, and therefore carry no freshwater annulus on the scale."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/smn/JuvenileFreshwaterResidenceDurationScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Subyearling freshwater residence"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#scopeNote": [
+      {
+        "@language": "en",
+        "@value": "The freshwater annulus is the operational test, and it is the reason this axis is cut here rather than at some other duration. Two boundaries are easy to get wrong. The incubation winter spent in the gravel as egg and alevin lays down no annulus and does not count against this value. And this value means no freshwater WINTER, not no freshwater rearing: a subyearling migrant may spend weeks or months in flowing water, sloughs, or the estuary first, which is why it can and does carry a value on the rearing habitat axis. A dataset that keys its equivalent category on residency duration rather than on the annulus is therefore measuring something adjacent, not the same thing, and the two usually but not always agree."
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/smn/SurveyEvent",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
@@ -4589,6 +4917,56 @@
     ]
   },
   {
+    "@id": "https://w3id.org/smn/YearlingFreshwaterResidence",
+    "@type": [
+      "http://www.w3.org/2004/02/skos/core#Concept"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000119": [
+      {
+        "@language": "en",
+        "@value": "Beacham, T.D. and Withler, R.E. 2017, PLOS ONE 12(9):e0183713, whose lake-type juveniles rear in nursery lakes for at least one year and whose river-type juveniles rear in riverine habitat for one to two years."
+      }
+    ],
+    "http://purl.org/dc/terms/source": [
+      {
+        "@id": "https://doi.org/10.1371/journal.pone.0183713"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#altLabel": [
+      {
+        "@language": "en",
+        "@value": "Yearling migrant"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#broader": [
+      {
+        "@id": "https://w3id.org/smn/JuvenileFreshwaterResidenceDuration"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Juvenile freshwater residence of one year or more: juveniles overwinter at least once in fresh water before migrating seaward, and therefore carry at least one freshwater annulus on the scale."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#inScheme": [
+      {
+        "@id": "https://w3id.org/smn/JuvenileFreshwaterResidenceDurationScheme"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Yearling or older freshwater residence"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/smn/alevin",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
@@ -4936,6 +5314,84 @@
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
         "@id": "https://w3id.org/smn/EventType"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/hasJuvenileFreshwaterResidenceDuration",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Relates a named life-history type to its value on the juvenile freshwater residence duration axis: how long juveniles remain in fresh water between emergence and seaward migration."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A vocabulary-structure property: it records the decomposition that defines that named type rather than an observation about any fish. Domain is omitted rather than asserted as skos:Concept, which would be true of every concept in module 07 and therefore say nothing. The name carries \"duration\" because without it the property reads as whether the group has a freshwater residence at all, which is true of every anadromous salmon and therefore says nothing; it carries \"juvenile\" because adults also reside in fresh water, on a migration this axis does not measure."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has juvenile freshwater residence duration"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://w3id.org/smn/JuvenileFreshwaterResidenceDurationScheme"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/smn/hasJuvenileRearingHabitat",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://purl.obolibrary.org/obo/IAO_0000115": [
+      {
+        "@language": "en",
+        "@value": "Relates a named life-history type to its value on the juvenile rearing habitat axis: the kind of fresh water in which juveniles rear before migrating to sea."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A vocabulary-structure property, like smn:hasJuvenileFreshwaterResidenceDuration. The value is a kind of water, never a named water body: smn:hasJuvenileRearingHabitat asserts lake-versus-flowing-water, and the unqualified name a future property relating a population to an actual lake or river would want is deliberately left free. \"Rearing\" rather than \"nursery\" because rearing habitat is the settled term for the juvenile freshwater growth phase in the Pacific salmon literature, while nursery area carries a distinct, largely marine and estuarine sense."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#isDefinedBy": [
+      {
+        "@id": "https://w3id.org/smn"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has juvenile rearing habitat"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://w3id.org/smn/JuvenileRearingHabitatScheme"
       }
     ]
   },
