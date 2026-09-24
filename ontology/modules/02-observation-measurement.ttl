@@ -317,9 +317,10 @@ smn:catchYear a owl:DatatypeProperty ;
   dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/f08133685563bb89deac9c290266e120f277ec68/ontology/dfo-salmon.ttl> .
 
 #################################################################
-# Cycle-line stratification
+# Cycle-line stratification and life-history axis decomposition
 # (proposed 2026-08-17, revised 2026-08-25 — see
-#  docs/adr/0006-cycle-lines-year-series.md)
+#  docs/adr/0006-cycle-lines-year-series.md and
+#  docs/adr/0004-juvenile-life-history-axes.md)
 #################################################################
 
 smn:stratifiedByCycleLine a owl:ObjectProperty ;
@@ -329,12 +330,6 @@ smn:stratifiedByCycleLine a owl:ObjectProperty ;
   rdfs:seeAlso smn:CycleLineScheme , smn:ReturnYearBasis ;
   rdfs:comment "The weak, always-safe claim: the subject year belongs to that residue class under the declared year basis. It asserts nothing about reproductive independence and nothing about the fish, which is why it is the correct property for a population with variable age at return such as Fraser Sockeye. Use smn:hasCycleLine, on the population rather than the record, where age at return is invariant and the line really is a lineage. Domain is deliberately omitted for the same reason as on smn:broodYear: the subject may be an observation or a table row."@en ;
   rdfs:isDefinedBy <https://w3id.org/smn> .
-
-#################################################################
-# Life-history axis decomposition
-# (proposed 2026-08-17, revised 2026-08-25 — see
-#  docs/adr/0004-juvenile-life-history-axes.md)
-#################################################################
 
 smn:hasJuvenileFreshwaterResidenceDuration a owl:ObjectProperty ;
   rdfs:label "has juvenile freshwater residence duration"@en ;

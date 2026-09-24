@@ -144,11 +144,12 @@ smn:populationOf a owl:ObjectProperty ;
   rdfs:isDefinedBy <https://w3id.org/smn> .
 
 #################################################################
-# Life-history assertions
+# Life-history and cycle-line assertions
 # (proposed 2026-08-17, revised 2026-08-25 — see
-#  docs/adr/0005-sockeye-life-history-types-no-species-vocabulary.md)
+#  docs/adr/0005-sockeye-life-history-types-no-species-vocabulary.md and
+#  docs/adr/0006-cycle-lines-year-series.md)
 #
-# This property omits rdfs:domain deliberately. Its legitimate
+# Both properties omit rdfs:domain deliberately. Their legitimate
 # subjects — smn:Population and the reporting or management strata
 # (smn:Stock, Conservation Units) — have no common superclass in this
 # build, and an OWL 2 EL-safe union domain is not expressible, so an
@@ -164,20 +165,6 @@ smn:hasLifeHistory a owl:ObjectProperty ;
   rdfs:seeAlso smn:LifeHistoryTypeScheme ;
   rdfs:comment "One of the three life-history properties (Brett Johnson, 2026-08-24): this one assigns a named type, and smn:hasJuvenileFreshwaterResidenceDuration and smn:hasJuvenileRearingHabitat decompose what that type means. No generic axis-value property is minted. Assertion is at Conservation Unit, population, or stock level, not for an individual fish (Brett Johnson, 2026-08-17). The range is skos:Concept because the values are SKOS concepts; take them from smn:LifeHistoryTypeScheme, whose members are species-scoped."@en ;
   rdfs:isDefinedBy <https://w3id.org/smn> .
-
-#################################################################
-# Cycle-line assertions
-# (proposed 2026-08-17, revised 2026-08-25 — see
-#  docs/adr/0006-cycle-lines-year-series.md)
-#
-# This property omits rdfs:domain deliberately. Its legitimate
-# subjects — smn:Population and the reporting or management strata
-# (smn:Stock, Conservation Units) — have no common superclass in this
-# build, and an OWL 2 EL-safe union domain is not expressible, so an
-# asserted domain would silently mis-type half the real subjects.
-# Retire the omission when a shared superclass over biological groups
-# and assessment strata exists.
-#################################################################
 
 smn:hasCycleLine a owl:ObjectProperty ;
   rdfs:label "has cycle line"@en ;

@@ -564,11 +564,13 @@ smn:PeakStatisticalModifier a skos:Concept, iadopt:StatisticalModifier ;
   rdfs:isDefinedBy <https://w3id.org/smn> .
 
 #################################################################
-# Life-history type
+# Life-history type and cycle line
 # (proposed 2026-08-17, revised 2026-08-25 — see
-#  docs/adr/0005-sockeye-life-history-types-no-species-vocabulary.md)
+#  docs/adr/0004-juvenile-life-history-axes.md,
+#  docs/adr/0005-sockeye-life-history-types-no-species-vocabulary.md, and
+#  docs/adr/0006-cycle-lines-year-series.md)
 #
-# No species
+# Two independent constructs, four schemes, and no species
 # vocabulary. Species is carried as a dwc:scientificName literal
 # plus a WoRMS dwc:scientificNameID, never as an smn: concept or
 # class (Brett Johnson, 2026-08-24).
@@ -687,7 +689,7 @@ smn:LifeHistoryTypeScheme a skos:ConceptScheme ;
   skos:prefLabel "Life-history type scheme"@en ;
   skos:hasTopConcept smn:LifeHistoryType ;
   skos:definition "Controlled vocabulary of named salmon life-history types. Each concept is scoped to a single species and is defined as a combination of values from the life-history axis schemes rather than as a primitive."@en ;
-  skos:scopeNote "Every named type in this scheme is species-scoped, and a type from one species is never assumed to mean a type from another: sockeye river-type is not chinook stream-type despite the near-identical English. Species is carried on each concept as a dwc:scientificName literal plus a WoRMS dwc:scientificNameID, not as an smn: species concept, and no smn: species concept or class exists to point at (Brett Johnson, 2026-08-24). A flat cross-species enumeration of these names is the failure mode this scheme is shaped to prevent, because the strings are similar enough to merge automatically and wrong to merge. Assertion is at Conservation Unit, population, or stock level, never for an individual fish (Brett Johnson, 2026-08-17), using smn:hasLifeHistory."@en ;
+  skos:scopeNote "Every named type in this scheme is species-scoped, and a type from one species is never assumed to mean a type from another: sockeye river-type is not chinook stream-type despite the near-identical English. Species is carried on each concept as a dwc:scientificName literal plus a WoRMS dwc:scientificNameID, not as an smn: species concept, and no smn: species concept or class exists to point at (Brett Johnson, 2026-08-24). A flat cross-species enumeration of these names is the failure mode this scheme is shaped to prevent, because the strings are similar enough to merge automatically and wrong to merge. Assertion is at Conservation Unit, population, or stock level, never for an individual fish (Brett Johnson, 2026-08-17), using smn:hasLifeHistory. Cycle line has its own vocabulary, smn:CycleLineScheme; do not add cycle-line values here."@en ;
   rdfs:isDefinedBy <https://w3id.org/smn> ;
   iao:0000119 "Life history is one of the three primary characteristics used to delimit Pacific salmon Conservation Units, alongside ecotypology and genetics. Holtby, L.B. and Ciruna, K.A. 2007. Conservation Units for Pacific Salmon under the Wild Salmon Policy. DFO Canadian Science Advisory Secretariat Research Document 2007/070."@en ;
   dcterms:source <https://www.dfo-mpo.gc.ca/csas-sccs/publications/resdocs-docrech/2007/2007_070-eng.htm> .
