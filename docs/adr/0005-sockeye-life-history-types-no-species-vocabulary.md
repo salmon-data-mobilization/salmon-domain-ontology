@@ -11,10 +11,11 @@
 > at once and this is the part stacked on the most others. The split rewords
 > nothing. Every paragraph that is not a split note is the original text,
 > copied verbatim, and a passage that concerns more than one part is copied
-> into each. The only additions are split notes like this one, and HTML
-> comments that mark passages which are salmon-domain evidence rather than
-> decisions. Knowledge-log entries dated 2026-08-17 and 2026-08-25 that cite
-> ADR-0003 mean the combined ADR, not this file.
+> into each, except the passages the next note lists, which were corrected
+> after the split without a ruling. The only additions are split notes like
+> this one, and HTML comments that mark passages which are salmon-domain
+> evidence rather than decisions. Knowledge-log entries dated 2026-08-17 and
+> 2026-08-25 that cite ADR-0003 mean the combined ADR, not this file.
 >
 > Decision numbers are the combined ADR's, kept so that its cross-references
 > still resolve. Each ADR travels with its own part, so a tree that carries
@@ -33,6 +34,46 @@
 > - 8: ADR-0005; its `PKO`/`PKE` half also in ADR-0006.
 > - 9c: ADR-0005; its table rows on the axis terms and on the cycle-line terms
 >   also in ADR-0004 and ADR-0006.
+
+> **Corrections after the split (2026-09-24), not part of the original text.**
+> The passages below were corrected without a ruling, because each was an
+> error of fact, citation or cross-reference that the research on the split
+> found. The pull request that carries this ADR lists each correction with its
+> original wording and its evidence. Line numbers are the combined ADR's.
+>
+> - Status: the corrections are decision 9, not decision 8 (a stale
+>   cross-reference). (line 24)
+> - Decision 1: gcdfo issue #74 is the River Type term review, not a species
+>   issue. (lines 166–167)
+> - Decision 2: cycle lines are decision 5, not decision 4 (a stale
+>   cross-reference). (line 184)
+> - Decision 7: the instances of `smn:Life-HistoryCharacteristic`, not the
+>   class, are `sosa:observedProperty` values. (lines 458–462)
+> - Decision 7: five properties range on `skos:Concept`, not three, and the
+>   omitted domains have three different reasons, only one with a retirement
+>   condition. (lines 470–475)
+> - Decision 8's heading: `SER` does not decompose onto a named type; it does
+>   decompose onto the habitat value. (line 477)
+> - Decision 9a item 7: footnote 27 of Holtby and Ciruna 2007 concerns a
+>   genetic sample, not the Harrison River CU's code; DFO's CSAS Res. Doc.
+>   2023/003 is cited instead. (lines 580–585)
+> - Decision 9a: the river-type definition's substance is at least one year,
+>   usually one or two. (line 604)
+> - Decision 9b: the pre-release reversal is recorded here, not in a
+>   `skos:historyNote` on a concept that was never released. (lines 654–656)
+> - Decision 9c: the Broodline glossary entry is on printed p. 328, not p.
+>   327. (line 665)
+> - Negative consequences: the `SER` correction bears on issue #74 (River
+>   Type), not #68 (Lake Type). (line 765)
+> - Downstream: #68 is Lake Type and #74 is River Type, so it is #74 that
+>   waits for the `SER` subtlety. (lines 808–812)
+> - Q6-8 evidence: NOAA writes "river/sea-type" in 21 of 37 uses, not 20.
+>   (line 865)
+> - Sources read: the Broodline glossary entry is on printed p. 328, not p.
+>   327. (line 1003)
+> - Sources read: footnote 27 is about a genetic sample. (line 1005)
+> - Other evidence: the corrected `PKO`/`PKE` counts, and no public source for
+>   Fraser Pink's `Cyclic` value. (lines 1087–1089)
 
 ## Status
 
@@ -55,7 +96,7 @@ year-series construct.
 The 2026-08-25 revision applies five further rulings from Brett Johnson
 (2026-08-24/25, recorded below as Q6-1 through Q6-5), and corrects **one
 substantive defect and a set of mis-citations that the rulings did not ask
-about and that nobody had questioned**. Those corrections are decision 8, and
+about and that nobody had questioned**. Those corrections are decision 9, and
 they are the part of this revision worth reading first: a term in the previous
 draft asserted two things that cannot both be true, and several `iao:0000119`
 provenance notes cited sources that do not say what was attributed to them.
@@ -213,8 +254,8 @@ literal and the identifier themselves and have no `smn:` species concept to
 point at, which is exactly the condition under which the draft said the two
 statements were compatible.
 
-`dfo-salmon-ontology` issue #74 (species) can now be answered rather than left
-open: the answer is that species is not a term, it is two annotations.
+The species question can now be answered rather than left open (earlier drafts filed it under `dfo-salmon-ontology` issue #74, which is the River Type term review; corrected 2026-09-24):
+the answer is that species is not a term, it is two annotations.
 
 ### 2. Life-history assertion takes three properties, not one and not five (Brett Johnson, 2026-08-24)
 
@@ -231,7 +272,7 @@ revision's open question 3 is not minted**:
 | `smn:hasJuvenileFreshwaterResidenceDuration` | 02 | decomposes a named type onto the duration axis |
 | `smn:hasJuvenileRearingHabitat` | 02 | decomposes a named type onto the habitat axis |
 
-The two cycle-line properties of decision 4 are a separate construct and are
+The two cycle-line properties of decision 5 are a separate construct and are
 not part of this count.
 
 **The names, argued, because the ruling gives the first one and asks for the
@@ -373,7 +414,7 @@ position is not that the chinook types are unreal; it is that they are not a
 <!-- commons-evidence E09 end -->
 
 > **Split note.** Decision 4's paragraph on the potamodromous vocabulary
-> (adfluvial, fluvial, lacustrine) is in ADR-0004, with the rearing-habitat
+> (fluvial, adfluvial or lacustrine) is in ADR-0004, with the rearing-habitat
 > scheme it concerns.
 
 ### 6. Mint from the source vocabulary, always (Brett Johnson, 2026-08-24)
@@ -406,8 +447,8 @@ object properties are `owl:ObjectProperty` in modules 01 and 02; none is a
 concept.
 
 `smn:Life-HistoryCharacteristic` stays an `owl:Class` — it is a characteristic
-that can be observed, the parent of `smn:Run`, and a legitimate
-`sosa:observedProperty` filler. It is **not** a vocabulary identifier for a
+that can be observed, the parent of `smn:Run`, and its instances are legitimate
+`sosa:observedProperty` values. It is **not** a vocabulary identifier for a
 coded column, and this ADR adds an `rdfs:comment` saying so on the term itself,
 because the SPSR inventory script currently uses it as one.
 
@@ -417,18 +458,18 @@ point at an `owl:Class`. None is asserted anywhere in this change, so the
 smn closure adds no rows to the report `dfo-salmon-ontology`'s
 `scripts/sparql/skos-match-on-owl-classes.rq` produces.
 
-The three new properties that range on `skos:Concept` do so deliberately:
+The five new properties that range on `skos:Concept` do so deliberately:
 values come from a named scheme, pointed at with `rdfs:seeAlso`, in the same
 way `smn:broodYear` points at `smn:BroodYearBasis`. `rdfs:domain` is omitted on
-all five properties, with the omission and its retirement condition recorded in
-the module comments — the legitimate subjects have no common superclass in this
-build, and an OWL 2 EL-safe union domain is not expressible.
+all five, for three reasons recorded in the module comments: for `smn:hasLifeHistory` and `smn:hasCycleLine`, the legitimate subjects have no common superclass in this build and an OWL 2 EL-safe union domain is not expressible (module 01, with a retirement condition);
+for `smn:stratifiedByCycleLine`, the subject may be an observation or a table row, as on `smn:broodYear`; and for the two axis properties, a `skos:Concept` domain
+would be true of every concept in module 07 and so say nothing (module 02). Only the module-01 omission records a retirement condition.
 
 > **Split note.** The counts in this decision are the combined proposal's. With
 > ADR-0004's part beneath it, this part's tree holds ten of the thirteen
 > concepts and three of the five properties. The rest are ADR-0006's.
 
-### 8. The composite DFO code list stays out of the shared layer, and one of its codes does not decompose
+### 8. The composite DFO code list stays out of the shared layer, and one of its codes does not decompose onto a named type
 
 `SEL`/`SER`/`PKE`/`PKO`/`CK`/`CM`/`CO` is a DFO Conservation Unit indexing
 convention. Under CONVENTIONS section 2 it is Layer C — an agency code list —
@@ -536,12 +577,12 @@ own published open data and the primary literature:
    *"larger than approximately 50 ha, then the population was considered of
    the lake-type **otherwise it was considered river-type**."* Everything that
    fails the lake test lands in `SER` by default, so an age-`.0` population has
-   nowhere else to go — no evidence about its duration is ever consulted. The
-   same document flags the specific case: footnote 27 records that the
-   Harrison population's *"spawning location … is unclear. It could be part of
-   the Harrison (U/S) lake-type CU or it could be river-type population. **We
-   have assumed the latter.**"* The label was an assumption, marked as one, in
-   the framework document, and it hardened into a code.
+   nowhere else to go — no evidence about its duration is ever consulted.
+   (Corrected 2026-09-24: this item used to cite the same document's footnote 27 as the Harrison case. That footnote, p. 63 in section 9.5, concerns *"the “Harrison” population sampled by Beacham et al. (2006a)"*
+   — whether a genetic sample came from the lake-type Harrison (U/S) CU or a river-type population; the authors *"assumed the latter"* —
+   and says nothing about the Harrison River CU's code.) DFO confirms the case
+   directly: CSAS Res. Doc. 2023/003, p. 6, names Widgeon Creek (DU24) and the
+   Harrison River (DU23) as the only confirmed ocean-type populations in the Fraser system.
 
 So DFO's category is cut on the **rearing habitat** axis — flowing water
 instead of lakes — and the literature's "river-type" is cut on the **duration**
@@ -562,7 +603,7 @@ population"*, DU 24) all say River Type without qualification.
 
 <!-- commons-evidence E17 end -->
 
-**Fixed by:** keeping the definition's substance (one to two years, riverine,
+**Fixed by:** keeping the definition's substance (at least one year, usually one or two, riverine,
 at least one freshwater annulus) and replacing the scope note with the
 above, stated as a mapping prohibition rather than a caveat. Decision 8's
 table is the machine-facing half of the same correction.
@@ -616,9 +657,9 @@ flagged **AMBIGUOUS and not to be used as a matching key** in the first
 sentences of the scope note, with both senses cited; and putting the real
 discriminator — **freshwater age zero, no freshwater annulus** — in the
 `skos:definition`, so a consumer that matches on meaning rather than string
-gets the right answer. A `skos:historyNote` records that the previous
-assertion was backwards, because a term that quietly reverses its own history
-is worse than one that never had it.
+gets the right answer. The reversal is recorded here and in the knowledge log
+rather than in a `skos:historyNote`, which records significant changes to the meaning or form of a concept (SKOS Primer, section 2.4);
+this concept was never released, so it has no such history (corrected 2026-09-24).
 
 #### 9c. Provenance notes cited sources that do not say what was attributed to them
 
@@ -629,7 +670,7 @@ Three distinct problems, all now fixed:
 
 | Term(s) | Was cited for | Finding |
 |---|---|---|
-| all four cycle-line terms | Holtby & Ciruna 2007, "cycle-line axis … which separates odd-year and even-year Pink Salmon" | **"cycle line" occurs zero times** in the 358-page document. Its term is **broodline**, defined in the glossary (p. 327). Substance corroborated, label not — see decision 5. |
+| all four cycle-line terms | Holtby & Ciruna 2007, "cycle-line axis … which separates odd-year and even-year Pink Salmon" | **"cycle line" occurs zero times** in the 358-page document. Its term is **broodline**, defined in the glossary (printed p. 328). Substance corroborated, label not — see decision 5. |
 | `smn:SockeyeSeaTypeLifeHistory` | Burgner 1991 for "Sockeye sea-type life history" | **Burgner is cited for lake-type, never for sea-type**, by every accessible source that cites him (Gustafson et al. 1997, which cites him 40+ times but not in the paragraph defining the three types; Wood et al. 2008; Beacham & Withler 2017; Hargrove et al. 2016). Replaced with the split attribution below. |
 | both axis schemes and all six axis concepts, plus lake- and river-type | Burgner 1991 for the axis distinctions | Burgner 1991 is a paywalled UBC Press chapter that **could not be read**, so nothing in this change should have rested on it. Replaced throughout with sources that were read: Gilbert 1913, Beacham & Withler 2017, Wood et al. 2008. |
 | `smn:LifeHistoryTypeScheme`, `smn:LifeHistoryType` | Holtby & Ciruna 2007 for life history as a CU-delimiting axis | **Stands.** DFO's own dataset descriptions state that Holtby and Ciruna aggregated the five species into CUs "based on three primary characteristics: ecotypology, life history and genetics". Wording tightened to claim only that. |
@@ -732,7 +773,7 @@ to a narrower fix. Details are in the Neutral consequences below and in
   in the artifact stops the fourth copy from disagreeing with the first three.
   A validator, not a term, is the answer if that becomes real.
 - The `SER` correction makes the vocabulary **less** able to close
-  `dfo-salmon-ontology` issue #68 cleanly than the first revision claimed: a
+  `dfo-salmon-ontology` issue #74 (River Type) cleanly than the first revision claimed: a
   `gcdfo:SER` code has no named type to point at, so the gcdfo work is larger
   than "decompose each code onto one shared term".
 
@@ -781,10 +822,10 @@ output *field* handle. Its scope note asking for taxonomic IRIs is
 **satisfied differently than it asks**: under Q6-1 the answer is
 `dwc:scientificName` plus a WoRMS `dwc:scientificNameID` on the gcdfo codes
 themselves, and there is no IRI to supply. Issue #70 closes by reference to
-this ADR; **#74 (species) can now close too**, with Q6-1 as the answer; #68
+this ADR; **#68 (Lake Type) can close too**, answered by `smn:SockeyeLakeTypeLifeHistory`; #74 (River Type)
 closes only once the `SER` subtlety is carried into the gcdfo code, since
 closing it against a single named type would encode the defect this revision
-removed.
+removed. (Issue numbers corrected 2026-09-24 from the hub's S9 record, which checked the issues on 2026-08-18.)
 
 > **Split note.** Issue #70 is the cycle-line request, answered by ADR-0006,
 > which also carries the `PKO`/`PKE` half of decision 8's table.
@@ -848,7 +889,7 @@ a **nesting**, not as a pairing, and the difference matters:
   *"River/ocean-types of sockeye"*, defined as rearing *"in flowing water
   instead of lakes"* — and assigned by the residual rule in decision 9a item
   7. The lake/non-lake cut is DFO's operative one.
-- **NOAA** writes "river/sea-type" in 20 of 37 uses.
+- **NOAA** writes "river/sea-type" in 21 of 37 uses.
 
 **The nesting is a terminological artifact, and the sources themselves fix
 it.** Wood et al.'s sentence uses "sea-type" twice in two different senses: the
@@ -986,9 +1027,9 @@ Salmon (Oncorhynchus nerka) Conservation Units, Sites & Status* dataset on
   under the Wild Salmon Policy.* DFO Can. Sci. Advis. Sec. Res. Doc. 2007/070.
   **Read in full (358 pp.).** Verified in it: "sea-type" occurs exactly once,
   in a reference-list entry (p. 80); "cycle line" occurs zero times; the
-  **Broodline** glossary entry (p. 327); the sockeye trio at §9.2 and the
+  **Broodline** glossary entry (printed p. 328); the sockeye trio at §9.2 and the
   glossary heading *"River/ocean-types of sockeye"*; the 50-ha residual rule;
-  footnote 27 on the Harrison assumption; and the chinook non-split at p. 9.
+  footnote 27, on a genetic sample (see decision 9a item 7); and the chinook non-split at p. 9.
 - DFO Can. Sci. Advis. Sec. **Sci. Advis. Rep. 2022/003.** *Recovery Potential
   Assessment for Fraser River Sockeye Salmon (Oncorhynchus nerka) — Nine
   Designatable Units — Part 2.* **Read.** The DU24 Widgeon-RT disavowal, in
@@ -1074,9 +1115,9 @@ Salmon (Oncorhynchus nerka) Conservation Units, Sites & Status* dataset on
 - `dfo-salmon-ontology` issues #68, #74, #70 (evidence pass 2026-08-16);
   taxonomic-authority and life-history literature review 2026-08-17.
 - Source code list: SPSR data dictionary crosswalk, `demo_cu`/`CU_ID` notes
-  column. CU individuation counts (19 `PKO`, 14 `PKE`, `FRASER RIVER` as both
-  `PKO-01` and `PKE-9005`, no sockeye CU split by line, Fraser Pink
-  `Cyclic = FALSE`) from the DFO Conservation Unit tables.
+  column. CU individuation counts (19 `PKO` CUs, 13 current `PKE` CUs plus the
+  Fraser even-year bin `PKE-9005`, which DFO marks "Not a CU"; no sockeye CU split by line)
+  from the DFO Conservation Unit tables; no public source gives Fraser Pink's `Cyclic` value.
 
 <!-- commons-evidence E24 end -->
 

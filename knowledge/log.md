@@ -41,7 +41,9 @@
   **mint from the source vocabulary always** (Q6-4), now `CONVENTIONS.md` §8b
   with reach beyond this PR; the flat-TTL prefix rewrite stands (Q6-5).
   **Q6-8 (are the three Sockeye types flat peers) is NOT ruled** and nothing on
-  the branch pre-empts it.
+  the branch pre-empts it. (Correction, 2026-09-24: "ever" above is this entry's
+  word, not the ruling's. Q6-1 reads "No minting species concepts or classes,
+  but literal species annotations are definitely allowed.")
 - 2026-08-25 — **`SER` is not a code for river-type sockeye, and the shared
   layer must not map it as one.** Verified against DFO's own published data:
   the Conservation Unit data dictionary glosses `SP_QUAL` `SER` as *"River or
@@ -59,7 +61,13 @@
   latter"*). Consequence for mapping: `SER` decomposes onto the species
   annotations plus `smn:RiverineRearingHabitat` **only**, never onto a named
   life-history type, and a `gcdfo:SER` concept must carry no `exactMatch` or
-  `closeMatch` to `smn:SockeyeRiverTypeLifeHistory`.
+  `closeMatch` to `smn:SockeyeRiverTypeLifeHistory`. (Correction, 2026-09-24:
+  footnote 27 of Holtby & Ciruna 2007, p. 63, concerns "the “Harrison” population
+  sampled by Beacham et al. (2006a)", a genetic sample placed in the
+  ecotypic-by-genetic crosswalk, not the Harrison River CU's code; the residual
+  rule is the mechanism, and DFO CSAS Res. Doc. 2023/003, p. 6, names Widgeon
+  Creek and the Harrison River as the Fraser's only confirmed ocean-type
+  populations.)
 - 2026-08-25 — **The sea-type "homograph" in the 2026-08-17 draft was
   backwards.** Gilbert 1913 coined "sea type" **in his Sockeye section**
   (p. 8), applied it across five species, and his chinook section (p. 13)
