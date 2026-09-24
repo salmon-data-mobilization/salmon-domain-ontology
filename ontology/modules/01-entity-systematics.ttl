@@ -142,3 +142,33 @@ smn:populationOf a owl:ObjectProperty ;
   rdfs:domain smn:Population ;
   rdfs:range smn:ReportingOrManagementStratum ;
   rdfs:isDefinedBy <https://w3id.org/smn> .
+
+#################################################################
+# Life-history and cycle-line assertions
+# (proposed 2026-08-17, revised 2026-08-25 — see
+#  docs/adr/0003-life-history-axes-cycle-lines-no-species.md)
+#
+# Both properties omit rdfs:domain deliberately. Their legitimate
+# subjects — smn:Population and the reporting or management strata
+# (smn:Stock, Conservation Units) — have no common superclass in this
+# build, and an OWL 2 EL-safe union domain is not expressible, so an
+# asserted domain would silently mis-type half the real subjects.
+# Retire the omission when a shared superclass over biological groups
+# and assessment strata exists.
+#################################################################
+
+smn:hasLifeHistory a owl:ObjectProperty ;
+  rdfs:label "has life history"@en ;
+  iao:0000115 "Relates a Conservation Unit, population, or stock to a named life-history type from smn:LifeHistoryTypeScheme."@en ;
+  rdfs:range skos:Concept ;
+  rdfs:seeAlso smn:LifeHistoryTypeScheme ;
+  rdfs:comment "One of the three life-history properties (Brett Johnson, 2026-08-24): this one assigns a named type, and smn:hasJuvenileFreshwaterResidenceDuration and smn:hasJuvenileRearingHabitat decompose what that type means. No generic axis-value property is minted. Assertion is at Conservation Unit, population, or stock level, not for an individual fish (Brett Johnson, 2026-08-17). The range is skos:Concept because the values are SKOS concepts; take them from smn:LifeHistoryTypeScheme, whose members are species-scoped."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .
+
+smn:hasCycleLine a owl:ObjectProperty ;
+  rdfs:label "has cycle line"@en ;
+  iao:0000115 "Relates a Conservation Unit, population, or stock whose age at return is invariant to the cycle line that constitutes it as a reproductive lineage."@en ;
+  rdfs:range skos:Concept ;
+  rdfs:seeAlso smn:CycleLineScheme ;
+  rdfs:comment "This property makes the strong claim: the year series is closed under reproduction, so the line is a lineage and not merely a stratification. It is valid only where age at return is invariant — Pink Salmon, which return at age 2. Assigning a line to an individual fish is likewise only valid under that same invariance. Where age at return varies, as in Fraser Sockeye, use smn:stratifiedByCycleLine on the return-year record instead; a fish spawned on one line can return on another, so the class is not closed and the claim would be false."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> .

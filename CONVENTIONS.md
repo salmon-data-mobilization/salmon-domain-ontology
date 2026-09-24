@@ -206,6 +206,45 @@ Promotion to shared should include:
 
 If any criterion is weak, keep term in profile and map to shared anchors.
 
+## 8b) Vocabulary extent — mint from the source vocabulary (2026-08-24)
+
+Section 8 decides **whether** a vocabulary belongs in the shared layer. This
+section decides **how much of it** to mint once that answer is yes.
+
+> "Mint from the source vocabulary always." — Brett Johnson, 2026-08-24.
+
+Take the enumeration the source publishes, not the values a particular extract
+happens to contain. A concept documented by the source vocabulary is minted
+whether or not the dataset in hand exercises it. Cite this section rather than
+re-deriving the argument.
+
+The reasoning, kept because it is what makes the rule hold rather than an
+appeal to the ruling:
+
+- A vocabulary minted from observed values matches one snapshot, and must be
+  extended the first time an unremarkable, already-documented case appears.
+  Each such extension is a version bump, a re-pin, and a mapping review for
+  every downstream consumer.
+- Absence from an extract is a property of the extract. It is not evidence
+  about the code system, and the shared layer describes the code system.
+- The gap is silent in the direction that matters: a consumer meeting an
+  undocumented value cannot tell whether the vocabulary omits it deliberately
+  or has not caught up.
+
+**Scope.** This governs closed, enumerated code lists and named typologies —
+where the source itself publishes the value set. It does **not** license
+minting an open, unbounded value space in full: ADR-0002 mints age-class
+values 1 through 7 as evidenced, and that stands, because integer ages are not
+an enumeration anyone publishes the end of. Where the source enumerates its
+own values, take the enumeration; where it does not, mint as evidenced.
+
+**Applications on record.** `smn:EvenYearCycleLine`, for DFO's even-year Pink
+code `PKE`, which the motivating SPSR extract contains no row of;
+`smn:SockeyeSeaTypeLifeHistory`, which the source vocabulary documents and the
+extract's coded column cannot express (ADR-0003); and Pacific Fishery
+Management Area subareas, where the DFO subarea list is minted whole rather
+than trimmed to the subareas a given catch extract touches.
+
 ## 9) Versioning and transition
 
 Current posture:
