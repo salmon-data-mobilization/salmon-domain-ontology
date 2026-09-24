@@ -179,3 +179,10 @@
   The artifact now reads `smn:Term` instead of `<https://w3id.org/smn/Term>`,
   which is a large one-time diff in `salmon-domain-ontology.ttl` and
   `docs/smn.ttl` with no semantic content.
+- 2026-09-24 — Definition gate (metasalmon hub item B-231): new
+  `make verify-term-definitions`, in `make test` and so in CI, fails on a local
+  smn term with no definition and no row in `ontology/definition-exemptions.csv`,
+  and on a stale row. The file was seeded with the 43 terms undefined on
+  `d45f8f7` (41 for B-232, `smn:Run` for B-237, `smn:NCBITaxon_8018` for
+  B-108), and `docs/annotation-gap-ledger.md` now points at it instead of
+  keeping its own list. Builds card and conventions card updated.
