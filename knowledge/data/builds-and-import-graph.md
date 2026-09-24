@@ -80,6 +80,15 @@ function only if the merge itself starts carrying the source bindings.
   foreign-subject statements, tier-mixing per-file and across the spine,
   dual typing), `verify_method_shapes.py` (pyshacl behavioural fixture),
   and an ELK reasoner-gate job over the catalog-resolved closure.
+- **Definition gate (2026-09-24):** `verify_term_definitions.py`, in
+  `make test`, fails when a local `smn:` term in `ontology/modules/` has no
+  definition in the property CONVENTIONS §10 names for its kind
+  (`skos:definition` for SKOS, `iao:0000115` otherwise) and no row in
+  `ontology/definition-exemptions.csv`, and fails on a row whose term has since
+  been defined or is no longer local. It seeded that file with the 43 terms
+  undefined on `d45f8f7`, each row naming the hub queue item that will retire
+  it. `verify_year_age_semantic_contract.py` now takes the same per-kind rule
+  from it rather than stating its own copy.
 
 ## w3id dereference gaps (live-checked 2026-08-12)
 
