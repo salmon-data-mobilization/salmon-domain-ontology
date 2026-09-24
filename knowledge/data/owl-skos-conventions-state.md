@@ -32,6 +32,12 @@ Originally verified 2026-08-12 (main at `3995a17`); inventory refreshed
 - Annotation completeness is bimodal by design history: modules 03/05/07
   ~100% complete against §10; modules 01/02/04 carry exactly the 43 missing
   definitions already tracked in `docs/annotation-gap-ledger.md`.
+  *(Updated 2026-09-24, recounted on `d45f8f7`: still 43, but they now fall
+  7/29/2/5 across modules 01/02/04/07, because the 2026-08-13 methods-as-SKOS
+  migration moved five method terms into 07. The list has moved too: it is
+  `ontology/definition-exemptions.csv`, and `make verify-term-definitions`
+  fails on an undefined term with no row there and on a row whose term has
+  since been defined or removed.)*
 
 ## Verified divergences (adversarial verdicts, 2026-08-12)
 
