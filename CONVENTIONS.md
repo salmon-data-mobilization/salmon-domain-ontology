@@ -238,7 +238,8 @@ values 1 through 7 as evidenced, and that stands, because integer ages are not
 an enumeration anyone publishes the end of. Where the source enumerates its
 own values, take the enumeration; where it does not, mint as evidenced.
 
-**Applications on record.** Pacific Fishery
+**Applications on record.** `smn:EvenYearCycleLine`, for DFO's even-year Pink
+code `PKE`, which the motivating SPSR extract contains no row of; and Pacific Fishery
 Management Area subareas, where every subarea that Schedule 2 of the Pacific
 Fishery Management Area Regulations, 2007 (SOR/2007-77) names is minted, in
 gcdfo (its ADR-009), rather than only the subareas a given catch extract touches.
