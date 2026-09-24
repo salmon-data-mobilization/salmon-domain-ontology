@@ -67,7 +67,8 @@
   ecotypic-by-genetic crosswalk, not the Harrison River CU's code; the residual
   rule is the mechanism, and DFO CSAS Res. Doc. 2023/003, p. 6, names Widgeon
   Creek and the Harrison River as the Fraser's only confirmed ocean-type
-  populations.)
+  populations.) (2026-09-24: this finding is recorded in
+  salmon-knowledge-commons, `concepts/sockeye-ser-code-scope.md`.)
 - 2026-08-25 — **The sea-type "homograph" in the 2026-08-17 draft was
   backwards.** Gilbert 1913 coined "sea type" **in his Sockeye section**
   (p. 8), applied it across five species, and his chinook section (p. 13)
@@ -80,7 +81,9 @@
   synonymous with ocean-type"* (broad) while Res. Doc. 2023/003 p. 5 opposes
   the two (narrow). Both current. Carried as an `skos:altLabel` flagged
   ambiguous, with the real discriminator — freshwater age zero, no freshwater
-  annulus — in the `skos:definition` instead.
+  annulus — in the `skos:definition` instead. (2026-09-24: the terminology
+  finding is recorded in salmon-knowledge-commons,
+  `concepts/sea-type-terminology.md`.)
 - 2026-08-25 — **WoRMS content-negotiates to RDF where NCBI did not.**
   `https://www.marinespecies.org/aphia.php?p=taxdetails&id=254569` under
   `Accept: application/rdf+xml` redirects to `authority/metadata.php?lsid=…`
@@ -88,7 +91,9 @@
   AphiaID 254569 is `status: accepted`. This is the check that admits the one
   `rdfs:seeAlso` in the proposal, and the contrast with the NCBI OBO PURL
   (HTML under every RDF `Accept`, verified 2026-08-17) is why the earlier ones
-  were removed. Re-running it is what would retire the link.
+  were removed. Re-running it is what would retire the link. (2026-09-24: the
+  WoRMS finding is recorded in salmon-knowledge-commons,
+  `concepts/pacific-salmonid-taxonomic-authorities.md`.)
 - 2026-08-14 — Release 0.0.3 cut: first release carrying the alignment-pass
   state (imported W3C SOSA-PROV alignment, CONVENTIONS 5b + CI gates,
   methods-as-SKOS in smn:MethodScheme, smn:StatisticalModifierScheme,

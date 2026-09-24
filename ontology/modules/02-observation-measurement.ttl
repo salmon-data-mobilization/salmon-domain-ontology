@@ -346,7 +346,7 @@ smn:hasJuvenileFreshwaterResidenceDuration a owl:ObjectProperty ;
 
 smn:hasJuvenileRearingHabitat a owl:ObjectProperty ;
   rdfs:label "has juvenile rearing habitat"@en ;
-  iao:0000115 "Relates a named life-history type to its value on the juvenile rearing habitat axis: the kind of fresh water in which juveniles rear before migrating to sea."@en ;
+  iao:0000115 "Relates a named life-history type to its value on the juvenile rearing habitat axis: the kind of rearing environment in which juveniles grow before migrating to sea."@en ;
   rdfs:range skos:Concept ;
   rdfs:seeAlso smn:JuvenileRearingHabitatScheme ;
   rdfs:comment "A vocabulary-structure property, like smn:hasJuvenileFreshwaterResidenceDuration. The value is a kind of water, never a named water body: smn:hasJuvenileRearingHabitat asserts lake-versus-flowing-water, and the unqualified name a future property relating a population to an actual lake or river would want is deliberately left free. \"Rearing\" rather than \"nursery\" because the salmon literature applies \"nursery\" to freshwater lakes and to estuaries alike, so the word does not say which kind of water is meant."@en ;
