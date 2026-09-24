@@ -14,8 +14,10 @@
 > into each, except the passages the next note lists, which were corrected
 > after the split without a ruling. The only additions are split notes like
 > this one, and HTML comments that mark passages which are salmon-domain
-> evidence rather than decisions. Knowledge-log entries dated 2026-08-17 and
-> 2026-08-25 that cite ADR-0003 mean the combined ADR, not this file.
+> evidence rather than decisions. Most of the findings those comments mark are
+> recorded, some of them corrected, in salmon-knowledge-commons, whose
+> `concepts/index.md` lists the cards. Knowledge-log entries dated 2026-08-17
+> and 2026-08-25 that cite ADR-0003 mean the combined ADR, not this file.
 >
 > Decision numbers are the combined ADR's, kept so that its cross-references
 > still resolve. Each ADR travels with its own part, so a tree that carries
