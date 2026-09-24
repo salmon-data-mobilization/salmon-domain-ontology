@@ -5712,7 +5712,7 @@
     "http://purl.obolibrary.org/obo/IAO_0000115": [
       {
         "@language": "en",
-        "@value": "Relates a named life-history type to its value on the juvenile rearing habitat axis: the kind of fresh water in which juveniles rear before migrating to sea."
+        "@value": "Relates a named life-history type to its value on the juvenile rearing habitat axis: the kind of rearing environment in which juveniles grow before migrating to sea."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [

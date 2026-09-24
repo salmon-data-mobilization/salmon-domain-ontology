@@ -295,7 +295,7 @@
 
     <owl:ObjectProperty rdf:about="https://w3id.org/smn/hasJuvenileRearingHabitat">
         <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <obo:IAO_0000115 xml:lang="en">Relates a named life-history type to its value on the juvenile rearing habitat axis: the kind of fresh water in which juveniles rear before migrating to sea.</obo:IAO_0000115>
+        <obo:IAO_0000115 xml:lang="en">Relates a named life-history type to its value on the juvenile rearing habitat axis: the kind of rearing environment in which juveniles grow before migrating to sea.</obo:IAO_0000115>
         <rdfs:comment xml:lang="en">A vocabulary-structure property, like smn:hasJuvenileFreshwaterResidenceDuration. The value is a kind of water, never a named water body: smn:hasJuvenileRearingHabitat asserts lake-versus-flowing-water, and the unqualified name a future property relating a population to an actual lake or river would want is deliberately left free. &quot;Rearing&quot; rather than &quot;nursery&quot; because the salmon literature applies &quot;nursery&quot; to freshwater lakes and to estuaries alike, so the word does not say which kind of water is meant.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/smn"/>
         <rdfs:label xml:lang="en">has juvenile rearing habitat</rdfs:label>
