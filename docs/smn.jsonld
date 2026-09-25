@@ -3059,7 +3059,7 @@
     "http://www.w3.org/2004/02/skos/core#scopeNote": [
       {
         "@language": "en",
-        "@value": "Every named type in this scheme is species-scoped, and a type from one species is never assumed to mean a type from another: sockeye river-type is not chinook stream-type despite the near-identical English. Species is carried on each concept as a dwc:scientificName literal plus a WoRMS dwc:scientificNameID, not as an smn: species concept, and no smn: species concept or class exists to point at (Brett Johnson, 2026-08-24). A flat cross-species enumeration of these names is the failure mode this scheme is shaped to prevent, because the strings are similar enough to merge automatically and wrong to merge. Assertion is at Conservation Unit, population, or stock level, never for an individual fish (Brett Johnson, 2026-08-17), using smn:hasLifeHistory."
+        "@value": "Every named type in this scheme is species-scoped, and a type from one species is never assumed to mean a type from another: sockeye river-type is not chinook stream-type despite the near-identical English. Species is carried on each concept as a dwc:scientificName literal plus a WoRMS dwc:scientificNameID, not as an smn: species concept, and no smn: species concept or class exists to point at (Brett Johnson, 2026-08-24). A flat cross-species enumeration of these names is the failure mode this scheme is shaped to prevent, because the strings are similar enough to merge automatically and wrong to merge. Assertion is at Conservation Unit, population, or stock level, never for an individual fish (Brett Johnson, 2026-08-17), using smn:hasLifeHistory. Cycle line has its own vocabulary, smn:CycleLineScheme; do not add cycle-line values here."
       }
     ]
   },

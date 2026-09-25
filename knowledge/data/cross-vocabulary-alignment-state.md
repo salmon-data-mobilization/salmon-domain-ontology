@@ -66,6 +66,42 @@ pun and dissolves PSC's objection in one move; the smn↔gcdfo boundary then
 gets one SSSOM set covering the ~55 term-name collisions and the age/year
 family.
 
+## What PSC actually anchors on smn today (verified 2026-08-17)
+
+Verified against `psc-salmon-vocabularies` `v0.1.0-alpha.3` (4 schemes, 38
+concepts). The step-2 methods migration worked: PSC's refusal is lifted and a
+`psc-to-smn` mapping set now exists.
+
+- **One released smn target, one predicate.** `dist/mappings/psc-to-smn.sssom.tsv`
+  holds 9 rows, all `skos:broadMatch`, all onto `https://w3id.org/smn/EnumerationMethod`,
+  pinned to `object_source_version 0.0.3-f7205ee…`. That is the entire live
+  psc→smn surface. `psc-to-gcdfo` (19 rows) and `psc-to-agrovoc` (3) contain
+  no smn objects.
+- **The allow-list is a hard gate.** `data/external-sources.json` permits
+  exactly three smn IRIs — `EnumerationMethod`, `Stock`, `SpawnerStageContext`
+  — and `src/psc_vocab/build.py` raises on any object outside it. Adding a new
+  smn target costs PSC three coordinated edits plus a release; it is not a
+  free-form mapping surface.
+- **`broadMatch` composes only through `exactMatch`.** PSC deferred
+  PSC-CV-000017 → `smn:EnumerationMethod` because its psc→gcdfo predicate is
+  `closeMatch`, which does not support the composition. An smn term reachable
+  only through a `closeMatch` chain is, in practice, unmappable by PSC.
+- **Wrong-kind rejection is enforced, not rhetorical.** PSC's
+  `semantic-search-receipt.json` records `smn:ObservedRateOrAbundance` rejected
+  `rejected_wrong_kind_and_too_broad` with `native_type: owl:Class`, and
+  `smn:LifePhase` rejected `rejected_too_broad` for both smolt and fry. Breadth
+  fails PSC as surely as wrong kind does.
+- **Recorded, unfilled asks on smn.** `candidates/stock-recruit-measurements/data/decomposition-review.csv`
+  carries four blank-IRI gaps against `component_source: smn` — narrow
+  life-stage concepts (fry, smolt), a female-sex constraint, and an
+  unspawned-egg adjustment method — held blank on the stated rule that "a broad
+  or wrong-kind term is not a substitute." `docs/sdo-alignment-gap.md` names a
+  shared analytical-method concept as the natural smn admission proposal.
+- **PSC has minted nothing on the species, life-history-type, run-timing,
+  cycle-line, or juvenile-rearing axes** — zero concepts, zero schemes, across
+  every CSV/TTL/JSON in the repo. Shared terms on those axes have no PSC
+  parallel to supersede.
+
 ## PSC pipeline constraints to budget for
 
 - SHACL shapes are `sh:closed` — any SKOS enrichment (altLabels, in-graph
