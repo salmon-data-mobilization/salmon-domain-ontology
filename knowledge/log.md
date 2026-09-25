@@ -145,7 +145,9 @@
   verified by request, not report: the NCBI Taxonomy OBO PURL serves
   `text/html` under `text/turtle`, `application/rdf+xml`, and
   `application/ld+json` alike, so the withdrawn scheme's five `rdfs:seeAlso`
-  links resolved to documentation rather than data.
+  links resolved to documentation rather than data. (2026-09-25: the
+  taxonomic-authority findings above, apart from the DPS count, are recorded
+  in salmon-knowledge-commons, `concepts/pacific-salmonid-taxonomic-authorities.md`.)
 - 2026-08-17 — Correction to a fact recorded on the open branch
   `fix/label-ambiguity-at-source` (PR 26), not yet on main: that branch's F9
   section calls the `make verify-generated-artifacts` changelog failure
