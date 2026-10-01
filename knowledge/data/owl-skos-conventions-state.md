@@ -191,3 +191,29 @@ axioms to say what is meant, and add a **targeted** CI report (a SPARQL query
 flagging object-property assertions whose subject or object is also an
 `owl:Class`) — the generic reasoner gate alone cannot catch this class of
 mistake.
+
+## B-147 class alignment correction (draft, 2026-10-01)
+
+The published default closure at `0e42037` has 17
+`skos:semanticRelation`-family assertions in
+`ontology/modules/alignment-main.ttl` with at least one endpoint declared an
+`owl:Class`. The earlier Tier-3 demotion described above kept those links
+advisory in editorial intent, but [SKOS Reference S19–S22 and
+S39–S42](https://www.w3.org/TR/skos-reference/) entail `skos:Concept` typing
+at both ends. The existing explicit dual-typing check cannot see that
+entailment. The B-147 branch changes 16 links to `rdfs:seeAlso`; the seventeenth,
+`smn:IndicatorRiver` to `sosa:FeatureOfInterest`, is already entailed by the
+reviewed subclass chain through `smn:GeographicFeature` and
+`geosparql:Feature` (`01-entity-systematics.ttl`, `alignment-main.ttl`), so
+its redundant SKOS edge is removed. It also changes the undeclared
+I-ADOPT Property to SOSA Property candidate to `rdfs:seeAlso`, so a later
+declaration cannot silently turn that line into the same pun.
+
+No new `rdfs:subClassOf` or `owl:equivalentClass` commitment is made here.
+The `alignment-research` overlay still has 11 class/SKOS candidates and the
+case-study modules 08/09 have 26 relative to the default class declarations.
+Those overlays are outside the B-147 detector, which checks the published
+default import closure. **Retire this limited scope** when the research and
+case-study alignments have their own row-level review and the detector can
+cover every published build without silently changing their intended
+semantics. This branch is authored evidence, not independent verification.

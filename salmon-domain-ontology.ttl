@@ -18,12 +18,12 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
     rdfs:seeAlso <http://rs.tdwg.org/dwc/terms/protocol>,
         <https://rs.tdwg.org/dwc/dp/terms/Protocol> .
 
-<https://w3id.org/gcdfo/salmon#FisheriesReferencePointLower> skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
+<https://w3id.org/gcdfo/salmon#FisheriesReferencePointLower> rdfs:seeAlso <https://w3id.org/iadopt/ont/Constraint> .
 
-<https://w3id.org/iadopt/ont/Property> skos:closeMatch sosa:Property .
+<https://w3id.org/iadopt/ont/Property> rdfs:seeAlso sosa:Property .
 
 <https://w3id.org/iadopt/ont/Variable> a owl:Class ;
-    skos:closeMatch sosa:ObservableProperty .
+    rdfs:seeAlso sosa:ObservableProperty .
 
 <https://w3id.org/smn/AgeAtMaturityBasis> a skos:Concept ;
     obo:IAO_0000119 "Adapted from GC DFO Salmon Ontology term gcdfo:AgeAtMaturityBasis."@en ;
@@ -174,8 +174,8 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
     dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl> ;
     rdfs:comment "A datum (IAO measurement datum), not an activity: the corresponding survey activity is smn:EscapementSurveyEvent. Renamed from smn:EscapementMeasurement on 2026-08-13 (alignment pass, finding F6) because every other *Measurement class in this module is a subclass of the activity smn:Measurement, and this one is not — the name was the defect, inherited verbatim from gcdfo:EscapementMeasurement, whose hyponym family should be coordinated in the boundary pass."@en ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
-    rdfs:subClassOf obo:IAO_0000109 ;
-    skos:closeMatch sosa:Result .
+    rdfs:seeAlso sosa:Result ;
+    rdfs:subClassOf obo:IAO_0000109 .
 
 <https://w3id.org/smn/EscapementSurveyEvent> a owl:Class ;
     rdfs:label "Escapement survey event"@en ;
@@ -183,8 +183,8 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
     obo:IAO_0000119 "GC DFO Salmon Ontology release 0.0.2, term gcdfo:EscapementSurveyEvent."@en ;
     dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
-    rdfs:subClassOf <https://w3id.org/smn/SurveyEvent> ;
-    skos:closeMatch sosa:Sampling .
+    rdfs:seeAlso sosa:Sampling ;
+    rdfs:subClassOf <https://w3id.org/smn/SurveyEvent> .
 
 <https://w3id.org/smn/EuropeanAgeNotation> a skos:Concept ;
     obo:IAO_0000119 "Adapted from GC DFO Salmon Ontology term gcdfo:EuropeanAgeNotation."@en ;
@@ -277,8 +277,7 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
     dcterms:source <https://www.salmonexplorer.ca/methods/glossary.html> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:subClassOf <https://w3id.org/smn/GeographicFeature> ;
-    skos:altLabel "Indicator stream"@en ;
-    skos:closeMatch sosa:FeatureOfInterest .
+    skos:altLabel "Indicator stream"@en .
 
 <https://w3id.org/smn/IndividualMeasurement> a owl:Class ;
     rdfs:label "Individual measurement"@en ;
@@ -419,9 +418,9 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
     obo:IAO_0000119 "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."@en ;
     dcterms:source <https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
+    rdfs:seeAlso sosa:FeatureOfInterest ;
     rdfs:subClassOf <https://w3id.org/smn/ReportingOrManagementStratum> ;
-    skos:altLabel "Fish stock"@en ;
-    skos:closeMatch sosa:FeatureOfInterest .
+    skos:altLabel "Fish stock"@en .
 
 <https://w3id.org/smn/StockAssessment> a owl:Class ;
     rdfs:label "Stock assessment"@en ;
@@ -550,10 +549,10 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:subClassOf <https://w3id.org/smn/FishLength> .
 
-sosa:Sample skos:closeMatch <http://rs.tdwg.org/dwc/terms/MaterialEntity>,
+sosa:Sample rdfs:seeAlso <http://rs.tdwg.org/dwc/terms/MaterialEntity>,
         <http://rs.tdwg.org/dwc/terms/MaterialSample> .
 
-<https://w3id.org/iadopt/ont/Entity> skos:closeMatch sosa:FeatureOfInterest .
+<https://w3id.org/iadopt/ont/Entity> rdfs:seeAlso sosa:FeatureOfInterest .
 
 <https://w3id.org/smn/AggregatedMeasurement> a owl:Class ;
     rdfs:label "Aggregated measurement"@en ;
@@ -672,8 +671,8 @@ sosa:Sample skos:closeMatch <http://rs.tdwg.org/dwc/terms/MaterialEntity>,
     obo:IAO_0000119 "Fisheries and Oceans Canada. Introduction to Stock Assessment - Glossary. https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html."@en ;
     dcterms:source <https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
-    rdfs:subClassOf obo:IAO_0000030 ;
-    skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
+    rdfs:seeAlso <https://w3id.org/iadopt/ont/Constraint> ;
+    rdfs:subClassOf obo:IAO_0000030 .
 
 <https://w3id.org/smn/SalmonLifeStage> a owl:Class ;
     rdfs:label "Salmon life stage"@en ;
@@ -702,8 +701,8 @@ sosa:Sample skos:closeMatch <http://rs.tdwg.org/dwc/terms/MaterialEntity>,
     obo:IAO_0000119 "Fisheries and Oceans Canada. About the Sustainability Survey for Fisheries. https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html."@en ;
     dcterms:source <https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
-    rdfs:subClassOf <http://rs.tdwg.org/dwc/terms/Event> ;
-    skos:closeMatch sosa:Sampling .
+    rdfs:seeAlso sosa:Sampling ;
+    rdfs:subClassOf <http://rs.tdwg.org/dwc/terms/Event> .
 
 <https://w3id.org/smn/TargetOrLimitRateOrAbundance> a owl:Class ;
     rdfs:label "Target or limit rate or abundance"@en ;
@@ -797,10 +796,10 @@ geo:Feature rdfs:subClassOf sosa:FeatureOfInterest .
     dcterms:source <http://qudt.org/vocab/quantitykind/Population> ;
     rdfs:comment "Use units, statistical modifiers, measurement context, and procedures to distinguish absolute counts, relative indices, estimates, expansions, and other representations. Those qualifiers do not change the reusable characteristic into a compound OWL class."@en ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
-    rdfs:seeAlso <http://rs.tdwg.org/dwc/terms/individualCount> ;
-    rdfs:subClassOf <https://w3id.org/smn/Characteristic> ;
-    skos:broadMatch <http://qudt.org/vocab/quantitykind/Count> ;
-    skos:closeMatch <http://qudt.org/vocab/quantitykind/Population> .
+    rdfs:seeAlso <http://qudt.org/vocab/quantitykind/Count>,
+        <http://qudt.org/vocab/quantitykind/Population>,
+        <http://rs.tdwg.org/dwc/terms/individualCount> ;
+    rdfs:subClassOf <https://w3id.org/smn/Characteristic> .
 
 <https://w3id.org/smn/Deme> a owl:Class ;
     rdfs:label "Deme"@en ;
@@ -847,9 +846,9 @@ geo:Feature rdfs:subClassOf sosa:FeatureOfInterest .
     rdfs:isDefinedBy <https://w3id.org/smn> ;
     rdfs:subClassOf <https://w3id.org/smn/Entity> .
 
-sosa:Observation skos:closeMatch <http://rs.tdwg.org/dwc/terms/Occurrence> .
+sosa:Observation rdfs:seeAlso <http://rs.tdwg.org/dwc/terms/Occurrence> .
 
-sosa:Sampling skos:broadMatch <http://rs.tdwg.org/dwc/terms/Event> .
+sosa:Sampling rdfs:seeAlso <http://rs.tdwg.org/dwc/terms/Event> .
 
 <https://w3id.org/smn/AgeNotation> a skos:Concept ;
     obo:IAO_0000119 "Migrated from GC DFO Salmon Ontology term gcdfo:AgeNotation."@en ;
@@ -911,8 +910,8 @@ sosa:Sampling skos:broadMatch <http://rs.tdwg.org/dwc/terms/Event> .
     obo:IAO_0000119 "GC DFO Salmon Ontology release 0.0.2, term gcdfo:ReportingOrManagementStratum."@en ;
     dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl> ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;
-    rdfs:subClassOf obo:IAO_0000030 ;
-    skos:closeMatch sosa:FeatureOfInterest .
+    rdfs:seeAlso sosa:FeatureOfInterest ;
+    rdfs:subClassOf obo:IAO_0000030 .
 
 <https://w3id.org/smn/ReturnYearBasis> a skos:Concept ;
     obo:IAO_0000119 "Pacific Salmon Commission Fraser River Sockeye Salmon Stock-Recruitment Data."@en ;
@@ -1100,7 +1099,7 @@ sosa:Sampling skos:broadMatch <http://rs.tdwg.org/dwc/terms/Event> .
         <https://w3id.org/smn/FishLengthMeasurementMethod> ;
     skos:prefLabel "Method scheme"@en .
 
-sosa:Procedure skos:closeMatch <https://rs.tdwg.org/dwc/dp/terms/Protocol> .
+sosa:Procedure rdfs:seeAlso <https://rs.tdwg.org/dwc/dp/terms/Protocol> .
 
 <https://w3id.org/smn/StatisticalModifierScheme> a skos:ConceptScheme ;
     rdfs:isDefinedBy <https://w3id.org/smn> ;

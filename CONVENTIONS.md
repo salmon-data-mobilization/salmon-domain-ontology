@@ -97,7 +97,18 @@ instance-typed `iadopt:StatisticalModifier`).
 
 ## 5) Mapping strength policy
 
-Treat mapping predicates as different evidence strengths:
+Choose a predicate by the kinds of resources it relates before comparing
+evidence strengths. The OWL predicates below express class, property, or
+identity-level commitments. SKOS semantic relations, including every SKOS
+mapping predicate,
+have `skos:Concept` at both ends by entailment (SKOS Reference S19–S22,
+S39–S42); a SKOS mapping on an `owl:Class` does not weaken an OWL claim, it
+adds class/concept punning. In the published shared ontology, use an OWL axiom
+only when its logical commitment is reviewed. Use `rdfs:seeAlso` for an
+advisory class cross-reference, and keep SKOS mappings for concepts.
+
+Within those kind-correct choices, treat mapping predicates as different
+evidence strengths:
 
 ### Tier 1 (strict / automation-safe)
 - `owl:equivalentClass`
@@ -106,16 +117,18 @@ Treat mapping predicates as different evidence strengths:
 - `rdfs:subClassOf`
 - `rdfs:subPropertyOf`
 
-### Tier 2 (strong lexical/conceptual)
+### Tier 2 (strong concept-to-concept)
 - `skos:exactMatch`
 
-### Tier 3 (advisory / candidate only)
+### Tier 3 (advisory concept-to-concept)
 - `skos:closeMatch`
 - `skos:broadMatch`
 - `skos:narrowMatch`
 - `skos:relatedMatch`
 
 Operational rule: Tier 3 links should not auto-canonicalize data into the production graph without review/promotion.
+`rdfs:seeAlso` is a non-logical annotation, not a fourth mapping tier. It
+retains a candidate pointer without encoding equivalence or direction.
 
 ## 5b) Mapping placement and coherence rules (2026-08-13)
 
@@ -123,9 +136,13 @@ These close the policy gaps the alignment pass found (findings F1/F2/F5/F7).
 
 1. **One strongest mapping per pair.** A subject–object pair carries mapping
    predicates from exactly one tier. The single documented exception is the
-   promotion-staging pattern: `alignment-main` may hold the Tier-3 form while
-   `alignment-research` holds the Tier-1 candidate for the same pair; nothing
-   else may duplicate a pair across tiers, and never within one module.
+   promotion-staging pattern: `alignment-main` may hold an advisory class
+   annotation while `alignment-research` holds a stronger class candidate for
+   the same pair; concept mappings may stage only between concepts. Nothing
+   else may duplicate a pair across tiers, and
+   never within one module. The research and case-study overlays still have
+   class-on-SKOS candidates requiring their own editorial review; the B-147
+   CI pun detector covers the published default build only.
 2. **Foreign-subject axioms live only in alignment modules.** Logical axioms
    (`rdfs:subClassOf`, `rdfs:subPropertyOf`, `owl:equivalent*`, instance-level
    property assertions) whose **subject** is a term smn does not own are
@@ -139,13 +156,19 @@ These close the policy gaps the alignment pass found (findings F1/F2/F5/F7).
    `alignment-upper` imports it. Restating upstream axioms locally is how
    mirrors drift.
 4. **Views are axiom-light.** The metamodel views are teaching surfaces:
-   smn-/smnv-owned subjects only, Tier-3 links at most, plus `subPropertyOf`
+   smn-/smnv-owned subjects only, advisory links at most, plus `subPropertyOf`
    bridges from `smnv:` properties to their native upstream counterparts.
 5. **Reasoner-clean invariant.** The merged closure (smn + its imports +
    gcdfo) must stay OWL-consistent with zero unsatisfiable classes, and no
    IRI may be typed both `owl:Class` and `skos:Concept` anywhere in it.
    A DL-profile gate does not catch class-as-individual modelling mistakes
-   (legal punning), so the CI check for those is a targeted SPARQL report.
+   (legal punning). Current gates cover narrower surfaces: `make
+   verify-reasoner` merges the catalog-resolved smn default build but is not
+   in `make test`; `scripts/verify_mapping_policy.py` checks explicit dual
+   typing in the flat artifact and SKOS semantic relations on declared
+   classes in the default import closure. No targeted SPARQL report or
+   combined smn+gcdfo-closure check runs yet. Do not read a green local gate
+   as proof of that wider invariant.
 6. **One name per term, and only for terms we own (2026-08-16).** A subject
    carries at most one `rdfs:label` and one `skos:prefLabel` per language tag
    in every build closure, and where both are present they agree exactly —
@@ -167,16 +190,20 @@ These close the policy gaps the alignment pass found (findings F1/F2/F5/F7).
 
 ## 6) Profile-to-domain bridge pattern
 
-When a profile concept corresponds to shared domain semantics:
+When a profile concept corresponds to a shared domain **concept**:
 
 1. Keep the profile concept in profile namespace.
 2. Link it to shared domain semantics using mapping predicates.
 3. Prefer `skos:exactMatch` only when semantics are truly equivalent.
-4. Use `skos:closeMatch`/`broadMatch` as provisional links.
+4. Use `skos:closeMatch`/`broadMatch` as provisional concept-to-concept links.
 5. Attach provenance and reviewer metadata for each bridge.
 
+If the shared target is an OWL class, use an annotation such as `rdfs:seeAlso`
+until an explicit class-level commitment is reviewed; a SKOS relation to it
+would entail that the class is also a SKOS concept.
+
 Example (conceptual):
-- `profile:SomeMethodConcept skos:closeMatch smn:EscapementEstimate .`
+- `profile:SomeMethodConcept skos:closeMatch smn:EnumerationMethod .`
 - `profile:SomeMethodConcept prov:wasDerivedFrom <source-doc> .`
 
 ## 7) LLM-assisted integration policy

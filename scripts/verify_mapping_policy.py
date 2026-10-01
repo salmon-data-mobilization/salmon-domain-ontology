@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Enforce CONVENTIONS section 5b mapping placement and coherence rules.
 
-Five checks, all CI-fatal:
+Six checks, all CI-fatal:
 
 1. Foreign-subject statements outside alignment modules: a subject smn does
    not own may carry only documentation annotations (comment/seeAlso/
@@ -25,6 +25,10 @@ Five checks, all CI-fatal:
 5. Label unambiguity across each build closure: at most one rdfs:label and
    one skos:prefLabel per subject per language tag, and no rdfs:label that
    disagrees with its subject's skos:prefLabel by case or whitespace alone.
+6. No SKOS semantic relation in the published default closure may have an
+   owl:Class at either end. All twelve predicates below entail skos:Concept
+   typing through skos:semanticRelation (SKOS Reference S19-S22, S39-S42).
+   The research and case-study overlays are separate editorial surfaces.
 
 Checks 4 and 5 were added 2026-08-16. A label-consuming renderer given two
 equally-valid English labels for one subject picks one arbitrarily, so its
@@ -40,9 +44,15 @@ ROBOT report run identically by smn, gcdfo, and the PSC vocabularies — so that
 this repo-local restatement is redundant rather than load-bearing. Until then
 they stay: this repo publishes terms other repos re-serialize, and it is the
 only place the invariant is checked at the source.
+
+Retirement condition for check 6's default-only scope: expand it once the
+research and case-study rows have been reviewed and repaired. Retire the local
+check itself only when a shared ecosystem gate enforces the same invariant on
+all published ontology builds and verifies their import closure.
 """
 
 import re
+import tempfile
 import xml.etree.ElementTree as ET
 from collections import defaultdict
 from pathlib import Path
@@ -58,8 +68,9 @@ CATALOG_NS = "{urn:oasis:names:tc:entity:xmlns:xml:catalog}"
 # is not in the default build, so a defect confined to it is invisible in the
 # flat artifact — which is exactly where the 2026-08-16 SOSA label duplicates
 # had been hiding since the 46a4a51 bootstrap.
+DEFAULT_BUILD_ROOT = Path("ontology") / "salmon-domain-ontology.ttl"
 BUILD_ROOTS = [
-    Path("ontology") / "salmon-domain-ontology.ttl",
+    DEFAULT_BUILD_ROOT,
     Path("ontology") / "salmon-domain-ontology-research.ttl",
 ]
 LEXICAL_LABEL_PREDICATES = (RDFS.label, SKOS.prefLabel, SKOS.altLabel)
@@ -88,6 +99,23 @@ TIER1 = {
 }
 TIER2 = {SKOS.exactMatch}
 TIER3 = {SKOS.closeMatch, SKOS.broadMatch, SKOS.narrowMatch, SKOS.relatedMatch}
+# The transitive sub-property closure of skos:semanticRelation, including the
+# root property itself. This set is about SKOS typing, not mapping strength:
+# skos:broader on an owl:Class is the same kind of pun as skos:closeMatch.
+SKOS_SEMANTIC_RELATIONS = frozenset({
+    SKOS.semanticRelation,
+    SKOS.broaderTransitive,
+    SKOS.narrowerTransitive,
+    SKOS.broader,
+    SKOS.narrower,
+    SKOS.related,
+    SKOS.mappingRelation,
+    SKOS.closeMatch,
+    SKOS.exactMatch,
+    SKOS.broadMatch,
+    SKOS.narrowMatch,
+    SKOS.relatedMatch,
+})
 
 
 # Predicates a foreign-namespace subject may carry outside alignment
@@ -199,6 +227,67 @@ def check_dual_typing() -> list:
     ]
 
 
+def _class_semantic_relation_failures(graph: Graph, source: str) -> list[str]:
+    """Find asserted SKOS relations that imply an OWL class is a concept."""
+    classes = set(graph.subjects(RDF.type, OWL.Class))
+    return [
+        f"{source}: SKOS semantic relation on owl:Class: "
+        f"{subject} {predicate} {obj}"
+        for subject, predicate, obj in sorted(graph, key=lambda triple: tuple(map(str, triple)))
+        if predicate in SKOS_SEMANTIC_RELATIONS
+        and (subject in classes or obj in classes)
+    ]
+
+
+def check_class_semantic_relations() -> list[str]:
+    # Only the default root is the published shared ontology. The research
+    # and case-study overlays carry additional unresolved mappings and are
+    # outside this B-147 guard until their separate alignment review.
+    root = DEFAULT_BUILD_ROOT
+    try:
+        graph = _import_closure(ROOT / root, require_resolved_imports=True)
+    except (FileNotFoundError, ValueError) as error:
+        return [f"{root}: {error}"]
+    return _class_semantic_relation_failures(graph, str(root))
+
+
+def self_test_class_semantic_relations() -> None:
+    """Each of the twelve SKOS predicates must fail at both class positions."""
+    if len(SKOS_SEMANTIC_RELATIONS) != 12:
+        raise AssertionError("SKOS pun detector does not cover twelve relations")
+    class_iri = URIRef("https://example.org/Class")
+    concept_iri = URIRef("https://example.org/Concept")
+    for predicate in SKOS_SEMANTIC_RELATIONS:
+        graph = Graph()
+        graph.add((class_iri, RDF.type, OWL.Class))
+        graph.add((concept_iri, RDF.type, SKOS.Concept))
+        graph.add((class_iri, predicate, concept_iri))
+        graph.add((concept_iri, predicate, class_iri))
+        failures = _class_semantic_relation_failures(graph, "self-test")
+        if len(failures) != 2:
+            raise AssertionError(f"SKOS pun detector missed {predicate}")
+        graph.remove((class_iri, predicate, concept_iri))
+        graph.remove((concept_iri, predicate, class_iri))
+        graph.add((concept_iri, predicate, concept_iri))
+        if _class_semantic_relation_failures(graph, "self-test"):
+            raise AssertionError(f"SKOS pun detector rejected concept relation {predicate}")
+    # A missing import can hide the class declaration that makes a relation
+    # unsafe, so a clean result requires proving that the catalog reached it.
+    with tempfile.TemporaryDirectory() as directory:
+        root = Path(directory) / "missing-import.ttl"
+        root.write_text(
+            "<https://example.org/root> a <http://www.w3.org/2002/07/owl#Ontology> ; "
+            "<http://www.w3.org/2002/07/owl#imports> <https://example.org/missing> .",
+            encoding="utf-8",
+        )
+        try:
+            _import_closure(root, require_resolved_imports=True)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError("SKOS pun detector ignored an unresolved import")
+
+
 def check_foreign_subject_labels() -> list:
     """No smn source may name a term it does not own (CONVENTIONS 5b rule 3).
 
@@ -241,14 +330,18 @@ def _catalog_index() -> dict:
     return index
 
 
-def _import_closure(root_path: Path) -> Graph:
+def _import_closure(root_path: Path, *, require_resolved_imports: bool = False) -> Graph:
     index = _catalog_index()
     graph = Graph()
     seen = set()
 
     def visit(path: Path) -> None:
         path = path.resolve()
-        if path in seen or not path.exists():
+        if path in seen:
+            return
+        if not path.exists():
+            if require_resolved_imports:
+                raise FileNotFoundError(f"ontology import file does not exist: {path}")
             return
         seen.add(path)
         local = Graph()
@@ -257,8 +350,11 @@ def _import_closure(root_path: Path) -> Graph:
             graph.add(triple)
         for imported in sorted(local.objects(None, OWL.imports), key=str):
             target = index.get(str(imported))
-            if target is not None:
-                visit(target)
+            if target is None:
+                if require_resolved_imports:
+                    raise ValueError(f"unresolved owl:imports {imported} in {path}")
+                continue
+            visit(target)
 
     visit(root_path)
     return graph
@@ -308,12 +404,14 @@ def check_label_unambiguity() -> list:
 
 
 def main() -> None:
+    self_test_class_semantic_relations()
     failures = (
         check_foreign_subjects()
         + check_tier_mixing()
         + check_dual_typing()
         + check_foreign_subject_labels()
         + check_label_unambiguity()
+        + check_class_semantic_relations()
     )
     if failures:
         for failure in failures:
@@ -322,7 +420,8 @@ def main() -> None:
     print("Mapping policy verified: no foreign-subject axioms outside alignment "
           "modules, no tier-mixed pairs in the default spine, no dual-typed IRIs, "
           "no labels on foreign-namespace subjects, one label per subject per "
-          "language in every build closure.")
+          "language in every build closure, no SKOS semantic relation on an "
+          "OWL class in the default closure.")
 
 
 if __name__ == "__main__":

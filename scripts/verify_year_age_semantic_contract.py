@@ -70,11 +70,15 @@ def main() -> int:
         "smn:Abundance must specialize smn:Characteristic",
     )
     require_term_annotations(graph, SMN.Abundance, skos_term=False)
-    require(
-        graph,
-        (SMN.Abundance, SKOS.closeMatch, QK.Population),
-        "smn:Abundance must retain the conservative QUDT Population mapping",
-    )
+    # QUDT Population and Count are quantity-kind resources, while Abundance
+    # is an OWL class. Keep the source-backed pointers as annotations without
+    # asserting that the class IRI is also a SKOS concept.
+    for quantity_kind in (QK.Population, QK.Count):
+        require(
+            graph,
+            (SMN.Abundance, RDFS.seeAlso, quantity_kind),
+            f"smn:Abundance must retain its advisory {quantity_kind} pointer",
+        )
     require(
         graph,
         (SMN.Abundance, RDFS.seeAlso, DWC.individualCount),
