@@ -49,10 +49,6 @@ qb:concept rdf:type owl:AnnotationProperty .
 skos:altLabel rdf:type owl:AnnotationProperty .
 
 
-###  http://www.w3.org/2004/02/skos/core#broadMatch
-skos:broadMatch rdf:type owl:AnnotationProperty .
-
-
 ###  http://www.w3.org/2004/02/skos/core#broader
 skos:broader rdf:type owl:AnnotationProperty .
 
@@ -300,12 +296,12 @@ sosa:FeatureOfInterest rdf:type owl:Class .
 
 ###  http://www.w3.org/ns/sosa/Observation
 sosa:Observation rdf:type owl:Class ;
-                 skos:closeMatch <http://rs.tdwg.org/dwc/terms/Occurrence> .
+                 rdfs:seeAlso <http://rs.tdwg.org/dwc/terms/Occurrence> .
 
 
 ###  http://www.w3.org/ns/sosa/Procedure
 sosa:Procedure rdf:type owl:Class ;
-               skos:closeMatch <https://rs.tdwg.org/dwc/dp/terms/Protocol> .
+               rdfs:seeAlso <https://rs.tdwg.org/dwc/dp/terms/Protocol> .
 
 
 ###  http://www.w3.org/ns/sosa/Property
@@ -314,13 +310,13 @@ sosa:Property rdf:type owl:Class .
 
 ###  http://www.w3.org/ns/sosa/Sample
 sosa:Sample rdf:type owl:Class ;
-            skos:closeMatch <http://rs.tdwg.org/dwc/terms/MaterialEntity> ,
-                            <http://rs.tdwg.org/dwc/terms/MaterialSample> .
+            rdfs:seeAlso <http://rs.tdwg.org/dwc/terms/MaterialEntity> ,
+                         <http://rs.tdwg.org/dwc/terms/MaterialSample> .
 
 
 ###  http://www.w3.org/ns/sosa/Sampling
 sosa:Sampling rdf:type owl:Class ;
-              skos:broadMatch <http://rs.tdwg.org/dwc/terms/Event> .
+              rdfs:seeAlso <http://rs.tdwg.org/dwc/terms/Event> .
 
 
 ###  https://w3id.org/iadopt/ont/Constraint
@@ -329,7 +325,7 @@ sosa:Sampling rdf:type owl:Class ;
 
 ###  https://w3id.org/iadopt/ont/Entity
 <https://w3id.org/iadopt/ont/Entity> rdf:type owl:Class ;
-                                     skos:closeMatch sosa:FeatureOfInterest .
+                                     rdfs:seeAlso sosa:FeatureOfInterest .
 
 
 ###  https://w3id.org/iadopt/ont/StatisticalModifier
@@ -338,7 +334,7 @@ sosa:Sampling rdf:type owl:Class ;
 
 ###  https://w3id.org/iadopt/ont/Variable
 <https://w3id.org/iadopt/ont/Variable> rdf:type owl:Class ;
-                                       skos:closeMatch sosa:ObservableProperty .
+                                       rdfs:seeAlso sosa:ObservableProperty .
 
 
 ###  https://w3id.org/smn/Abundance
@@ -349,9 +345,9 @@ sosa:Sampling rdf:type owl:Class ;
                                  rdfs:comment "Use units, statistical modifiers, measurement context, and procedures to distinguish absolute counts, relative indices, estimates, expansions, and other representations. Those qualifiers do not change the reusable characteristic into a compound OWL class."@en ;
                                  rdfs:isDefinedBy <https://w3id.org/smn> ;
                                  rdfs:label "Abundance"@en ;
-                                 rdfs:seeAlso <http://rs.tdwg.org/dwc/terms/individualCount> ;
-                                 skos:broadMatch <http://qudt.org/vocab/quantitykind/Count> ;
-                                 skos:closeMatch <http://qudt.org/vocab/quantitykind/Population> .
+                                 rdfs:seeAlso <http://qudt.org/vocab/quantitykind/Count> ,
+                                              <http://qudt.org/vocab/quantitykind/Population> ,
+                                              <http://rs.tdwg.org/dwc/terms/individualCount> .
 
 
 ###  https://w3id.org/smn/AggregatedMeasurement
@@ -438,7 +434,7 @@ sosa:Sampling rdf:type owl:Class ;
                                           rdfs:comment "A datum (IAO measurement datum), not an activity: the corresponding survey activity is smn:EscapementSurveyEvent. Renamed from smn:EscapementMeasurement on 2026-08-13 (alignment pass, finding F6) because every other *Measurement class in this module is a subclass of the activity smn:Measurement, and this one is not — the name was the defect, inherited verbatim from gcdfo:EscapementMeasurement, whose hyponym family should be coordinated in the boundary pass."@en ;
                                           rdfs:isDefinedBy <https://w3id.org/smn> ;
                                           rdfs:label "Escapement estimate"@en ;
-                                          skos:closeMatch sosa:Result .
+                                          rdfs:seeAlso sosa:Result .
 
 
 ###  https://w3id.org/smn/EscapementSurveyEvent
@@ -449,7 +445,7 @@ sosa:Sampling rdf:type owl:Class ;
                                              dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl> ;
                                              rdfs:isDefinedBy <https://w3id.org/smn> ;
                                              rdfs:label "Escapement survey event"@en ;
-                                             skos:closeMatch sosa:Sampling .
+                                             rdfs:seeAlso sosa:Sampling .
 
 
 ###  https://w3id.org/smn/EventType
@@ -538,8 +534,7 @@ sosa:Sampling rdf:type owl:Class ;
                                       dcterms:source <https://www.salmonexplorer.ca/methods/glossary.html> ;
                                       rdfs:isDefinedBy <https://w3id.org/smn> ;
                                       rdfs:label "Indicator river"@en ;
-                                      skos:altLabel "Indicator stream"@en ;
-                                      skos:closeMatch sosa:FeatureOfInterest .
+                                      skos:altLabel "Indicator stream"@en .
 
 
 ###  https://w3id.org/smn/IndividualMeasurement
@@ -673,7 +668,7 @@ sosa:Sampling rdf:type owl:Class ;
                                       dcterms:source <https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html> ;
                                       rdfs:isDefinedBy <https://w3id.org/smn> ;
                                       rdfs:label "Reference point"@en ;
-                                      skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
+                                      rdfs:seeAlso <https://w3id.org/iadopt/ont/Constraint> .
 
 
 ###  https://w3id.org/smn/ReportingOrManagementStratum
@@ -684,7 +679,7 @@ sosa:Sampling rdf:type owl:Class ;
                                                     dcterms:source <https://github.com/dfo-pacific-science/dfo-salmon-ontology/blob/c7a54251eb8f673052fed61f9ca2624e557249c7/docs/releases/0.0.2/gcdfo.ttl> ;
                                                     rdfs:isDefinedBy <https://w3id.org/smn> ;
                                                     rdfs:label "Reporting or management stratum"@en ;
-                                                    skos:closeMatch sosa:FeatureOfInterest .
+                                                    rdfs:seeAlso sosa:FeatureOfInterest .
 
 
 ###  https://w3id.org/smn/Run
@@ -765,8 +760,8 @@ sosa:Sampling rdf:type owl:Class ;
                              dcterms:source <https://www.dfo-mpo.gc.ca/science/species-especes/fisheries-halieutiques/assessment-evaluation/glossary-glossaire/index-eng.html> ;
                              rdfs:isDefinedBy <https://w3id.org/smn> ;
                              rdfs:label "Stock"@en ;
-                             skos:altLabel "Fish stock"@en ;
-                             skos:closeMatch sosa:FeatureOfInterest .
+                             rdfs:seeAlso sosa:FeatureOfInterest ;
+                             skos:altLabel "Fish stock"@en .
 
 
 ###  https://w3id.org/smn/StockAssessment
@@ -787,7 +782,7 @@ sosa:Sampling rdf:type owl:Class ;
                                    dcterms:source <https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/about-propos-en.html> ;
                                    rdfs:isDefinedBy <https://w3id.org/smn> ;
                                    rdfs:label "Survey event"@en ;
-                                   skos:closeMatch sosa:Sampling .
+                                   rdfs:seeAlso sosa:Sampling .
 
 
 ###  https://w3id.org/smn/TargetOrLimitRateOrAbundance
@@ -1631,10 +1626,10 @@ sosa:ObservingProcedure rdfs:comment "Documentation-level bridge only: in salmon
                                      <https://rs.tdwg.org/dwc/dp/terms/Protocol> .
 
 
-<https://w3id.org/gcdfo/salmon#FisheriesReferencePointLower> skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
+<https://w3id.org/gcdfo/salmon#FisheriesReferencePointLower> rdfs:seeAlso <https://w3id.org/iadopt/ont/Constraint> .
 
 
-<https://w3id.org/iadopt/ont/Property> skos:closeMatch sosa:Property .
+<https://w3id.org/iadopt/ont/Property> rdfs:seeAlso sosa:Property .
 
 
 <https://w3id.org/smn/broodYear> obo:IAO_0000115 "Relates a data record or observation to the calendar year that identifies a salmon cohort by the spawning year of its parents."@en ;

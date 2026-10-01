@@ -161,7 +161,7 @@
   },
   {
     "@id": "http://www.w3.org/ns/sosa/Observation",
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
       {
         "@id": "http://rs.tdwg.org/dwc/terms/Occurrence"
       }
@@ -186,7 +186,7 @@
   },
   {
     "@id": "http://www.w3.org/ns/sosa/Procedure",
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
       {
         "@id": "https://rs.tdwg.org/dwc/dp/terms/Protocol"
       }
@@ -194,7 +194,7 @@
   },
   {
     "@id": "http://www.w3.org/ns/sosa/Sample",
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
       {
         "@id": "http://rs.tdwg.org/dwc/terms/MaterialEntity"
       },
@@ -205,7 +205,7 @@
   },
   {
     "@id": "http://www.w3.org/ns/sosa/Sampling",
-    "http://www.w3.org/2004/02/skos/core#broadMatch": [
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
       {
         "@id": "http://rs.tdwg.org/dwc/terms/Event"
       }
@@ -213,7 +213,7 @@
   },
   {
     "@id": "https://w3id.org/gcdfo/salmon#FisheriesReferencePointLower",
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
       {
         "@id": "https://w3id.org/iadopt/ont/Constraint"
       }
@@ -227,7 +227,7 @@
   },
   {
     "@id": "https://w3id.org/iadopt/ont/Entity",
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
       {
         "@id": "http://www.w3.org/ns/sosa/FeatureOfInterest"
       }
@@ -235,7 +235,7 @@
   },
   {
     "@id": "https://w3id.org/iadopt/ont/Property",
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
       {
         "@id": "http://www.w3.org/ns/sosa/Property"
       }
@@ -252,7 +252,7 @@
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
       {
         "@id": "http://www.w3.org/ns/sosa/ObservableProperty"
       }
@@ -332,22 +332,18 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
       {
+        "@id": "http://qudt.org/vocab/quantitykind/Count"
+      },
+      {
+        "@id": "http://qudt.org/vocab/quantitykind/Population"
+      },
+      {
         "@id": "http://rs.tdwg.org/dwc/terms/individualCount"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
         "@id": "https://w3id.org/smn/Characteristic"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#broadMatch": [
-      {
-        "@id": "http://qudt.org/vocab/quantitykind/Count"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
-      {
-        "@id": "http://qudt.org/vocab/quantitykind/Population"
       }
     ]
   },
@@ -1804,14 +1800,14 @@
         "@value": "Escapement estimate"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "http://www.w3.org/ns/sosa/Result"
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
         "@id": "http://purl.obolibrary.org/obo/IAO_0000109"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
-      {
-        "@id": "http://www.w3.org/ns/sosa/Result"
       }
     ]
   },
@@ -1848,14 +1844,14 @@
         "@value": "Escapement survey event"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "http://www.w3.org/ns/sosa/Sampling"
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
         "@id": "https://w3id.org/smn/SurveyEvent"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
-      {
-        "@id": "http://www.w3.org/ns/sosa/Sampling"
       }
     ]
   },
@@ -2531,11 +2527,6 @@
       {
         "@language": "en",
         "@value": "Indicator stream"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
-      {
-        "@id": "http://www.w3.org/ns/sosa/FeatureOfInterest"
       }
     ]
   },
@@ -3560,14 +3551,14 @@
         "@value": "Reference point"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "https://w3id.org/iadopt/ont/Constraint"
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
         "@id": "http://purl.obolibrary.org/obo/IAO_0000030"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
-      {
-        "@id": "https://w3id.org/iadopt/ont/Constraint"
       }
     ]
   },
@@ -3604,14 +3595,14 @@
         "@value": "Reporting or management stratum"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "http://www.w3.org/ns/sosa/FeatureOfInterest"
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
         "@id": "http://purl.obolibrary.org/obo/IAO_0000030"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
-      {
-        "@id": "http://www.w3.org/ns/sosa/FeatureOfInterest"
       }
     ]
   },
@@ -4112,6 +4103,11 @@
         "@value": "Stock"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "http://www.w3.org/ns/sosa/FeatureOfInterest"
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
         "@id": "https://w3id.org/smn/ReportingOrManagementStratum"
@@ -4121,11 +4117,6 @@
       {
         "@language": "en",
         "@value": "Fish stock"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
-      {
-        "@id": "http://www.w3.org/ns/sosa/FeatureOfInterest"
       }
     ]
   },
@@ -4201,14 +4192,14 @@
         "@value": "Survey event"
       }
     ],
+    "http://www.w3.org/2000/01/rdf-schema#seeAlso": [
+      {
+        "@id": "http://www.w3.org/ns/sosa/Sampling"
+      }
+    ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
         "@id": "http://rs.tdwg.org/dwc/terms/Event"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
-      {
-        "@id": "http://www.w3.org/ns/sosa/Sampling"
       }
     ]
   },
