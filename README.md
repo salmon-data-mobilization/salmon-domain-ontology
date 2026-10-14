@@ -4,6 +4,18 @@ Shared salmon interoperability ontology for cross-organization data integration.
 
 **Integration context:** See the Salmon Data Integration System overview page (https://br-johnson.github.io/salmon-data-integration-system/) and walkthrough video (https://youtu.be/B0Zqac49zng?si=VmOjbfMDMd2xW9fH).
 
+## The Big Idea: A Shared Salmon Language
+
+The **Salmon Domain Ontology** (`smn:`) provides an umbrella for connecting salmon data across organizations. It combines an ontology, which describes concepts and their relationships, with controlled vocabularies, which give terms agreed definitions. Organizations and programs can connect their own ontologies and vocabularies to this shared layer while retaining the meanings and responsibilities that belong to them.
+
+Terms get their meaning from the work they support. A term used in one monitoring program may carry a different meaning in another organization because its methods, reporting needs, or policy responsibilities differ. This is the idea of a **bounded context** in domain-driven design: a defined setting in which people use terms with a shared meaning. Respecting those boundaries means keeping local definitions explicit when connecting them to the shared salmon layer.
+
+Interoperability is built through **curated, intentional mappings**: documented links that explain how a local concept relates to a shared one. Each mapping should be reviewed against the definitions, sources, and intended use, and should distinguish an equivalent concept from one that is broader, narrower, or only partly overlapping. Matching labels alone is insufficient, and mapping two local terms to a common concept does not by itself make those local terms interchangeable. These distinctions help people judge when data can be combined or compared and when local context still matters.
+
+This supports **federated interoperability**: organizations remain responsible for their own terminology and systems while using reviewed connections to exchange and interpret data across boundaries. The shared `smn:` layer holds concepts suitable for use across organizations, while local ontologies and vocabularies retain program-specific definitions, methods, and policy meanings. The [modules and bridge profiles guide](docs/guides/modules-and-bridges-for-biologists.md) explains how to put this approach into practice.
+
+For practical exercises on describing salmon data, building local vocabularies and ontologies, and reviewing mappings to shared terms, see the [Salmon Data Standards Workshop](https://salmon-data-mobilization.github.io/salmon-data-standards-workshop/).
+
 ## Project status
 
 This repository is under active development as we build out the **Salmon Domain Ontology** as a reusable, cross-organization semantic layer for salmon data.
