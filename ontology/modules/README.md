@@ -17,7 +17,7 @@ These files are the shared Salmon-layer baseline by default:
 4. `04-management-governance.ttl` — conservative shared event taxonomy (policy schemes remain profile-scoped).
 5. `05-provenance-quality.ttl` — shared provenance/quality artifact classes (program confidence vocabularies profile-scoped).
 6. `06-data-interoperability.ttl` — I-ADOPT/SOSA/Darwin Core interoperability bridge axioms plus conservative Data Cube and OWL-Time year-coordinate bridges.
-7. `07-controlled-vocabularies.ttl` — curated shared SKOS schemes/concepts for year basis, salmon age, context, life phase, and origin.
+7. `07-controlled-vocabularies.ttl` — curated shared SKOS schemes/concepts for year basis, salmon age, context, life phase, origin, methods, statistical modifiers, juvenile freshwater residence duration, juvenile rearing habitat, life-history type, and cycle line.
 
 ## Profile/case-study modules (08, 09)
 
