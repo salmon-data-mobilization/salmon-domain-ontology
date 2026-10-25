@@ -10,14 +10,14 @@ psc:
 ---
 
 Originally verified 2026-08-12 (main at `3995a17`); inventory refreshed
-2026-08-13 after S9 steps 1/2/5 landed. Fix plan: step 1 of
-`metasalmon/knowledge/plans/2026-08-12-ontology-alignment-pass.md`.
+2026-08-13 after S9 steps 1/2/5 landed and recounted 2026-09-24. Fix plan:
+step 1 of `metasalmon/knowledge/plans/2026-08-12-ontology-alignment-pass.md`.
 
 ## What holds
 
 - File-level OWL/SKOS separation is clean: modules 01–05 pure OWL, module
-  07 pure SKOS (**10 schemes, 49 concepts** as of 2026-08-13 — the original
-  recon counted 8/36 before `smn:MethodScheme` and
+  07 pure SKOS (**12 schemes, 55 concepts** as of 2026-09-24; 10/49 as of
+  2026-08-13 — the original recon counted 8/36 before `smn:MethodScheme` and
   `smn:StatisticalModifierScheme` landed; six method concepts carry
   `sosa:Procedure` and seven carry `iadopt:StatisticalModifier` instance
   typing per the CONVENTIONS §3 instance-typing rule), bridges 08/09 pure
