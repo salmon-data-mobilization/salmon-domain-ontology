@@ -6,6 +6,7 @@ Current policy for this repo:
 - remove "Draft" wording from the default WIDOCO subtitle
 - normalize generated schema.org run timestamps to committed ontology metadata
 - stabilize WIDOCO changelog list ordering across regenerations
+- keep WIDOCO's raw bracketed predicate IRIs visible in HTML changelog items
 - restore stable `#/Term` anchors for `smn:` terms
 - inject the version IRI into the rendered metadata block
 - strip trailing whitespace from generated publication artifacts
@@ -14,6 +15,8 @@ Current policy for this repo:
 from __future__ import annotations
 
 import re
+from html import escape as html_escape
+from html.parser import HTMLParser
 from pathlib import Path
 
 from rdflib import Graph
@@ -26,6 +29,9 @@ SMN_ENTITY_PATTERN = re.compile(
     r'(?P<indent>\s*)<div class="entity" id="https://w3id\.org/smn/(?P<term>[A-Za-z0-9._-]+)">'
 )
 SMN_LINK_PATTERN = re.compile(r'href="#https://w3id\.org/smn/([A-Za-z0-9._-]+)"')
+# WIDOCO writes deleted predicate IRIs as raw `<http://...>` in changelog
+# items. Browsers treat those as tags and hide the predicate from readers.
+CHANGE_IRI_PATTERN = re.compile(r"<(https?://[^<>\s]+)>")
 
 
 GENERATED_ARTIFACTS = (
@@ -61,6 +67,15 @@ def _canonicalize_change_lists(content: str) -> str:
         if not items:
             return block
 
+        # Escape only the raw IRI tokens inside change items. Ordinary HTML
+        # links and markup elsewhere in the generated page stay untouched.
+        items = [
+            CHANGE_IRI_PATTERN.sub(
+                lambda iri: f"&lt;{html_escape(iri.group(1), quote=False)}&gt;",
+                item,
+            )
+            for item in items
+        ]
         normalized = [re.sub(r"\s+", " ", item).strip() for item in items]
         if not all(
             item.startswith("<li>Added:") or item.startswith("<li>Deleted:")
@@ -74,6 +89,24 @@ def _canonicalize_change_lists(content: str) -> str:
         return "<ul>\n" + "\n".join(f"{indent}{item.strip()}" for item in ordered) + "\n</ul>"
 
     return ul_pattern.sub(_normalize_ul, content)
+
+
+def _self_test_changelog_predicate_visibility() -> None:
+    """A WIDOCO `<IRI>` in a change item must remain visible HTML text."""
+    class TextCollector(HTMLParser):
+        def __init__(self) -> None:
+            super().__init__()
+            self.text: list[str] = []
+
+        def handle_data(self, data: str) -> None:
+            self.text.append(data)
+
+    iri = "http://www.w3.org/2004/02/skos/core#closeMatch"
+    example = f"<ul><li>Deleted: <{iri}> https://example.org/Thing</li></ul>"
+    collector = TextCollector()
+    collector.feed(_canonicalize_change_lists(example))
+    if f"<{iri}>" not in "".join(collector.text):
+        raise AssertionError("WIDOCO change predicate IRI is hidden as an HTML tag")
 
 
 def _restore_smn_term_anchors(content: str) -> str:
@@ -131,6 +164,7 @@ def patch_html(path: Path) -> None:
 
 
 def main() -> None:
+    _self_test_changelog_predicate_visibility()
     for rel in ["docs/index.html", "docs/index-en.html"]:
         path = ROOT / rel
         if path.exists():

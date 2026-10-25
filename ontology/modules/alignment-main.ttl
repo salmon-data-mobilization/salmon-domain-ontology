@@ -10,29 +10,36 @@
 
 <https://w3id.org/smn/modules/alignment-main> a owl:Ontology ;
   rdfs:label "Salmon Domain Ontology Alignment Module (main-candidate)"@en ;
-  rdfs:comment "Conservative upper-level alignment bridges adapted from DFO Salmon Ontology alignment branch (feat/alignment-modules-main-research). This is the only module in the default build permitted to carry mapping statements whose subjects are foreign-namespace terms (CONVENTIONS section 5b): each such statement is a reviewed editorial commitment, held at Tier 3 (advisory) unless an upstream body publishes the stronger form — in which case smn imports the upstream alignment (see alignment-upper) instead of restating it."@en ;
+  rdfs:comment "Conservative upper-level alignment bridges adapted from DFO Salmon Ontology alignment branch (feat/alignment-modules-main-research). This is the only module in the default build permitted to carry mapping statements whose subjects are foreign-namespace terms (CONVENTIONS section 5b): class-involving candidates use non-logical rdfs:seeAlso annotations, concept-to-concept links use reviewed SKOS mappings, and stronger upstream alignments are imported in alignment-upper rather than restated here."@en ;
   owl:imports <https://w3id.org/smn> .
 
 #################################################################
-# Conservative class bridges
+# Conservative class cross-references (no class-level inference)
+# rdfs:seeAlso preserves the reviewed candidate pairs without making an OWL
+# subclass/equivalence claim or entailing skos:Concept typing on class IRIs.
 #################################################################
 
-smn:SurveyEvent skos:closeMatch <http://www.w3.org/ns/sosa/Sampling> .
-smn:EscapementSurveyEvent skos:closeMatch <http://www.w3.org/ns/sosa/Sampling> .
-smn:EscapementEstimate skos:closeMatch <http://www.w3.org/ns/sosa/Result> .
+smn:SurveyEvent rdfs:seeAlso <http://www.w3.org/ns/sosa/Sampling> .
+smn:EscapementSurveyEvent rdfs:seeAlso <http://www.w3.org/ns/sosa/Sampling> .
+smn:EscapementEstimate rdfs:seeAlso <http://www.w3.org/ns/sosa/Result> .
 
-smn:ReportingOrManagementStratum skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
-smn:Stock skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
-smn:IndicatorRiver skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
+# ReportingOrManagementStratum is information-defined in module 01. The
+# Stock pointer remains advisory because Stock inherits that same model.
+smn:ReportingOrManagementStratum rdfs:seeAlso <http://www.w3.org/ns/sosa/FeatureOfInterest> .
+smn:Stock rdfs:seeAlso <http://www.w3.org/ns/sosa/FeatureOfInterest> .
+# IndicatorRiver already reaches sosa:FeatureOfInterest through its ruled
+# subclass chain via smn:GeographicFeature and geosparql:Feature.
 
-smn:ReferencePoint skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
+smn:ReferencePoint rdfs:seeAlso <https://w3id.org/iadopt/ont/Constraint> .
 # Foreign-subject row (permitted here per CONVENTIONS 5b): the term was
 # re-namespaced to gcdfo on 2026-08-13 — it was minted as smn: in the gcdfo
 # file but never declared in smn, and it is DFO-policy-scoped.
-gcdfo:FisheriesReferencePointLower skos:closeMatch <https://w3id.org/iadopt/ont/Constraint> .
+gcdfo:FisheriesReferencePointLower rdfs:seeAlso <https://w3id.org/iadopt/ont/Constraint> .
 
-smn:Abundance skos:closeMatch qk:Population ;
-  skos:broadMatch qk:Count ;
+# Abundance is an OWL characteristic; QUDT Population and Count are quantity
+# kinds. Module 02 retains Population as the term's cited source. These links
+# are navigational pending a separately reviewed quantity-kind model.
+smn:Abundance rdfs:seeAlso qk:Population, qk:Count ;
   rdfs:seeAlso dwc:individualCount .
 
 smn:YearBasis skos:closeMatch gcdfo:YearBasis .
@@ -76,29 +83,30 @@ smn:hasDeme rdfs:subPropertyOf ro:0002351 .
 smn:hasPopulation rdfs:subPropertyOf ro:0002351 .
 
 #################################################################
-# Representation-level bridges (foreign-subject, Tier 3 only)
+# Representation-level cross-references (foreign-subject, annotation only)
 #
 # Editorial commitments, not upstream-published alignments: no ratified
 # DwC-to-SOSA or I-ADOPT-to-SOSA mapping exists (verified 2026-08-13).
 # The 2026-05-26 TDWG redefinition makes dwc:Occurrence itself an event
 # ("A dwc:Event that establishes the state of a dwc:Organism..."), which
-# is what keeps the Observation link at closeMatch; dwc:Event's own
+# supported the earlier closeMatch judgement for Observation; dwc:Event's own
 # examples span observations, occurrences, captures, and whole surveys,
-# so it is strictly broader than a sampling act — hence broadMatch.
+# so it is strictly broader than a sampling act. That directional judgement
+# remains prose until a class-level axiom is reviewed.
 #################################################################
 
-<http://www.w3.org/ns/sosa/Sampling> skos:broadMatch dwc:Event .
-<http://www.w3.org/ns/sosa/Sample> skos:closeMatch dwc:MaterialEntity, dwc:MaterialSample .
-<http://www.w3.org/ns/sosa/Observation> skos:closeMatch dwc:Occurrence .
-<http://www.w3.org/ns/sosa/Procedure> skos:closeMatch <https://rs.tdwg.org/dwc/dp/terms/Protocol> .
+<http://www.w3.org/ns/sosa/Sampling> rdfs:seeAlso dwc:Event .
+<http://www.w3.org/ns/sosa/Sample> rdfs:seeAlso dwc:MaterialEntity, dwc:MaterialSample .
+<http://www.w3.org/ns/sosa/Observation> rdfs:seeAlso dwc:Occurrence .
+<http://www.w3.org/ns/sosa/Procedure> rdfs:seeAlso <https://rs.tdwg.org/dwc/dp/terms/Protocol> .
 
 # Demoted from module 06's owl:equivalentClass on 2026-08-13 (F5/F7):
 # I-ADOPT publishes no SOSA alignment, and its Property is defined as "a
 # type of a characteristic of the ObjectOfInterest" — a characteristic,
 # not provably equivalent to sosa:Property; Entity likewise.
-<https://w3id.org/iadopt/ont/Entity> skos:closeMatch <http://www.w3.org/ns/sosa/FeatureOfInterest> .
-<https://w3id.org/iadopt/ont/Property> skos:closeMatch <http://www.w3.org/ns/sosa/Property> .
-<https://w3id.org/iadopt/ont/Variable> skos:closeMatch <http://www.w3.org/ns/sosa/ObservableProperty> .
+<https://w3id.org/iadopt/ont/Entity> rdfs:seeAlso <http://www.w3.org/ns/sosa/FeatureOfInterest> .
+<https://w3id.org/iadopt/ont/Property> rdfs:seeAlso <http://www.w3.org/ns/sosa/Property> .
+<https://w3id.org/iadopt/ont/Variable> rdfs:seeAlso <http://www.w3.org/ns/sosa/ObservableProperty> .
 
 # Moved from module 01 on 2026-08-13 (foreign-subject axiom out of the
 # core spine). Reviewed and kept at Tier 1: a GeoSPARQL feature is a

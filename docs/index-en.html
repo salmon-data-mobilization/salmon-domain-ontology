@@ -6079,7 +6079,122 @@ This section provides details for each class and property defined by Salmon Doma
 <!--CHANGELOG SECTION-->
    <div id="changelog"><div id="changelog">
 <h2 id="changes" class="list">Changes from last version</h2>
-</div>
+<h3 id="changeClass" class="list">Classes</h3>
+<details><summary><u>Modified classes</u></summary>
+<ul><li><a href="#http://www.w3.org/ns/sosa/Observation">http://www.w3.org/ns/sosa/Observation</a>
+<ul>
+<li>Added: rdfs:seeAlso http://rs.tdwg.org/dwc/terms/Occurrence</li>
+</ul>
+<ul>
+<li>Deleted: &lt;http://www.w3.org/2004/02/skos/core#closeMatch&gt; http://rs.tdwg.org/dwc/terms/Occurrence</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/Procedure">http://www.w3.org/ns/sosa/Procedure</a>
+<ul>
+<li>Added: rdfs:seeAlso https://rs.tdwg.org/dwc/dp/terms/Protocol</li>
+</ul>
+<ul>
+<li>Deleted: &lt;http://www.w3.org/2004/02/skos/core#closeMatch&gt; https://rs.tdwg.org/dwc/dp/terms/Protocol</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/Sample">http://www.w3.org/ns/sosa/Sample</a>
+<ul>
+<li>Added: rdfs:seeAlso http://rs.tdwg.org/dwc/terms/MaterialEntity</li>
+<li>Added: rdfs:seeAlso http://rs.tdwg.org/dwc/terms/MaterialSample</li>
+</ul>
+<ul>
+<li>Deleted: &lt;http://www.w3.org/2004/02/skos/core#closeMatch&gt; http://rs.tdwg.org/dwc/terms/MaterialEntity</li>
+<li>Deleted: &lt;http://www.w3.org/2004/02/skos/core#closeMatch&gt; http://rs.tdwg.org/dwc/terms/MaterialSample</li>
+</ul>
+</li>
+<li><a href="#http://www.w3.org/ns/sosa/Sampling">http://www.w3.org/ns/sosa/Sampling</a>
+<ul>
+<li>Added: rdfs:seeAlso http://rs.tdwg.org/dwc/terms/Event</li>
+</ul>
+<ul>
+<li>Deleted: &lt;http://www.w3.org/2004/02/skos/core#broadMatch&gt; http://rs.tdwg.org/dwc/terms/Event</li>
+</ul>
+</li>
+<li><a href="#https://w3id.org/iadopt/ont/Entity">https://w3id.org/iadopt/ont/Entity</a>
+<ul>
+<li>Added: rdfs:seeAlso http://www.w3.org/ns/sosa/FeatureOfInterest</li>
+</ul>
+<ul>
+<li>Deleted: &lt;http://www.w3.org/2004/02/skos/core#closeMatch&gt; http://www.w3.org/ns/sosa/FeatureOfInterest</li>
+</ul>
+</li>
+<li><a href="#https://w3id.org/iadopt/ont/Variable">https://w3id.org/iadopt/ont/Variable</a>
+<ul>
+<li>Added: rdfs:seeAlso http://www.w3.org/ns/sosa/ObservableProperty</li>
+</ul>
+<ul>
+<li>Deleted: &lt;http://www.w3.org/2004/02/skos/core#closeMatch&gt; http://www.w3.org/ns/sosa/ObservableProperty</li>
+</ul>
+</li>
+<li><a href="#/Abundance">https://w3id.org/smn/Abundance</a>
+<ul>
+<li>Added: rdfs:seeAlso http://qudt.org/vocab/quantitykind/Count</li>
+<li>Added: rdfs:seeAlso http://qudt.org/vocab/quantitykind/Population</li>
+</ul>
+<ul>
+<li>Deleted: &lt;http://www.w3.org/2004/02/skos/core#broadMatch&gt; http://qudt.org/vocab/quantitykind/Count</li>
+<li>Deleted: &lt;http://www.w3.org/2004/02/skos/core#closeMatch&gt; http://qudt.org/vocab/quantitykind/Population</li>
+</ul>
+</li>
+<li><a href="#/EscapementEstimate">https://w3id.org/smn/EscapementEstimate</a>
+<ul>
+<li>Added: rdfs:seeAlso http://www.w3.org/ns/sosa/Result</li>
+</ul>
+<ul>
+<li>Deleted: &lt;http://www.w3.org/2004/02/skos/core#closeMatch&gt; http://www.w3.org/ns/sosa/Result</li>
+</ul>
+</li>
+<li><a href="#/EscapementSurveyEvent">https://w3id.org/smn/EscapementSurveyEvent</a>
+<ul>
+<li>Added: rdfs:seeAlso http://www.w3.org/ns/sosa/Sampling</li>
+</ul>
+<ul>
+<li>Deleted: &lt;http://www.w3.org/2004/02/skos/core#closeMatch&gt; http://www.w3.org/ns/sosa/Sampling</li>
+</ul>
+</li>
+<li><a href="#/IndicatorRiver">https://w3id.org/smn/IndicatorRiver</a>
+<ul>
+<li>Deleted: &lt;http://www.w3.org/2004/02/skos/core#closeMatch&gt; http://www.w3.org/ns/sosa/FeatureOfInterest</li>
+</ul>
+</li>
+<li><a href="#/ReferencePoint">https://w3id.org/smn/ReferencePoint</a>
+<ul>
+<li>Added: rdfs:seeAlso https://w3id.org/iadopt/ont/Constraint</li>
+</ul>
+<ul>
+<li>Deleted: &lt;http://www.w3.org/2004/02/skos/core#closeMatch&gt; https://w3id.org/iadopt/ont/Constraint</li>
+</ul>
+</li>
+<li><a href="#/ReportingOrManagementStratum">https://w3id.org/smn/ReportingOrManagementStratum</a>
+<ul>
+<li>Added: rdfs:seeAlso http://www.w3.org/ns/sosa/FeatureOfInterest</li>
+</ul>
+<ul>
+<li>Deleted: &lt;http://www.w3.org/2004/02/skos/core#closeMatch&gt; http://www.w3.org/ns/sosa/FeatureOfInterest</li>
+</ul>
+</li>
+<li><a href="#/Stock">https://w3id.org/smn/Stock</a>
+<ul>
+<li>Added: rdfs:seeAlso http://www.w3.org/ns/sosa/FeatureOfInterest</li>
+</ul>
+<ul>
+<li>Deleted: &lt;http://www.w3.org/2004/02/skos/core#closeMatch&gt; http://www.w3.org/ns/sosa/FeatureOfInterest</li>
+</ul>
+</li>
+<li><a href="#/SurveyEvent">https://w3id.org/smn/SurveyEvent</a>
+<ul>
+<li>Added: rdfs:seeAlso http://www.w3.org/ns/sosa/Sampling</li>
+</ul>
+<ul>
+<li>Deleted: &lt;http://www.w3.org/2004/02/skos/core#closeMatch&gt; http://www.w3.org/ns/sosa/Sampling</li>
+</ul>
+</li>
+</ul></details></div>
 </div>
 <div id="acknowledgments">
 <h2 id="ack" class="list">Acknowledgments <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
