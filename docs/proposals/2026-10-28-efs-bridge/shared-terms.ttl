@@ -1,0 +1,42 @@
+@prefix smn: <https://w3id.org/smn/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix iao: <http://purl.obolibrary.org/obo/IAO_> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+
+# DRAFT ONLY. These proposed smn IRIs are not minted or included in an import
+# spine, flattened ontology, release, or public documentation build.
+<https://example.org/proposal/2026-10-28-efs-shared-terms> a owl:Ontology ;
+  rdfs:label "Draft shared terms for the PSC EFS bridge"@en ;
+  owl:versionInfo "Unapproved draft, 2026-10-28" ;
+  dcterms:description "Two candidate shared terms for review; no shared female-sex value is proposed because NERC S10 already supplies one."@en .
+
+smn:UnspawnedEggAdjustment a skos:Concept, sosa:Procedure ;
+  skos:prefLabel "Unspawned-egg adjustment"@en ;
+  skos:definition "A calculation procedure that derives effective female spawner abundance by reducing estimated female spawner abundance according to the estimated proportion of eggs not spawned."@en ;
+  skos:scopeNote "Apply the egg-deposition proportion to the matching female abundance estimate before aggregating components. Partial spawning contributes proportionally. Record the source of female abundance, the egg-retention or spawning-success estimate, sampling and estimation methods, temporal and spatial scope, and any imputation. The procedure does not establish fertilisation, egg survival, recruitment, or genetic effective population size."@en ;
+  skos:inScheme smn:MethodScheme ;
+  rdfs:comment "For a matched component, EFS = F * (1 - u) = F * s, where F is estimated female spawner abundance, u is the estimated proportion of eggs not spawned and s is the proportion spawned. A production-stock aggregate may require the sum of component-specific adjusted estimates. This is a calculation procedure, not a field enumeration method; no skos:broader link to smn:EnumerationMethod is asserted."@en ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "Proposed synthesis of PSC Documentation of Fraser River sockeye stock-recruit data (updated 2026-05-06), Table 3 p. 9, and Grant et al. (2011), DFO CSAS Research Document 2011/087, printed p. 27. This wording has not received domain approval."@en ;
+  dcterms:source <https://www.psc.org/download/130/frp-data/19739/stock-recruit-data-documentation.pdf>,
+    <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/344553.pdf> ;
+  vs:term_status "unstable" .
+
+smn:SpawnerAbundance a owl:Class ;
+  rdfs:label "Spawner abundance"@en ;
+  iao:0000115 "A measurement datum recording the abundance of salmon in a declared spawning-stage population component for a specified assessment unit and time."@en ;
+  rdfs:subClassOf smn:ObservedRateOrAbundance ;
+  rdfs:comment "A result category, parallel to smn:CatchAbundance and smn:RecruitAbundance; the measured characteristic remains smn:Abundance. The population component, measurement boundary, sex, jack inclusion, origin scope and any adjustment for spawning success must be declared. This broad category can contain raw or adjusted spawner-abundance results without making their values interchangeable. It neither asserts that all fish spawned nor fixes which mortalities have already been excluded. No equivalence to smn:Escapement, smn:EscapementEstimate, or gcdfo:SpawnerAbundance is asserted. PSC-CV-000035 is a variable concept, not a subclass of this result class."@en ;
+  rdfs:seeAlso smn:Abundance, smn:SpawnerStageContext,
+    <https://w3id.org/gcdfo/salmon#SpawnerAbundance> ;
+  rdfs:isDefinedBy <https://w3id.org/smn> ;
+  iao:0000119 "Proposed cross-context result category motivated by PSC stock-recruit documentation Table 3 p. 9, Grant et al. (2011) p. 27, the DFO Pacific Salmon Glossary, and the existing SDO result-class pattern. This is a proposed synthesis, not a quoted agency definition or an approved promotion of the DFO term."@en ;
+  dcterms:source <https://www.psc.org/download/130/frp-data/19739/stock-recruit-data-documentation.pdf>,
+    <https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/344553.pdf>,
+    <https://www.pac.dfo-mpo.gc.ca/fm-gp/salmon-saumon/gloss-eng.html>,
+    <https://github.com/salmon-data-mobilization/salmon-domain-ontology/blob/66571e05a49296688ac60fb6d007671fb06fccbd/ontology/modules/03-assessment-benchmarks.ttl> ;
+  vs:term_status "unstable" .
