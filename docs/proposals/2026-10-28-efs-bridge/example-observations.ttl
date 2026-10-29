@@ -1,0 +1,54 @@
+@prefix ex: <https://example.org/proposal/psc-efs-fixture/> .
+@prefix bridge: <https://example.org/proposal/psc-efs-bridge/> .
+@prefix psc: <https://w3id.org/psc/vocab/concept/> .
+@prefix smn: <https://w3id.org/smn/> .
+@prefix smnv: <https://w3id.org/smn/views/salmon-data-metamodel#> .
+@prefix iadopt: <https://w3id.org/iadopt/ont/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# SYNTHETIC COMPETENCY FIXTURE. These values and identifiers do not describe
+# actual PSC observations, production stocks, or published source rows.
+ex:stock a smn:Stock ;
+  rdfs:label "Synthetic production stock for bridge review"@en .
+
+ex:rawFemaleVariable a skos:Concept, iadopt:Variable ;
+  skos:prefLabel "Synthetic unadjusted female-spawner variable"@en ;
+  iadopt:hasProperty bridge:abundanceCharacteristic ;
+  iadopt:hasObjectOfInterest bridge:productionStockDescription ;
+  iadopt:hasConstraint bridge:femaleScope, smn:SpawnerStageContext, smn:BroodYearBasis .
+
+ex:femaleObservation a sosa:Observation ;
+  smnv:hasVariable ex:rawFemaleVariable ;
+  sosa:hasFeatureOfInterest ex:stock ;
+  sosa:observedProperty bridge:abundanceCharacteristic ;
+  smn:broodYear "2000"^^xsd:gYear ;
+  sosa:hasResult ex:femaleResult .
+
+ex:femaleResult a sosa:Result, smn:SpawnerAbundance ;
+  qudt:numericValue 100 ;
+  qudt:hasUnit unit:INDIV .
+
+ex:spawningSuccessResult a sosa:Result ;
+  rdfs:label "Synthetic estimated proportion of eggs spawned: one half"@en ;
+  qudt:numericValue 0.5 ;
+  rdfs:comment "An illustrative proportion on the 0 to 1 scale; the sampling and estimation procedure must be supplied with real observations."@en .
+
+ex:efsObservation a sosa:Observation ;
+  smnv:hasVariable psc:PSC-CV-000035 ;
+  sosa:hasFeatureOfInterest ex:stock ;
+  sosa:observedProperty bridge:abundanceCharacteristic ;
+  smn:broodYear "2000"^^xsd:gYear ;
+  sosa:usedProcedure smn:UnspawnedEggAdjustment ;
+  sosa:hasResult ex:efsResult .
+
+ex:efsResult a sosa:Result, smn:SpawnerAbundance ;
+  qudt:numericValue 50 ;
+  qudt:hasUnit unit:INDIV ;
+  prov:wasDerivedFrom ex:femaleResult, ex:spawningSuccessResult ;
+  rdfs:comment "Synthetic female-equivalent abundance after the egg-deposition adjustment: 100 * 0.5 = 50. This is not 50 eggs and does not imply that only 50 fish released eggs."@en .

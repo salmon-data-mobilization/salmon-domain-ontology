@@ -111,6 +111,11 @@ Purpose: keep one short, reliable map of what starts the ontology builds, what i
 
 - Optional metamodel view surface -> `ontology/views/salmon-data-metamodel.ttl` + supporting files under `ontology/views/` (kept out of the shared-core import spine by default)
 - Year/age competency example -> `ontology/examples/fraser-stock-recruit-year-age.ttl` (non-normative and deliberately not imported)
+- EFS shared-term and PSC bridge proposal -> `docs/proposals/2026-10-28-efs-bridge/README.md`
+  with draft Turtle and synthetic observations. It reuses the NERC S10 female
+  category and proposes a procedure plus a spawner-abundance result class.
+  These files are excluded from every ontology import spine and release;
+  they do not mint shared terms or record domain approval.
 
 - `https://w3id.org/smn` root, release, and canonical term-path routes are live via W3ID publication config; the term-dereferencing contract is mirrored under `docs/publishing/w3id-term-dereference-draft/`
 - Modeling rules and boundary decisions -> `CONVENTIONS.md` + `docs/migrations/phase2-boundary-rules.md`
