@@ -1,0 +1,50 @@
+@prefix bridge: <https://example.org/proposal/psc-efs-bridge/> .
+@prefix psc: <https://w3id.org/psc/vocab/concept/> .
+@prefix smn: <https://w3id.org/smn/> .
+@prefix iadopt: <https://w3id.org/iadopt/ont/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix iao: <http://purl.obolibrary.org/obo/IAO_> .
+
+# DRAFT AGENCY BRIDGE, separate from the SKOS-only PSC release and SDO core.
+# example.org nodes are schematic description resources, not published IRIs.
+# This overlay proposes instance typing of the existing PSC SKOS concept as
+# an I-ADOPT Variable. It never types that IRI as an OWL class.
+bridge:ontology a owl:Ontology ;
+  rdfs:label "Draft component bridge for PSC-CV-000035"@en ;
+  owl:versionInfo "Unapproved draft, 2026-10-28" ;
+  dcterms:source <https://w3id.org/psc/vocab/concept/PSC-CV-000035>,
+    <https://www.psc.org/download/130/frp-data/19739/stock-recruit-data-documentation.pdf> ;
+  dcterms:description "Review the source definition, female scope, brood-year interpretation and procedure before adopting this bridge. It has no owl:imports and is not part of a production ontology build."@en .
+
+psc:PSC-CV-000035 a skos:Concept, iadopt:Variable ;
+  skos:definition "Effective Female Spawners (EFS): An estimate of female spawner abundance in the brood year (as opposed to the more traditional total of male and female spawners), which is further adjusted downward by the proportion of eggs that were not spawned, as determined by sampling on the spawning grounds."@en ;
+  iadopt:hasProperty bridge:abundanceCharacteristic ;
+  iadopt:hasObjectOfInterest bridge:productionStockDescription ;
+  iadopt:hasConstraint bridge:femaleScope, smn:SpawnerStageContext, smn:BroodYearBasis ;
+  dcterms:source <https://www.psc.org/download/130/frp-data/19739/stock-recruit-data-documentation.pdf> .
+
+bridge:abundanceCharacteristic a smn:Abundance, iadopt:Property ;
+  rdfs:label "Abundance characteristic in the PSC EFS variable"@en ;
+  rdfs:comment "This is a property-description instance of the shared Abundance class, not the Abundance OWL class used as an individual."@en .
+
+bridge:productionStockDescription a smn:Stock, iadopt:Entity ;
+  rdfs:label "Production-stock role in the PSC EFS variable description"@en ;
+  rdfs:comment "A schematic entity in a reusable variable description. Dataset bindings supply actual production-stock identifiers and stock-by-brood-year coordinates. This node neither identifies one real stock nor asserts that every fish in a mixed-sex stock is female."@en .
+
+bridge:femaleScope a iadopt:Constraint ;
+  rdfs:label "Female scope of the PSC EFS variable"@en ;
+  iao:0000115 "A variable-scoped condition selecting fish identified as female from the spawning-stage component of the production stock."@en ;
+  iadopt:constrains bridge:productionStockDescription ;
+  dcterms:source <http://vocab.nerc.ac.uk/collection/S10/current/S102/2/> ;
+  rdfs:seeAlso <http://vocab.nerc.ac.uk/collection/S10/current/S102/>,
+    <http://purl.obolibrary.org/obo/PATO_0000383> ;
+  rdfs:comment "Reuses the NERC S10 female category through a contextual constraint instance. Applying its sample-oriented definition to the female component represented by an abundance estimate is a proposed application interpretation requiring review. The local instance prevents a reusable NERC concept from accumulating variable-specific constrains targets. No replacement female value, shared female term, PATO equivalence, or foreign-source definition is minted."@en .
+
+# Methods and units are intentionally outside the I-ADOPT variable description.
+# example-observations.ttl shows sosa:usedProcedure, result typing and units.
+# The exact PSC variable identity and procedure remain essential: the component
+# list alone must not canonicalize EFS into an unadjusted female-spawner count.

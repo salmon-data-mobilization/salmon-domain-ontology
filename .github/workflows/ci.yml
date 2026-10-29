@@ -26,6 +26,9 @@ jobs:
         run: |
           make test
 
+      - name: Validate the isolated EFS draft bridge
+        run: python docs/proposals/2026-10-28-efs-bridge/validate-draft.py
+
   reasoner-gate:
     name: Reasoner gate (ELK)
     runs-on: ubuntu-latest
